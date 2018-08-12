@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>��������</title>
+  <title>技术博客</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://koreyosh.github.io/"/>
   <updated>2017-10-28T00:39:58.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://koreyosh.github.io/</id>
   
   <author>
-    <name>������</name>
+    <name>张婷婷</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2018/08/11/hello-world/"/>
-    <id>http://yoursite.com/2018/08/11/hello-world/</id>
+    <link href="https://koreyosh.github.io/2018/cjkqv8mhp0000nsv5czapahlw/"/>
+    <id>https://koreyosh.github.io/2018/cjkqv8mhp0000nsv5czapahlw/</id>
     <published>2018-08-11T12:04:28.567Z</published>
     <updated>2017-10-28T00:39:58.000Z</updated>
     
