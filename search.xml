@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[TextView的用法]]></title>
+    <url>%2F2018%2Fcjkrwkrqz0002u0v5p5g7pa8s%2F</url>
+    <content type="text"><![CDATA[1.用TextView显示图片和文字 可将图片与文字写在一个TextView中 android:drawableTop=&quot;@drawable/grass&quot; &lt;!--more--&gt; 2.用TextView显示两种颜色的字体 方法一：在主活动中添加如下代码： private String source = ““ + “第一种颜色，第二种颜色，” + “百度一下\””;TextView mTextShow=(TextView)findViewById(R.id.myTextView);mTextShow.setText(Html.fromHtml(source));//将source通过Html解析返回给客户端mTextShow.setMovementMethod(LinkMovementMethod.getInstance());//不设置，点击只能是无效的 代码解释：标签：规定文本的尺寸、字体和颜色： 其中\是转义字符，用来转义“ 标签定义超链接，用于从一个页面链接到另一个页面。 元素最重要的属性是 href 属性，它指定链接的目标。 在所有浏览器中，链接的默认外观如下： 未被访问的链接带有下划线而且是蓝色的 已被访问的链接带有下划线而且是紫色的 活动链接带有下划线而且是红色的 方法二：使用SpannableString String text1 = “sometimes to say,”; String text2 = “is not to believe”; String text = text1 + text2; TextView tvtext = (TextView) findViewById(R.id.text_view1); SpannableString span = new SpannableString(text); URLSpan url = new URLSpan(“http://www.baidu.com&quot;); tvtext.setMovementMethod(LinkMovementMethod.getInstance()); span.setSpan(url, 0, 16, Spanned.SPAN_INCLUSIVE_INCLUSIVE); span.setSpan(new ForegroundColorSpan(Color.BLUE), 0, 16, Spannable.SPAN_INCLUSIVE_INCLUSIVE); span.setSpan(new ForegroundColorSpan(Color.GREEN), 16, text.length(), Spannable.SPAN_EXCLUSIVE_INCLUSIVE); tvtext.setText(span); 3.实现文字横向滚动 &lt;TextView android:id=&quot;@+id/myTextView&quot; android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;wrap_content&quot; android:focusable=&quot;true&quot;//是否获得焦点 android:textColor=&quot;@android:color/black&quot; android:ellipsize=&quot;marquee&quot;//以跑马灯的形式出现 android:scrollHorizontally=&quot;true&quot;//横向滚动 android:marqueeRepeatLimit=&quot;marquee_forever&quot;//表示重复滚动的次数（无限次） android:focusableInTouchMode=&quot;true&quot; android:textSize=&quot;15dp&quot; android:singleLine=&quot;true&quot; android:text=&quot;@string/text&quot;&gt;]]></content>
+      <categories>
+        <category>Android</category>
+        <category>控件</category>
+      </categories>
+      <tags>
+        <tag>TextView</tag>
+        <tag>font</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2Fcjkru6zyw0000nov57rkh7orp%2F</url>
+    <url>%2F2018%2Fcjkrwkrqr0000u0v5zdj4syjn%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>
