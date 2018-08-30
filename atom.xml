@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://koreyosh.github.io/"/>
-  <updated>2018-08-30T04:21:07.251Z</updated>
+  <updated>2018-08-30T09:53:09.867Z</updated>
   <id>https://koreyosh.github.io/</id>
   
   <author>
@@ -17,9 +17,23 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="https://koreyosh.github.io/2018/cjlgdgzqi0002ikv5yp5poj5w/"/>
+    <id>https://koreyosh.github.io/2018/cjlgdgzqi0002ikv5yp5poj5w/</id>
+    <published>2018-08-13T03:26:49.213Z</published>
+    <updated>2018-08-30T09:53:09.867Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>AsyncTask的使用与演示（加载图片）</title>
-    <link href="https://koreyosh.github.io/2018/cjlg1o2dg0000ysv5wd5ea9pb/"/>
-    <id>https://koreyosh.github.io/2018/cjlg1o2dg0000ysv5wd5ea9pb/</id>
+    <link href="https://koreyosh.github.io/2018/cjlgdgzrh000fikv508eilguj/"/>
+    <id>https://koreyosh.github.io/2018/cjlgdgzrh000fikv508eilguj/</id>
     <published>2018-05-17T02:37:09.000Z</published>
     <updated>2018-08-30T04:21:07.251Z</updated>
     
@@ -49,11 +63,11 @@
   </entry>
   
   <entry>
-    <title>TextView的用法</title>
-    <link href="https://koreyosh.github.io/2018/cjlg1o2du0006ysv5zjci5vrj/"/>
-    <id>https://koreyosh.github.io/2018/cjlg1o2du0006ysv5zjci5vrj/</id>
-    <published>2018-05-12T07:45:02.000Z</published>
-    <updated>2018-08-30T04:19:24.693Z</updated>
+    <title>Android王国简介</title>
+    <link href="https://koreyosh.github.io/2018/cjlgdkgul0000hov56q6x3ate/"/>
+    <id>https://koreyosh.github.io/2018/cjlgdkgul0000hov56q6x3ate/</id>
+    <published>2018-04-11T08:22:02.000Z</published>
+    <updated>2018-08-30T09:51:28.156Z</updated>
     
     <summary type="html">
     
@@ -61,7 +75,7 @@
       
         
         
-          &lt;h3 id=&quot;用TextView显示图片和文字&quot;&gt;&lt;a href=&quot;#用TextView显示图片和文字&quot; class=&quot;headerlink&quot;
+          &lt;h3 id=&quot;Android的系统架构&quot;&gt;&lt;a href=&quot;#Android的系统架构&quot; class=&quot;headerlink&quot;
         
       
     
@@ -69,23 +83,17 @@
     
       <category term="Android" scheme="https://koreyosh.github.io/categories/Android/"/>
     
-      <category term="控件" scheme="https://koreyosh.github.io/categories/Android/%E6%8E%A7%E4%BB%B6/"/>
-    
     
       <category term="Android" scheme="https://koreyosh.github.io/tags/Android/"/>
-    
-      <category term="TextView" scheme="https://koreyosh.github.io/tags/TextView/"/>
-    
-      <category term="font" scheme="https://koreyosh.github.io/tags/font/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://koreyosh.github.io/2018/cjlg1o2dn0002ysv5mhvc68ge/"/>
-    <id>https://koreyosh.github.io/2018/cjlg1o2dn0002ysv5mhvc68ge/</id>
-    <published>2018-05-10T09:20:09.000Z</published>
-    <updated>2018-08-29T14:23:56.408Z</updated>
+    <link href="https://koreyosh.github.io/2018/cjlgdgzq30000ikv54hpgod6y/"/>
+    <id>https://koreyosh.github.io/2018/cjlgdgzq30000ikv54hpgod6y/</id>
+    <published>2018-04-10T09:20:09.000Z</published>
+    <updated>2018-08-30T09:38:59.424Z</updated>
     
     <summary type="html">
     
