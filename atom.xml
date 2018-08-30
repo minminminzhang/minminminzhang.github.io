@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://koreyosh.github.io/"/>
-  <updated>2018-08-29T13:12:51.129Z</updated>
+  <updated>2018-08-30T04:21:07.251Z</updated>
   <id>https://koreyosh.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>TextView的用法</title>
-    <link href="https://koreyosh.github.io/2018/cjlf8dvsv0001gcv5s4bsxms3/"/>
-    <id>https://koreyosh.github.io/2018/cjlf8dvsv0001gcv5s4bsxms3/</id>
-    <published>2018-05-12T07:45:02.000Z</published>
-    <updated>2018-08-29T13:12:51.129Z</updated>
+    <title>AsyncTask的使用与演示（加载图片）</title>
+    <link href="https://koreyosh.github.io/2018/cjlg1o2dg0000ysv5wd5ea9pb/"/>
+    <id>https://koreyosh.github.io/2018/cjlg1o2dg0000ysv5wd5ea9pb/</id>
+    <published>2018-05-17T02:37:09.000Z</published>
+    <updated>2018-08-30T04:21:07.251Z</updated>
     
     <summary type="html">
     
@@ -29,12 +29,39 @@
       
         
         
-          &lt;p&gt;1.用TextView显示图片和文字&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;可将图片与文字写在一个TextView中
-
-android:drawableTop=&amp;quot;@drawable/grass&amp;quot;
-&amp;lt;!--more--&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p
+          &lt;h3 id=&quot;AsyncTask-异步任务）&quot;&gt;&lt;a href=&quot;#AsyncTask-异步任务）&quot; class=&quot;headerlink&quot; title=&quot;AsyncTask(异步任务）&quot;&gt;&lt;/a&gt;AsyncTask(异步任务）&lt;/h3&gt;&lt;p&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://koreyosh.github.io/categories/Android/"/>
+    
+      <category term="AsyncTask" scheme="https://koreyosh.github.io/categories/Android/AsyncTask/"/>
+    
+    
+      <category term="Android" scheme="https://koreyosh.github.io/tags/Android/"/>
+    
+      <category term="AsyncTask" scheme="https://koreyosh.github.io/tags/AsyncTask/"/>
+    
+      <category term="Thread" scheme="https://koreyosh.github.io/tags/Thread/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TextView的用法</title>
+    <link href="https://koreyosh.github.io/2018/cjlg1o2du0006ysv5zjci5vrj/"/>
+    <id>https://koreyosh.github.io/2018/cjlg1o2du0006ysv5zjci5vrj/</id>
+    <published>2018-05-12T07:45:02.000Z</published>
+    <updated>2018-08-30T04:19:24.693Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;用TextView显示图片和文字&quot;&gt;&lt;a href=&quot;#用TextView显示图片和文字&quot; class=&quot;headerlink&quot;
         
       
     
@@ -45,6 +72,8 @@ android:drawableTop=&amp;quot;@drawable/grass&amp;quot;
       <category term="控件" scheme="https://koreyosh.github.io/categories/Android/%E6%8E%A7%E4%BB%B6/"/>
     
     
+      <category term="Android" scheme="https://koreyosh.github.io/tags/Android/"/>
+    
       <category term="TextView" scheme="https://koreyosh.github.io/tags/TextView/"/>
     
       <category term="font" scheme="https://koreyosh.github.io/tags/font/"/>
@@ -53,10 +82,10 @@ android:drawableTop=&amp;quot;@drawable/grass&amp;quot;
   
   <entry>
     <title>Hello World</title>
-    <link href="https://koreyosh.github.io/2018/cjlf8dvtf0003gcv5emxg6zx4/"/>
-    <id>https://koreyosh.github.io/2018/cjlf8dvtf0003gcv5emxg6zx4/</id>
+    <link href="https://koreyosh.github.io/2018/cjlg1o2dn0002ysv5mhvc68ge/"/>
+    <id>https://koreyosh.github.io/2018/cjlg1o2dn0002ysv5mhvc68ge/</id>
     <published>2018-05-10T09:20:09.000Z</published>
-    <updated>2018-08-29T13:14:12.483Z</updated>
+    <updated>2018-08-29T14:23:56.408Z</updated>
     
     <summary type="html">
     
