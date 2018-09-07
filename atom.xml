@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>技术博客</title>
   
-  
+  <subtitle>学习的点点滴滴</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://minminminzhang.github.io/"/>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>搭建个人博客</title>
-    <link href="https://minminminzhang.github.io/2018/cjlroetx10003fgnuk3axfg9p/"/>
-    <id>https://minminminzhang.github.io/2018/cjlroetx10003fgnuk3axfg9p/</id>
+    <link href="https://minminminzhang.github.io/2018/cjlrovod40003wonuj81wcuqr/"/>
+    <id>https://minminminzhang.github.io/2018/cjlrovod40003wonuj81wcuqr/</id>
     <published>2018-09-07T07:09:45.688Z</published>
     <updated>2018-09-07T02:38:32.000Z</updated>
     
@@ -42,8 +42,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://minminminzhang.github.io/2018/cjlroetp10001fgnus5z26xet/"/>
-    <id>https://minminminzhang.github.io/2018/cjlroetp10001fgnus5z26xet/</id>
+    <link href="https://minminminzhang.github.io/2018/cjlrovo5b0001wonui8bd8wsc/"/>
+    <id>https://minminminzhang.github.io/2018/cjlrovo5b0001wonui8bd8wsc/</id>
     <published>2018-04-10T09:20:09.000Z</published>
     <updated>2018-08-30T09:39:00.000Z</updated>
     
