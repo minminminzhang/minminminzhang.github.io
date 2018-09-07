@@ -5,23 +5,23 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://koreyosh.github.io/"/>
-  <updated>2018-08-30T04:21:07.251Z</updated>
-  <id>https://koreyosh.github.io/</id>
+  <link href="https://minminminzhang.github.io/"/>
+  <updated>2018-09-07T02:38:32.000Z</updated>
+  <id>https://minminminzhang.github.io/</id>
   
   <author>
-    <name>张婷婷</name>
+    <name>张敏</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>AsyncTask的使用与演示（加载图片）</title>
-    <link href="https://koreyosh.github.io/2018/cjlgf3ozy0008vwv5qomecpi1/"/>
-    <id>https://koreyosh.github.io/2018/cjlgf3ozy0008vwv5qomecpi1/</id>
-    <published>2018-05-17T02:37:09.000Z</published>
-    <updated>2018-08-30T04:21:07.251Z</updated>
+    <title>搭建个人博客</title>
+    <link href="https://minminminzhang.github.io/2018/cjlroetx10003fgnuk3axfg9p/"/>
+    <id>https://minminminzhang.github.io/2018/cjlroetx10003fgnuk3axfg9p/</id>
+    <published>2018-09-07T07:09:45.688Z</published>
+    <updated>2018-09-07T02:38:32.000Z</updated>
     
     <summary type="html">
     
@@ -29,91 +29,23 @@
       
         
         
-          &lt;h3 id=&quot;AsyncTask-异步任务）&quot;&gt;&lt;a href=&quot;#AsyncTask-异步任务）&quot; class=&quot;headerlink&quot; title=&quot;AsyncTask(异步任务）&quot;&gt;&lt;/a&gt;AsyncTask(异步任务）&lt;/h3&gt;&lt;p&gt;
+          &lt;p&gt;对于一个认真的程序员，在学习过程中总要写Blog来记录学习过程中的点点滴滴。踩过的坑终将变成成功道路上的跳板。&lt;br&gt;   
         
       
     
     </summary>
     
-      <category term="Android" scheme="https://koreyosh.github.io/categories/Android/"/>
     
-      <category term="AsyncTask" scheme="https://koreyosh.github.io/categories/Android/AsyncTask/"/>
-    
-    
-      <category term="Android" scheme="https://koreyosh.github.io/tags/Android/"/>
-    
-      <category term="AsyncTask" scheme="https://koreyosh.github.io/tags/AsyncTask/"/>
-    
-      <category term="Thread" scheme="https://koreyosh.github.io/tags/Thread/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TextView的用法</title>
-    <link href="https://koreyosh.github.io/2018/cjlgf3ozl0002vwv5q7sqvrkb/"/>
-    <id>https://koreyosh.github.io/2018/cjlgf3ozl0002vwv5q7sqvrkb/</id>
-    <published>2018-05-12T07:45:02.000Z</published>
-    <updated>2018-08-30T10:05:14.164Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;用TextView显示图片和文字&quot;&gt;&lt;a href=&quot;#用TextView显示图片和文字&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://koreyosh.github.io/categories/Android/"/>
-    
-      <category term="TextView" scheme="https://koreyosh.github.io/categories/Android/TextView/"/>
-    
-      <category term="控件" scheme="https://koreyosh.github.io/categories/Android/TextView/%E6%8E%A7%E4%BB%B6/"/>
-    
-    
-      <category term="Android" scheme="https://koreyosh.github.io/tags/Android/"/>
-    
-      <category term="TextView" scheme="https://koreyosh.github.io/tags/TextView/"/>
-    
-      <category term="font" scheme="https://koreyosh.github.io/tags/font/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android王国简介</title>
-    <link href="https://koreyosh.github.io/2018/cjlgf3ozc0000vwv5fwdeetme/"/>
-    <id>https://koreyosh.github.io/2018/cjlgf3ozc0000vwv5fwdeetme/</id>
-    <published>2018-04-11T08:22:02.000Z</published>
-    <updated>2018-08-30T09:51:28.156Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;Android的系统架构&quot;&gt;&lt;a href=&quot;#Android的系统架构&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://koreyosh.github.io/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="https://koreyosh.github.io/tags/Android/"/>
+      <category term="搭建个人博客 相关技术" scheme="https://minminminzhang.github.io/tags/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://koreyosh.github.io/2018/cjlgf3ozv0006vwv5sr0liezh/"/>
-    <id>https://koreyosh.github.io/2018/cjlgf3ozv0006vwv5sr0liezh/</id>
+    <link href="https://minminminzhang.github.io/2018/cjlroetp10001fgnus5z26xet/"/>
+    <id>https://minminminzhang.github.io/2018/cjlroetp10001fgnus5z26xet/</id>
     <published>2018-04-10T09:20:09.000Z</published>
-    <updated>2018-08-30T09:38:59.424Z</updated>
+    <updated>2018-08-30T09:39:00.000Z</updated>
     
     <summary type="html">
     
