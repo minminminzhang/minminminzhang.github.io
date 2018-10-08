@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="设计模式," />
 
 
 
@@ -81,16 +81,18 @@
 
 
 
-<meta name="description" content="Ashes of Time">
-<meta property="og:type" content="website">
-<meta property="og:title" content="技术博客">
-<meta property="og:url" content="https://minminminzhang.github.io/categories/RESTful架构/index.html">
+<meta name="description" content="一、简单工厂模式​       我们在实例化对象的时候通常用new关键字，但是有了工厂，我们在声明对象的时候就可以用到工厂了，使得代码更加灵活。是由一个工厂对象决定创建出哪一种产品类的实例。 //抽象产品 public abstract class Car{ ​     public abstract  void Driver( ); } //具体产品 public class BenC{ ​">
+<meta name="keywords" content="设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单工厂、工厂方法、抽象工厂 使用方法与区别">
+<meta property="og:url" content="https://minminminzhang.github.io/2018/cjn0dvsww0008yknulhnz9gut/index.html">
 <meta property="og:site_name" content="技术博客">
-<meta property="og:description" content="Ashes of Time">
+<meta property="og:description" content="一、简单工厂模式​       我们在实例化对象的时候通常用new关键字，但是有了工厂，我们在声明对象的时候就可以用到工厂了，使得代码更加灵活。是由一个工厂对象决定创建出哪一种产品类的实例。 //抽象产品 public abstract class Car{ ​     public abstract  void Driver( ); } //具体产品 public class BenC{ ​">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-08T14:11:51.479Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技术博客">
-<meta name="twitter:description" content="Ashes of Time">
+<meta name="twitter:title" content="简单工厂、工厂方法、抽象工厂 使用方法与区别">
+<meta name="twitter:description" content="一、简单工厂模式​       我们在实例化对象的时候通常用new关键字，但是有了工厂，我们在声明对象的时候就可以用到工厂了，使得代码更加灵活。是由一个工厂对象决定创建出哪一种产品类的实例。 //抽象产品 public abstract class Car{ ​     public abstract  void Driver( ); } //具体产品 public class BenC{ ​">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://minminminzhang.github.io/categories/RESTful架构/"/>
+  <link rel="canonical" href="https://minminminzhang.github.io/2018/cjn0dvsww0008yknulhnz9gut/"/>
 
 
 
 
 
-  <title>Category: RESTful架构 | 技术博客</title>
+  <title>简单工厂、工厂方法、抽象工厂 使用方法与区别 | 技术博客</title>
   
 
 
@@ -145,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -283,55 +285,333 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>RESTful架构<small>Category</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://minminminzhang.github.io/2018/cjn0dvsww0008yknulhnz9gut/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张敏">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/cjn0dvswh0002yknufyjdqevn/" itemprop="url">
-              
-                <span itemprop="name">关于RESTful的理解</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">简单工厂、工厂方法、抽象工厂 使用方法与区别</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-07T21:20:07+08:00"
-              content="2018-09-07" >
-          09-07
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-08T22:19:33+08:00">
+                2018-10-08
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、简单工厂模式"><a href="#一、简单工厂模式" class="headerlink" title="一、简单工厂模式"></a>一、简单工厂模式</h2><p>​       我们在实例化对象的时候通常用new关键字，但是有了工厂，我们在声明对象的时候就可以用到工厂了，使得代码更加灵活。是由一个工厂对象决定创建出哪一种产品类的实例。</p>
+<p>//抽象产品</p>
+<p>public abstract class Car{</p>
+<p>​     public abstract  void Driver( );</p>
+<p>}</p>
+<p>//具体产品</p>
+<p>public class BenC{</p>
+<p>​       public void Driver( ){</p>
+<p>​            Console.WriteLine(“奔驰”);</p>
+<p>​     }</p>
+<p>}</p>
+<p>//具体产品</p>
+<p>public class BaoM{</p>
+<p>​       public void Driver( ){</p>
+<p>​            Console.WriteLine(“宝马”);</p>
+<p>​     }</p>
+<p>}</p>
+<p>//简单工厂</p>
+<p>public class Driver( ){</p>
+<p>​      public static Car DriverCar (string carName){</p>
+<p>​                 Car car;</p>
+<p>​            if(carName)==”奔驰”){</p>
+<p>​               car=new BenC( );</p>
+<p>​          } </p>
+<p>​          else{</p>
+<p>​                car=new BaoM( );</p>
+<p>​         }</p>
+<p>}</p>
+<p>//客户代码</p>
+<p>public class Boss{</p>
+<p>​    Car car1=Driver.DriverCar(“奔驰”);</p>
+<p>​    car1.Driver();</p>
+<p>  Car car2=Driver.DriverCar(“宝马”);</p>
+<p>   car2.Driver();</p>
+<p>}</p>
+<p>优点：</p>
+<p>（1）简单工厂包含必要的判断逻辑，实现了对象的创建和使用的分离。</p>
+<p>（2）客户端无需知道所创建的具体产品类的类名，只需要具体产品类对应的参数即可。</p>
+<p>（3）在不修改客户端代码的情况下更换和增加具体产品类，提高了系统的灵活性。</p>
+<p>缺点：</p>
+<p>当产品修改时，工厂类也需要做相应的修改，违反了开—闭原则。</p>
+<p>简单工厂模式适用于业务简单或者具体产品很少增加的情况。而对于复杂的业务环境不太适应。因此提出工厂方法模式。</p>
+<h2 id="二、工厂方法模式："><a href="#二、工厂方法模式：" class="headerlink" title="二、工厂方法模式："></a>二、工厂方法模式：</h2><p>​       工厂方法模式是简单工厂的进一步延伸，这样说是因为简单工厂违反了开—闭原则，而工厂方法可以完美的解决这个问题。工厂方法不在工厂类中进行逻辑判断，程序可以为不同产品类提供不同的工厂。当使用工厂方法设计模式时，对象调用者需要与具体的工厂类耦合。</p>
+<p>​      工厂方法模式的各个角色：</p>
+<p>​       抽象工厂角色：工厂方法模式的核心，它与应用程序无关。是具体工厂必须实现的接口或者必须继承的父类他由抽象类或者接口来实现。</p>
+<p>​       具体工厂角色：它含有和具体逻辑有关的代码。由应用程序调用以创建对应的具体产品的对象。</p>
+<p>​       抽象产品角色：他是具体产品继承的父类或者是实现的接口。一般由抽象类或者接口来实现。</p>
+<p>​       具体产品角色：具体工厂角色所创建的对象就是此角色的实例。由具体类实现。</p>
+<p>//抽象产品</p>
+<p>public abstract class Car{</p>
+<p>​     public abstract  void Driver( );</p>
+<p>}</p>
+<p>//具体产品</p>
+<p>public class BenC{</p>
+<p>​       public void Driver( ){</p>
+<p>​            Console.WriteLine(“奔驰”);</p>
+<p>​     }</p>
+<p>}</p>
+<p>//具体产品</p>
+<p>public class BaoM{</p>
+<p>​       public void Driver( ){</p>
+<p>​            Console.WriteLine(“宝马”);</p>
+<p>​     }</p>
+<p>}</p>
+<p>//抽象工厂</p>
+<p>public  abstract class Driver{</p>
+<p>   public abstract Car DriverCar();</p>
+<p>}</p>
+<p>//具体工厂</p>
+<p>public class DriverBenC( ){</p>
+<p>​      public  Car DriverCar ()</p>
+<p>​             Car  car=new BenC( );</p>
+<p>​            return car;        </p>
+<p>}</p>
+<p>//具体工厂</p>
+<p>public class DriverBaoM( ){</p>
+<p>​      public  Car DriverCar ()</p>
+<p>​             Car  car=new BaoM( );</p>
+<p>​            return car;        </p>
+<p>} </p>
+<p>//客户代码</p>
+<p>public class Boss{</p>
+<p>Driver d=new DriverBenC( );    </p>
+<p>Car car=d.DriverCar( );</p>
+<p> car.Driver();</p>
+<p>  }</p>
+<p>优点：</p>
+<p>（1）工厂方法用来创建客户所需要的产品，同时隐藏了哪种产品具体类将被实例化的细节，用户只需要关注工厂，不需要关注创建的细节。</p>
+<p>（2）当产品增加时，只需要增加对应的工厂就好，完全符合开放封闭性原则。</p>
+<p>缺点：</p>
+<p>抽象层的加入使得理解程度加大。</p>
+<h2 id="三、抽象工厂模式："><a href="#三、抽象工厂模式：" class="headerlink" title="三、抽象工厂模式："></a>三、抽象工厂模式：</h2><p>抽象工厂模式与工厂方法模式的区别就在于需要创建对象的复杂程度上。抽象工厂模式是三个里面最为抽象，最具有一般性的。用意在于给客户端提供一个接口，可以创建多个产品中的产品对象。</p>
+<p>使用抽象工厂模式还要满足以下条件：</p>
+<p>（1）系统中有多个产品族，而系统一次只可能消费其中一族产品。</p>
+<p>（2）同属于同属于同一产品族的产品一起使用。</p>
+<p>//抽象产品</p>
+<p>public abstract class BenC{</p>
+<p>​     public abstract  void Driver( );</p>
+<p>}</p>
+<p>//具体产品</p>
+<p>public class BenCSportCar{</p>
+<p>​       public void Driver( ){</p>
+<p>​            Console.WriteLine(“奔驰”);</p>
+<p>​     }</p>
+<p>}</p>
+<p>//具体产品</p>
+<p>public class BenCBusinessCar{</p>
+<p>​       public void Driver( ){</p>
+<p>​            Console.WriteLine(“奔驰”);</p>
+<p>​     }</p>
+<p>}</p>
+<p>//抽象产品</p>
+<p>public abstract class BaoM{</p>
+<p>​     public abstract  void Driver( );</p>
+<p>}</p>
+<p>//具体产品</p>
+<p>public class BaoMSportCar{</p>
+<p>​       public void Driver( ){</p>
+<p>​            Console.WriteLine(“宝马”);</p>
+<p>​     }</p>
+<p>}</p>
+<p>//具体产品</p>
+<p>public class BaoM{SportCar{</p>
+<p>​       public void Driver( ){</p>
+<p>​            Console.WriteLine(“宝马”);</p>
+<p>​     }</p>
+<p>}</p>
+<p>//抽象工厂</p>
+<p>public  abstract class Driver{</p>
+<p>   public abstract BenCCar DriverBenCCar();</p>
+<p>   public abstract BaoMCar DriverBenCCar();</p>
+<p>}</p>
+<p>//具体工厂</p>
+<p>public class SportDriver( ){</p>
+<p>​       public BenCCar  DriverBenCCar(){</p>
+<p>​                BenCSportCar  bencSport=new  BenCSportCar();</p>
+<p>​                return   bencSport;</p>
+<p>​        }</p>
+<p>​          public BaoMCar  DriverBaoMCar(){</p>
+<p>​                  BaoMSportCar  baomSport=new  BaoMSportCar();</p>
+<p>​                  return   baomSport;</p>
+<p>​          }</p>
+<p>}</p>
+<p>//具体工厂</p>
+<p>public class BusinessDriver( ){</p>
+<p>​         public BenCCar  DriverBenCCar(){</p>
+<p>​         BenCSportCar  bencSport=new  BenCSportCar();</p>
+<p>​         return   bencSport;</p>
+<p>​          }</p>
+<p>​       public BaoMCar  DriverBaoMCar(){</p>
+<p>​         BaoMSportCar  baomSport=new  BaoMSportCar();</p>
+<p>​         return   baomSport;</p>
+<p>​         }</p>
+<p>}</p>
+<p>//客户代码</p>
+<p>public class Boss{</p>
+<p>Driver d=new DriverBenC( );    </p>
+<p>Car car=d.DriverCar( );</p>
+<p> car.Driver();</p>
+<p>  }</p>
+<p>从上可以发现，增加一个产品族很简单，而增加一个新的产品会很复杂。抽象工厂模式一般用于具有产品树和产品族的场景下。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/cjn0dvswz0009yknutyzgn4sr/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/cjn0dvsvz0000yknumikyb7vs/" rel="prev" title="简单工厂、工厂方法、抽象工厂 使用方法与区别">
+                简单工厂、工厂方法、抽象工厂 使用方法与区别 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -339,6 +619,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -359,8 +643,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -431,6 +724,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、简单工厂模式"><span class="nav-number">1.</span> <span class="nav-text">一、简单工厂模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、工厂方法模式："><span class="nav-number">2.</span> <span class="nav-text">二、工厂方法模式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、抽象工厂模式："><span class="nav-number">3.</span> <span class="nav-text">三、抽象工厂模式：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -571,6 +880,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
