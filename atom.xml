@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://minminminzhang.github.io/"/>
-  <updated>2018-11-18T02:44:24.341Z</updated>
+  <updated>2018-11-23T11:55:24.358Z</updated>
   <id>https://minminminzhang.github.io/</id>
   
   <author>
@@ -17,9 +17,34 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>用迭代算法解决汉诺塔问题</title>
+    <link href="https://minminminzhang.github.io/2018/cjotyz2t7000520nucmwbjzal/"/>
+    <id>https://minminminzhang.github.io/2018/cjotyz2t7000520nucmwbjzal/</id>
+    <published>2018-11-23T11:38:26.028Z</published>
+    <updated>2018-11-23T11:55:24.358Z</updated>
+    
+    <content type="html"><![CDATA[<p>汉诺塔游戏可以简单描述为：n个盘子和3根柱子：A(起始柱子)、B(过渡柱子)、C(目的柱子)，盘子的大小不同且中间有一孔，可以将盘子“串”在柱子上，每个盘子只能放在比它大的盘子上面。起初，所有盘子在A柱上，问题是将盘子一个一个地从A柱子移动到C柱子。移动过程中，可以使用B柱，但盘子也只能放在比它大的盘子上面。</p><p>因此我们得出汉诺塔问题的以下几个限制条件：</p><p>1.在小圆盘上不能放大圆盘。</p><p>2.在三根柱子之间一回只能移动一个圆盘。</p><p>3.只能移动在最顶端的圆盘。</p><p>首先，我们从简单的例子开始分析，然后再总结出一般规律：</p><p>1.当n=1的时候，即此时只有一个盘子，那么直接将其移动至C即可。移动过程就是 A -&gt; C</p><p>2.当n=2的时候，这时候有两个盘子，那么在一开始移动的时候，我们需要借助B柱作为过渡的柱子，即将A柱最上面的那个小圆盘移至B柱，然后将A柱底下的圆盘移至C柱，最后将B柱的圆盘移至C柱即可。那么完整移动过程就是A -&gt; B , A -&gt; C , B -&gt; C</p><p>3.当n=3的时候，那么此时从上到下依次摆放着从小到大的三个圆盘，根据题目的限制条件：在小圆盘上不能放大圆盘，而且把圆盘从A柱移至C柱后，C柱圆盘的摆放情况和刚开始A柱的是一模一样的。所以呢，我们每次移至C柱的圆盘（移至C柱后不再移到其他柱子上去），必须是从大到小的，即一开始的时候，我们应该想办法把最大的圆盘移至C柱，然后再想办法将第二大的圆盘移至C柱……然后重复这样的过程，直到所有的圆盘都按照原来A柱摆放的样子移动到了C柱。</p><p>那么根据这样的思路，思考如何才能够将最大的盘子移至C柱？</p><p>要将最大的盘子移至C柱，那么必然要先搬掉A柱上面的n-1个盘子，而C柱一开始的时候是作为目标柱的，所以我们可以用B柱作为”暂存”这n-1个盘子的过渡柱，当把这n-1的盘子移至B柱后，我们就可以把A柱最底下的盘子移至C柱了。</p><p>我们来看看现在各个柱子上盘子的情况，A柱上无盘子，而B柱从上到下依次摆放着从小到大的n-1个盘子，C柱上摆放着最大的那个盘子。</p><p>所以接下来那就是要把B柱这剩下的n-1个盘子移至C柱，那么我们需要借助A柱，将A柱作为新的”过渡”柱，B柱为初始柱，将这n-1个盘子移至目标C柱。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class HanoiTower&#123;</span><br><span class="line">    topN：移动的盘子数</span><br><span class="line">    from：初始柱子</span><br><span class="line">    to：目的柱子</span><br><span class="line">    inter：过渡柱子</span><br><span class="line">    public static void  doTower(int topN,char from,char inter ,char to)&#123;</span><br><span class="line">          if(topN==1)&#123;</span><br><span class="line">               System.out.println(&quot;盘子1，从”+from+“柱子到”+to+&quot;柱子&quot;);</span><br><span class="line">          &#125;else&#123;</span><br><span class="line">               doTower(topN-1,from,to ,inter);</span><br><span class="line">               System.out.println(&quot;盘子&quot;+topN+&quot;，从&quot;+from+“柱子到”+to+&quot;柱子&quot;);</span><br><span class="line">                doTower(topN-1,inter,from ,to);</span><br><span class="line">          &#125;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>测试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class TestHanoiTower&#123;</span><br><span class="line">        public class void main(String [] args)&#123;</span><br><span class="line">                 HanoiTower.doTower(3,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);</span><br><span class="line">        &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p><p>​    程序结果为：盘子1，从A柱子到C柱子</p><pre><code>盘子2，从A柱子到B柱子盘子1，从C柱子到B柱子盘子3，从A柱子到C柱子盘子1，从B柱子到A柱子盘子2，从B柱子到C柱子盘子1，从A柱子到C柱子</code></pre><p>即我们用迭代算法解决了汉诺塔问题。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;汉诺塔游戏可以简单描述为：n个盘子和3根柱子：A(起始柱子)、B(过渡柱子)、C(目的柱子)，盘子的大小不同且中间有一孔，可以将盘子“串”在柱子上，每个盘子只能放在比它大的盘子上面。起初，所有盘子在A柱上，问题是将盘子一个一个地从A柱子移动到C柱子。移动过程中，可以使用B柱
+      
+    
+    </summary>
+    
+      <category term="迭代算法" scheme="https://minminminzhang.github.io/categories/%E8%BF%AD%E4%BB%A3%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="迭代算法 汉诺塔" scheme="https://minminminzhang.github.io/tags/%E8%BF%AD%E4%BB%A3%E7%AE%97%E6%B3%95-%E6%B1%89%E8%AF%BA%E5%A1%94/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Spring框架总结 </title>
-    <link href="https://minminminzhang.github.io/2018/cjoma5u2f0001cwnuibkdj12n/"/>
-    <id>https://minminminzhang.github.io/2018/cjoma5u2f0001cwnuibkdj12n/</id>
+    <link href="https://minminminzhang.github.io/2018/cjotyz2sq000020nu7mb2ywhd/"/>
+    <id>https://minminminzhang.github.io/2018/cjotyz2sq000020nu7mb2ywhd/</id>
     <published>2018-11-18T01:48:31.224Z</published>
     <updated>2018-11-18T02:44:24.341Z</updated>
     
@@ -44,8 +69,8 @@
   
   <entry>
     <title>小顽童项目准备</title>
-    <link href="https://minminminzhang.github.io/2018/cjoma5u2q0005cwnub11wgpja/"/>
-    <id>https://minminminzhang.github.io/2018/cjoma5u2q0005cwnub11wgpja/</id>
+    <link href="https://minminminzhang.github.io/2018/cjotyz2tb000720nu2ooz9ml7/"/>
+    <id>https://minminminzhang.github.io/2018/cjotyz2tb000720nu2ooz9ml7/</id>
     <published>2018-10-28T00:32:45.112Z</published>
     <updated>2018-10-28T12:36:02.477Z</updated>
     
@@ -73,8 +98,8 @@
   
   <entry>
     <title>Java中常用设计模式的使用方法与区别</title>
-    <link href="https://minminminzhang.github.io/2018/cjoma5ucb000gcwnuax13h4wc/"/>
-    <id>https://minminminzhang.github.io/2018/cjoma5ucb000gcwnuax13h4wc/</id>
+    <link href="https://minminminzhang.github.io/2018/cjotyz33j000m20nu09kac00b/"/>
+    <id>https://minminminzhang.github.io/2018/cjotyz33j000m20nu09kac00b/</id>
     <published>2018-10-08T12:10:59.041Z</published>
     <updated>2018-11-18T02:22:32.249Z</updated>
     
@@ -100,8 +125,8 @@
   
   <entry>
     <title>关于RESTful的理解</title>
-    <link href="https://minminminzhang.github.io/2018/cjoma5u260000cwnu0xrbq098/"/>
-    <id>https://minminminzhang.github.io/2018/cjoma5u260000cwnu0xrbq098/</id>
+    <link href="https://minminminzhang.github.io/2018/cjotyz2sz000220nuqgrgckjv/"/>
+    <id>https://minminminzhang.github.io/2018/cjotyz2sz000220nuqgrgckjv/</id>
     <published>2018-09-07T13:20:07.497Z</published>
     <updated>2018-09-07T13:36:01.262Z</updated>
     
@@ -125,8 +150,8 @@
   
   <entry>
     <title>搭建个人博客</title>
-    <link href="https://minminminzhang.github.io/2018/cjoma5uch000icwnu63h5wyhm/"/>
-    <id>https://minminminzhang.github.io/2018/cjoma5uch000icwnu63h5wyhm/</id>
+    <link href="https://minminminzhang.github.io/2018/cjotyz33w000o20nuasbdjz06/"/>
+    <id>https://minminminzhang.github.io/2018/cjotyz33w000o20nuasbdjz06/</id>
     <published>2018-09-07T07:09:45.688Z</published>
     <updated>2018-09-07T13:34:57.117Z</updated>
     
@@ -150,8 +175,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://minminminzhang.github.io/2018/cjoma5u2m0004cwnu3a3x1486/"/>
-    <id>https://minminminzhang.github.io/2018/cjoma5u2m0004cwnu3a3x1486/</id>
+    <link href="https://minminminzhang.github.io/2018/cjotyz2t9000620nutyvdyvec/"/>
+    <id>https://minminminzhang.github.io/2018/cjotyz2t9000620nutyvdyvec/</id>
     <published>2018-04-10T09:20:09.000Z</published>
     <updated>2018-08-30T09:39:00.000Z</updated>
     
