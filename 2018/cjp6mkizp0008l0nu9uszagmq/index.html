@@ -81,16 +81,17 @@
 
 
 
-<meta name="description" content="Ashes of Time">
-<meta property="og:type" content="website">
+<meta name="description" content="title: 时间典当厅项目之增加功能和上传categories: 代码上传服务器tags: 代码上传服务器 增加排序功能：1.分别在dao，service，controller三层实现相应的后台代码。 ​           dao层 1234public List&amp;lt;InfoUser&amp;gt; userSort() &amp;#123;        String sql = &amp;quot;selec">
+<meta property="og:type" content="article">
 <meta property="og:title" content="技术博客">
-<meta property="og:url" content="https://minminminzhang.github.io/index.html">
+<meta property="og:url" content="https://minminminzhang.github.io/2018/cjp6mkizp0008l0nu9uszagmq/index.html">
 <meta property="og:site_name" content="技术博客">
-<meta property="og:description" content="Ashes of Time">
+<meta property="og:description" content="title: 时间典当厅项目之增加功能和上传categories: 代码上传服务器tags: 代码上传服务器 增加排序功能：1.分别在dao，service，controller三层实现相应的后台代码。 ​           dao层 1234public List&amp;lt;InfoUser&amp;gt; userSort() &amp;#123;        String sql = &amp;quot;selec">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-02T08:29:03.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="技术博客">
-<meta name="twitter:description" content="Ashes of Time">
+<meta name="twitter:description" content="title: 时间典当厅项目之增加功能和上传categories: 代码上传服务器tags: 代码上传服务器 增加排序功能：1.分别在dao，service，controller三层实现相应的后台代码。 ​           dao层 1234public List&amp;lt;InfoUser&amp;gt; userSort() &amp;#123;        String sql = &amp;quot;selec">
 
 
 
@@ -120,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://minminminzhang.github.io/"/>
+  <link rel="canonical" href="https://minminminzhang.github.io/2018/cjp6mkizp0008l0nu9uszagmq/"/>
 
 
 
 
 
-  <title>技术博客</title>
+  <title> | 技术博客</title>
   
 
 
@@ -145,8 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -283,9 +283,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -315,9 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/cjp6mkizp0008l0nu9uszagmq/" itemprop="url">Untitled</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -367,21 +365,39 @@
       
 
       
-        
-          
-          title: 时间典当厅项目之增加功能和上传categories: 代码上传服务器tags: 代码上传服务器
-增加排序功能：1.分别在dao，service，controller三层实现相应的后台代码。
-​           dao层
-1234public List&lt;InfoUser&gt;
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/cjp6mkizp0008l0nu9uszagmq/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>title: 时间典当厅项目之增加功能和上传<br>categories: 代码上传服务器<br>tags: 代码上传服务器</p>
+<p>增加排序功能：<br>1.分别在dao，service，controller三层实现相应的后台代码。</p>
+<p>​           dao层</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;InfoUser&gt; userSort() &#123;</span><br><span class="line">        String sql = &quot;select * from t_user ORDER  by goldCoins desc &quot;;</span><br><span class="line">        return this.jdbcTemplate.query(sql, new InfoUser());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>​    service层 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;InfoUser&gt; userSort() &#123;</span><br><span class="line">    return this.userDao.userSort();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>controller层 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@ResponseBody</span><br><span class="line">@RequestMapping(&#123;&quot;userSort&quot;&#125;)</span><br><span class="line">@ApiOperation(</span><br><span class="line">    value = &quot;get user sort&quot;,</span><br><span class="line">    httpMethod = &quot;GET&quot;,</span><br><span class="line">    response = Result.class,</span><br><span class="line">    nickname = &quot;ALISURE&quot;</span><br><span class="line">)</span><br><span class="line">public Result getUserSort() &#123;</span><br><span class="line">    return new Result(this.userService.userSort());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.在idea里面调试，访问<a href="https://localhost:8081/ddh/user/soetUser" target="_blank" rel="noopener">https://localhost:8081/ddh/user/soetUser</a>  本地测试正确。</p>
+<p>3.上传服务器</p>
+<p>​          （1）打开Xshell，输入项目名称和密码，连接到项目服务器。</p>
+<p>​          （2）打开Xftp，连接成功。在路径下找到后台代码 </p>
+<p>​                       （3）上传修改之后的新代码。服务器中的后台代码都是以.class结尾，编译之后的文件，不能直接修改。<br>          应该先下载要修改的文件，在IDEA里面打开，修改要添加的代码，修改之后在IDEA里面进行单个文件的编译。找到编译之后的class文件（项目编译之后的class一般存储在项目下的target文件夹里面），直接拖进Xftp进行上传。</p>
+<p>​          注意：编译项目里面的某个单个文件时直接在IDEA里面编辑，不要再cmd命令框里面编译，因为cmd默认实在当前目录查找class文件，会报找不到依赖包的错误。</p>
+<p>​<br> 4.把项目上传服务器成功之后，重新启动tomcat.即可通过网址<a href="http://timeseller.fantasy512.cn/ddh/user/soetUser" target="_blank" rel="noopener">http://timeseller.fantasy512.cn/ddh/user/soetUser</a>    即可获取到用户数据，然后将获取到的用户数据和接口user/sortUser一并传给前端，实现前后端的交互。</p>
+<p>​<br>5.确保无误的代码即可上传到github上保存完整的代码。</p>
+<p>补充：重启服务器的tomcat</p>
+<p> （1）首先，进入tomcat下的bin目录  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd   usr/tomcat/bin</span><br></pre></td></tr></table></figure>
+<p>（2）使用tomcat关闭命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./shutdown.sh</span><br></pre></td></tr></table></figure>
+<p> （3）查看tomcat是否已经关闭</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep java</span><br></pre></td></tr></table></figure>
+<p>​    如果显示以下相似信息，说明tomcat还没有关闭</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root      7010     1  0 Apr19 ?        00:30:13 /usr/local/java/bin/java</span><br><span class="line"></span><br><span class="line">-Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties</span><br><span class="line">-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server -Xms1024m -Xmx1024m</span><br><span class="line">-XX:NewSize=256m -XX:MaxNewSize=256m -XX:PermSize=256m -XX:MaxPermSize=256m</span><br><span class="line">-XX:+DisableExplicitGC -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager</span><br><span class="line">-Djava.endorsed.dirs=/usr/local/tomcat/endorsed -classpath /usr/local/tomcat/bin/bootstrap.jar</span><br><span class="line">-Dcatalina.base=/usr/local/tomcat -Dcatalina.home=/usr/local/tomcat</span><br><span class="line">-Djava.io.tmpdir=/usr/local/tomcat/temp org.apache.catalina.startup.Bootstrap start</span><br></pre></td></tr></table></figure>
+<p>（4）如果直接想杀死tomcat进程（进程号7010），可以使用kill命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9  7010</span><br></pre></td></tr></table></figure>
+<p>（5）继续查看tomcat是否已经关闭</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep java</span><br></pre></td></tr></table></figure>
+<p>  如果出现以下信息，则表示tomcat已经关闭</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root      7010     1  0 Apr19 ?        00:30:30 [java] &lt;defunct&gt;</span><br></pre></td></tr></table></figure>
+<p>（6）最后，启动tomcat<br>./startup.sh</p>
+
       
     </div>
     
@@ -398,160 +414,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://minminminzhang.github.io/2018/cjp6mkizj0006l0nuhvshkf6b/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张敏">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/cjp6mkizj0006l0nuhvshkf6b/" itemprop="url">用迭代算法解决汉诺塔问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-23T19:38:26+08:00">
-                2018-11-23
-              </time>
+              <a href="/2018/cjp6mkizj0006l0nuhvshkf6b/" rel="next" title="用迭代算法解决汉诺塔问题">
+                <i class="fa fa-chevron-left"></i> 用迭代算法解决汉诺塔问题
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/迭代算法/" itemprop="url" rel="index">
-                    <span itemprop="name">迭代算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          汉诺塔游戏可以简单描述为：n个盘子和3根柱子：A(起始柱子)、B(过渡柱子)、C(目的柱子)，盘子的大小不同且中间有一孔，可以将盘子“串”在柱子上，每个盘子只能放在比它大的盘子上面。起初，所有盘子在A柱上，问题是将盘子一个一个地从A柱子移动到C柱子。移动过程中，可以使用B柱，但盘子也只能放在比它大的
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/cjp6mkizj0006l0nuhvshkf6b/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -561,316 +445,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://minminminzhang.github.io/2018/cjp6mkiyy0000l0nunruulpkw/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张敏">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/cjp6mkiyy0000l0nunruulpkw/" itemprop="url">Spring框架总结 </a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-18T09:48:31+08:00">
-                2018-11-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring框架/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring框架 </span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          对于java程序员，Spring是做多使用，也必须掌握的框架之一。Spring是一站式的开源框架解决方案。
-1.Spring的核心：AOP    、IOC（1）AOP：面向切面编程，扩展功能不是修改源代码实现。
-（2）IOC：控制反转。IOC操作时把对象的创建交给Springl进行管理，IOC 操作
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/cjp6mkiyy0000l0nunruulpkw/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://minminminzhang.github.io/2018/cjp6mkizv000cl0nu9029fzjm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张敏">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/cjp6mkizv000cl0nu9029fzjm/" itemprop="url">小顽童项目准备</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-28T08:32:45+08:00">
-                2018-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/开发项目准备工作/" itemprop="url" rel="index">
-                    <span itemprop="name">开发项目准备工作</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          基于前期的学习，为了进一步用以实践，我们准备开发一个小网站—–小顽童。
-涉及到：1.前端 2.后台 3.移动端
-网站的内容：
-1.板块（论坛，可以参考西电睿思），具体主题未定，大家均可以提出意见，然后进行业务开发。
-2.工具，提供常用查询，如天气查询，列车时刻查询，远程查询 ，IP详情，电话详情，遥
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/cjp6mkizv000cl0nu9029fzjm/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
 
 
           </div>
@@ -878,6 +457,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1110,6 +693,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
