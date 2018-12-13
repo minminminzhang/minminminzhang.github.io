@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://minminminzhang.github.io/"/>
-  <updated>2018-12-13T13:21:53.369Z</updated>
+  <updated>2018-12-13T13:23:41.955Z</updated>
   <id>https://minminminzhang.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>java中常用的注解总结 </title>
-    <link href="https://minminminzhang.github.io/2018/cjpmmcx050000oknu8r9r2ezv/"/>
-    <id>https://minminminzhang.github.io/2018/cjpmmcx050000oknu8r9r2ezv/</id>
+    <link href="https://minminminzhang.github.io/2018/cjpmmxt1p00023gnu355tty5d/"/>
+    <id>https://minminminzhang.github.io/2018/cjpmmxt1p00023gnu355tty5d/</id>
     <published>2018-12-13T08:33:40.644Z</published>
-    <updated>2018-12-13T13:21:53.369Z</updated>
+    <updated>2018-12-13T13:23:41.955Z</updated>
     
     <content type="html"><![CDATA[<p>注解就是源代码的元数据。</p><p>1.声明bean的注解</p><p>@Conponent组件，当组件不好归类的时候，我们可以使用这个注解进行标注</p><p>@Service在业务逻辑层使用（service层）</p><p>@Reponsitory在数据访问层使用（dao层）</p><p>@Controller在展现层使用，控制器的声明，用来创建处理http请求的对象（Controller层）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Controller</span><br><span class="line">public class TestController&#123;</span><br><span class="line">         @RequestMapping(&quot;/test&quot;)</span><br><span class="line">        public String test（String string）｛</span><br><span class="line">     return   &quot;hello&quot;;</span><br><span class="line">｝</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.注入bean的注解</p><p>@Autowired：由Spring提供，可以用在字段上，或者方法上。默认情况下必须要求依赖对象必须存在，如果要允许null值，可以设置它的required属性为false，例如：@Autowired（required=false）</p><p>@Resource：作用相当于@Autowired，只不过@Autowired按byName自动注入，而@Resource默认按byName自动注入。</p><p>都可以注解在set方法和属性上</p><p>3.java配置类相关注解</p><p>@Configuration声明当前类为配置类，相当于xml形式的Spring配置（类上）</p><p>@Bean 注解在方法上，声明当前方法的返回值为一个bean，替代xml中的方式（方法上）</p><p>@Component注解，表明这个类是一个bean（类上）</p><p>4.切面（AOP）相关注解</p><p>Spring支持AspectJ的注解式切面编程</p><p>@Aspect声明一个切面（类上）</p><p>使用@After、@Before、@Around定义advice，可直接将拦截规则（切点）作为参数</p><p>@After 在方法执行之后执行（方法上）</p><p>@Before 在方法执行之前执行（方法上）</p><p>@Around 在方法执行之前与之后执行（方法上）</p><p>@PointCut声明切点</p><p>5.@Bean的属性支持</p><p>@Scope用来配置 spring bean 的作用域，它标识 bean 的作用域。 </p><p>其设置的类型包括：</p><p>Singleton：单例，一个Spring容器中只有一个bean实例，默认模式</p><p>Protetype：每次调用新建一个bean</p><p>Request：web项目中，给每个http request新建一个bean</p><p>Session：web项目中，给每个http session新建一个bean</p><p>GlobalSession：给每一个global http session 新建一个Bean实例</p><p>6.@Value注解</p><p>@Value为属性注入值（属性上）</p><p>普通字符注入： @Value（”lisa”） String name</p><p>注入文件资源： @Value（”classpath:com/file/test.txt”）String source file</p><p>注入配置文件： @Value(“${book.name}”)Sring bookName</p><p>7.SpringMVC相关注解</p><p>@Controller：声明该类为SpringMVC中的Controller</p><p>@RequestMapping：用于映射Web请求，包括访问路径和参数（类或方法上）</p><p>具体的在类定义处：提供初步的请求映射信息，相对于WEB应用的根目录。</p><p>方法处：提供进一步的戏份映射信息，相对于类定义处的URL。</p><p>@RequestParam：用于将请求参数区数据映射到功能处理方法的参数上。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class test(@RequestParam Integer id)&#123;</span><br><span class="line">    return  mailService.fetch(id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这个id就是要接收从接口传递过来的参数id的值的，如果接口传递过来的参数名和你接收的不一致，也可以如下 :</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class test(@RequestParam(value=&quot;user_id&quot;) Integer id)&#123;</span><br><span class="line"> return  mailService.fetch(id)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>其中user_id就是接口传递的参数，id就是映射user_id的参数名</p><p>@ResponseBody：支持将返回值放在response内，而不是一个页面，通常用户返回json数据</p><p>注意：Spring4之后加的注解@RestController。原来在@Controller中返回json需要@ResponseBody来配合，如果直接用@RestController代替@Controller就不需要再配置@ResponseBody，默认返回json格式。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">public class TestController&#123;</span><br><span class="line">         @RequestMapping(&quot;/test&quot;)</span><br><span class="line">        public String test（String string）｛</span><br><span class="line">     return   &quot;hello&quot;;</span><br><span class="line">｝</span><br></pre></td></tr></table></figure><p>} </p><p>@RequestBody：允许request的参数在request体中，而不是在直接连接在地址后面</p><p>@ModelAttribute：让全局的@RequestMapping都能获得在此设置的键值对</p><p>以上是我在学习中常见的和常用的java注解。</p>]]></content>
     
@@ -47,8 +47,8 @@
   
   <entry>
     <title>用递归和迭代解决二叉树问题 </title>
-    <link href="https://minminminzhang.github.io/2018/cjpmmcxd6000boknueqeh1gbz/"/>
-    <id>https://minminminzhang.github.io/2018/cjpmmcxd6000boknueqeh1gbz/</id>
+    <link href="https://minminminzhang.github.io/2018/cjpmmxt2900083gnu6xjkmyyq/"/>
+    <id>https://minminminzhang.github.io/2018/cjpmmxt2900083gnu6xjkmyyq/</id>
     <published>2018-12-13T08:33:40.644Z</published>
     <updated>2018-12-13T13:19:29.234Z</updated>
     
@@ -74,8 +74,8 @@
   
   <entry>
     <title>时间典当厅项目之增加功能和上传</title>
-    <link href="https://minminminzhang.github.io/2018/cjpmmcxdy000joknua2wq8kfg/"/>
-    <id>https://minminminzhang.github.io/2018/cjpmmcxdy000joknua2wq8kfg/</id>
+    <link href="https://minminminzhang.github.io/2018/cjpmmxt2e00093gnu1tgrvkev/"/>
+    <id>https://minminminzhang.github.io/2018/cjpmmxt2e00093gnu1tgrvkev/</id>
     <published>2018-12-02T08:49:04.879Z</published>
     <updated>2018-12-02T09:08:26.971Z</updated>
     
@@ -99,34 +99,9 @@
   </entry>
   
   <entry>
-    <title>用迭代算法解决汉诺塔问题</title>
-    <link href="https://minminminzhang.github.io/2018/cjpmmcxdh000doknu328sstep/"/>
-    <id>https://minminminzhang.github.io/2018/cjpmmcxdh000doknu328sstep/</id>
-    <published>2018-11-23T11:38:26.028Z</published>
-    <updated>2018-11-23T11:55:24.358Z</updated>
-    
-    <content type="html"><![CDATA[<p>汉诺塔游戏可以简单描述为：n个盘子和3根柱子：A(起始柱子)、B(过渡柱子)、C(目的柱子)，盘子的大小不同且中间有一孔，可以将盘子“串”在柱子上，每个盘子只能放在比它大的盘子上面。起初，所有盘子在A柱上，问题是将盘子一个一个地从A柱子移动到C柱子。移动过程中，可以使用B柱，但盘子也只能放在比它大的盘子上面。</p><p>因此我们得出汉诺塔问题的以下几个限制条件：</p><p>1.在小圆盘上不能放大圆盘。</p><p>2.在三根柱子之间一回只能移动一个圆盘。</p><p>3.只能移动在最顶端的圆盘。</p><p>首先，我们从简单的例子开始分析，然后再总结出一般规律：</p><p>1.当n=1的时候，即此时只有一个盘子，那么直接将其移动至C即可。移动过程就是 A -&gt; C</p><p>2.当n=2的时候，这时候有两个盘子，那么在一开始移动的时候，我们需要借助B柱作为过渡的柱子，即将A柱最上面的那个小圆盘移至B柱，然后将A柱底下的圆盘移至C柱，最后将B柱的圆盘移至C柱即可。那么完整移动过程就是A -&gt; B , A -&gt; C , B -&gt; C</p><p>3.当n=3的时候，那么此时从上到下依次摆放着从小到大的三个圆盘，根据题目的限制条件：在小圆盘上不能放大圆盘，而且把圆盘从A柱移至C柱后，C柱圆盘的摆放情况和刚开始A柱的是一模一样的。所以呢，我们每次移至C柱的圆盘（移至C柱后不再移到其他柱子上去），必须是从大到小的，即一开始的时候，我们应该想办法把最大的圆盘移至C柱，然后再想办法将第二大的圆盘移至C柱……然后重复这样的过程，直到所有的圆盘都按照原来A柱摆放的样子移动到了C柱。</p><p>那么根据这样的思路，思考如何才能够将最大的盘子移至C柱？</p><p>要将最大的盘子移至C柱，那么必然要先搬掉A柱上面的n-1个盘子，而C柱一开始的时候是作为目标柱的，所以我们可以用B柱作为”暂存”这n-1个盘子的过渡柱，当把这n-1的盘子移至B柱后，我们就可以把A柱最底下的盘子移至C柱了。</p><p>我们来看看现在各个柱子上盘子的情况，A柱上无盘子，而B柱从上到下依次摆放着从小到大的n-1个盘子，C柱上摆放着最大的那个盘子。</p><p>所以接下来那就是要把B柱这剩下的n-1个盘子移至C柱，那么我们需要借助A柱，将A柱作为新的”过渡”柱，B柱为初始柱，将这n-1个盘子移至目标C柱。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class HanoiTower&#123;</span><br><span class="line">    topN：移动的盘子数</span><br><span class="line">    from：初始柱子</span><br><span class="line">    to：目的柱子</span><br><span class="line">    inter：过渡柱子</span><br><span class="line">    public static void  doTower(int topN,char from,char inter ,char to)&#123;</span><br><span class="line">          if(topN==1)&#123;</span><br><span class="line">               System.out.println(&quot;盘子1，从”+from+“柱子到”+to+&quot;柱子&quot;);</span><br><span class="line">          &#125;else&#123;</span><br><span class="line">               doTower(topN-1,from,to ,inter);</span><br><span class="line">               System.out.println(&quot;盘子&quot;+topN+&quot;，从&quot;+from+“柱子到”+to+&quot;柱子&quot;);</span><br><span class="line">                doTower(topN-1,inter,from ,to);</span><br><span class="line">          &#125;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>测试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class TestHanoiTower&#123;</span><br><span class="line">        public class void main(String [] args)&#123;</span><br><span class="line">                 HanoiTower.doTower(3,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);</span><br><span class="line">        &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p><p>​    程序结果为：盘子1，从A柱子到C柱子</p><pre><code>盘子2，从A柱子到B柱子盘子1，从C柱子到B柱子盘子3，从A柱子到C柱子盘子1，从B柱子到A柱子盘子2，从B柱子到C柱子盘子1，从A柱子到C柱子</code></pre><p>即我们用迭代算法解决了汉诺塔问题。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;汉诺塔游戏可以简单描述为：n个盘子和3根柱子：A(起始柱子)、B(过渡柱子)、C(目的柱子)，盘子的大小不同且中间有一孔，可以将盘子“串”在柱子上，每个盘子只能放在比它大的盘子上面。起初，所有盘子在A柱上，问题是将盘子一个一个地从A柱子移动到C柱子。移动过程中，可以使用B柱
-      
-    
-    </summary>
-    
-      <category term="迭代算法" scheme="https://minminminzhang.github.io/categories/%E8%BF%AD%E4%BB%A3%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="迭代算法 汉诺塔" scheme="https://minminminzhang.github.io/tags/%E8%BF%AD%E4%BB%A3%E7%AE%97%E6%B3%95-%E6%B1%89%E8%AF%BA%E5%A1%94/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Spring框架总结 </title>
-    <link href="https://minminminzhang.github.io/2018/cjpmmcx490002oknut2gxctx5/"/>
-    <id>https://minminminzhang.github.io/2018/cjpmmcx490002oknut2gxctx5/</id>
+    <link href="https://minminminzhang.github.io/2018/cjpmmxt2400063gnubzmcvj7b/"/>
+    <id>https://minminminzhang.github.io/2018/cjpmmxt2400063gnubzmcvj7b/</id>
     <published>2018-11-18T01:48:31.224Z</published>
     <updated>2018-12-02T08:33:16.386Z</updated>
     
@@ -151,8 +126,8 @@
   
   <entry>
     <title>小顽童项目准备</title>
-    <link href="https://minminminzhang.github.io/2018/cjpmmcxdm000foknub8pi4km7/"/>
-    <id>https://minminminzhang.github.io/2018/cjpmmcxdm000foknub8pi4km7/</id>
+    <link href="https://minminminzhang.github.io/2018/cjpmmxt2j000d3gnufxzyf427/"/>
+    <id>https://minminminzhang.github.io/2018/cjpmmxt2j000d3gnufxzyf427/</id>
     <published>2018-10-28T00:32:45.112Z</published>
     <updated>2018-12-13T13:12:59.845Z</updated>
     
@@ -180,8 +155,8 @@
   
   <entry>
     <title>Java中常用设计模式的使用方法与区别</title>
-    <link href="https://minminminzhang.github.io/2018/cjpmmcxk4000voknu9ykdvwub/"/>
-    <id>https://minminminzhang.github.io/2018/cjpmmcxk4000voknu9ykdvwub/</id>
+    <link href="https://minminminzhang.github.io/2018/cjpmmxt55000x3gnu6npbnldw/"/>
+    <id>https://minminminzhang.github.io/2018/cjpmmxt55000x3gnu6npbnldw/</id>
     <published>2018-10-08T12:10:59.041Z</published>
     <updated>2018-11-18T02:22:32.249Z</updated>
     
@@ -207,8 +182,8 @@
   
   <entry>
     <title>关于RESTful的理解</title>
-    <link href="https://minminminzhang.github.io/2018/cjpmmcx440001oknu6dxi08bu/"/>
-    <id>https://minminminzhang.github.io/2018/cjpmmcx440001oknu6dxi08bu/</id>
+    <link href="https://minminminzhang.github.io/2018/cjpmmxt0w00003gnu7ih2v08p/"/>
+    <id>https://minminminzhang.github.io/2018/cjpmmxt0w00003gnu7ih2v08p/</id>
     <published>2018-09-07T13:20:07.497Z</published>
     <updated>2018-12-13T13:12:20.052Z</updated>
     
@@ -232,8 +207,8 @@
   
   <entry>
     <title>搭建个人博客</title>
-    <link href="https://minminminzhang.github.io/2018/cjpmmcxk2000uoknu1w3nsd93/"/>
-    <id>https://minminminzhang.github.io/2018/cjpmmcxk2000uoknu1w3nsd93/</id>
+    <link href="https://minminminzhang.github.io/2018/cjpmmxt5h000y3gnul0u7isiz/"/>
+    <id>https://minminminzhang.github.io/2018/cjpmmxt5h000y3gnul0u7isiz/</id>
     <published>2018-09-07T07:09:45.688Z</published>
     <updated>2018-12-13T13:12:06.431Z</updated>
     
