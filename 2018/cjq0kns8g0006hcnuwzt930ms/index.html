@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="二叉树," />
 
 
 
@@ -81,16 +81,18 @@
 
 
 
-<meta name="description" content="Ashes of Time">
-<meta property="og:type" content="website">
-<meta property="og:title" content="技术博客">
-<meta property="og:url" content="https://minminminzhang.github.io/page/2/index.html">
+<meta name="description" content="二叉树是数据结构最常见的一种应用。关于二叉树的很多问题都可以用递归和迭代来解决。 二叉树是一颗树，其中每个节点都不能有对于两个儿子。用代码可以简单的表示为： 1234567class TreeNode&amp;#123;   int val;   //左孩子   TreeNode left;   //右孩子   TreeNode left;&amp;#125; 1.求二叉树的最大深度 12345678int ma">
+<meta name="keywords" content="二叉树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用递归和迭代解决二叉树问题 ">
+<meta property="og:url" content="https://minminminzhang.github.io/2018/cjq0kns8g0006hcnuwzt930ms/index.html">
 <meta property="og:site_name" content="技术博客">
-<meta property="og:description" content="Ashes of Time">
+<meta property="og:description" content="二叉树是数据结构最常见的一种应用。关于二叉树的很多问题都可以用递归和迭代来解决。 二叉树是一颗树，其中每个节点都不能有对于两个儿子。用代码可以简单的表示为： 1234567class TreeNode&amp;#123;   int val;   //左孩子   TreeNode left;   //右孩子   TreeNode left;&amp;#125; 1.求二叉树的最大深度 12345678int ma">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-13T13:19:29.234Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技术博客">
-<meta name="twitter:description" content="Ashes of Time">
+<meta name="twitter:title" content="用递归和迭代解决二叉树问题 ">
+<meta name="twitter:description" content="二叉树是数据结构最常见的一种应用。关于二叉树的很多问题都可以用递归和迭代来解决。 二叉树是一颗树，其中每个节点都不能有对于两个儿子。用代码可以简单的表示为： 1234567class TreeNode&amp;#123;   int val;   //左孩子   TreeNode left;   //右孩子   TreeNode left;&amp;#125; 1.求二叉树的最大深度 12345678int ma">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://minminminzhang.github.io/page/2/"/>
+  <link rel="canonical" href="https://minminminzhang.github.io/2018/cjq0kns8g0006hcnuwzt930ms/"/>
 
 
 
 
 
-  <title>技术博客</title>
+  <title>用递归和迭代解决二叉树问题  | 技术博客</title>
   
 
 
@@ -145,8 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -283,9 +284,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -298,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://minminminzhang.github.io/2018/cjq0kns8l000bhcnu1mdqvon9/">
+    <link itemprop="mainEntityOfPage" href="https://minminminzhang.github.io/2018/cjq0kns8g0006hcnuwzt930ms/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张敏">
@@ -315,9 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/cjq0kns8l000bhcnu1mdqvon9/" itemprop="url">时间典当厅项目之增加功能和上传</a></h1>
+          <h1 class="post-title" itemprop="name headline">用递归和迭代解决二叉树问题 </h1>
         
 
         <div class="post-meta">
@@ -329,8 +328,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-02T16:49:04+08:00">
-                2018-12-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-13T16:33:40+08:00">
+                2018-12-13
               </time>
             
 
@@ -352,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/代码上传服务器/" itemprop="url" rel="index">
-                    <span itemprop="name">代码上传服务器 </span>
+                  <a href="/categories/二叉树/" itemprop="url" rel="index">
+                    <span itemprop="name">二叉树</span>
                   </a>
                 </span>
 
@@ -389,21 +388,36 @@
       
 
       
-        
-          
-          在项目之上添加用户排序功能，上传到服务器。
-增加排序功能：1.分别在dao，service，controller三层实现相应的后台代码。
-​           dao层
-1234public List&lt;InfoUser&gt; userSort() &#123;        String 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/cjq0kns8l000bhcnu1mdqvon9/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>二叉树是数据结构最常见的一种应用。关于二叉树的很多问题都可以用递归和迭代来解决。</p>
+<p>二叉树是一颗树，其中每个节点都不能有对于两个儿子。用代码可以简单的表示为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class TreeNode&#123;</span><br><span class="line">   int val;</span><br><span class="line">   //左孩子</span><br><span class="line">   TreeNode left;</span><br><span class="line">   //右孩子</span><br><span class="line">   TreeNode left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1.求二叉树的最大深度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int maxDeath(TreeNode node)&#123;</span><br><span class="line">    if(node==null)&#123;</span><br><span class="line">       return 0;</span><br><span class="line">&#125; </span><br><span class="line"> int left=maxDeath(node.left);</span><br><span class="line"> int right=maxDeath(node.right);</span><br><span class="line"> return Math.max(left,right)+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.求二叉树的最小深度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int getMinDepth()&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return getMin(root);</span><br><span class="line">&#125;</span><br><span class="line">int getMin(TreeNode root)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return Integer.MAX_VALUE;</span><br><span class="line">    &#125;</span><br><span class="line">    if（root.left==null&amp;&amp;root.right==null）&#123;</span><br><span class="line">      return 1;</span><br><span class="line">      &#125;</span><br><span class="line">      return Math.min(getMin(root.left),getMin(root.right))+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.求二叉树中节点的个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int numOfTreeNode(TreeNode root)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125; </span><br><span class="line">    int left=numOfNode(root.left);</span><br><span class="line">    int right=numOfNode(root.right);</span><br><span class="line">    return left+right+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.求二叉树中叶子节点的个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int numsOfNodeTreeNode(TreeNode root)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    if(root.left==null&amp;&amp;root.right==null)&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return numsOfNodeTreeNode(root.left)+numsOfNodeTreeNode(root.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.求二叉树中第K层节点的个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int numsOfLevelTreeNode(TreeNode node,int k)&#123;</span><br><span class="line"> if(root==null||k&lt;1)&#123;</span><br><span class="line">     return 0;</span><br><span class="line"> &#125;</span><br><span class="line">  if(k=1)&#123;</span><br><span class="line">      return 1;</span><br><span class="line">  &#125;  </span><br><span class="line">  int numLeft=numsOfLevelTreeNode(root.left,k-1);</span><br><span class="line">  int numRight=numsOfLevelTreeNode(root.right,k-1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>平衡二叉树是其每个节点的左子数和右子树的高度最多差1的二叉查找树.</p>
+<p>6.判断二叉树是否是平衡二叉树</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">boolean isBalanced(TreeNode node)&#123;</span><br><span class="line">     return maxDeath(node)!=-1;//空树的高度为1</span><br><span class="line">&#125;</span><br><span class="line">   int maxDeath2(TreeNode node)&#123;</span><br><span class="line">        if(node==null)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">           &#125;   </span><br><span class="line">       int left=maxDeath(node.left);   </span><br><span class="line">       int right=maxDeath(node.right); </span><br><span class="line">       if(left==-1||right==-1||Math.abs(left-right)&gt;1)&#123;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">         return Math.max(left,right)+1;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>7.判断两个二叉树是否完全相同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">boolean isSameTreeNode(TreeNode t1,TreeNode t2)&#123;</span><br><span class="line">    if(t1==null&amp;&amp;t2==null)&#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;else if(t1==null||t2==null)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    if(t1.val!=t2.val)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    boolean left=isSameTreeNode(t1.left,t2.left);</span><br><span class="line">    boolean right=isSameTreeNode(t1.right,t2.right);</span><br><span class="line">    return left&amp;&amp;right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>8.两个二叉树是否为镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">boolean isMirror(TreeNode t1,TreeNode t2)&#123;</span><br><span class="line"> if(t1==null&amp;&amp;t2==null)&#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;else if(t1==null||t2==null)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    if(t1.val!=t2.val)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    return isMirror(t1.left,t2.right)&amp;&amp;isMirror(t1.right,t2.left);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>9.二叉树的前序遍历</p>
+<p>迭代解法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; preOrder(TreeNode root)&#123;</span><br><span class="line">    Stack&lt;TreeNode&gt;  stack=new Stack&lt;TreeNode&gt;();</span><br><span class="line">    ArrayList&lt;Integer&gt; list=new ArrayList&lt;Integer&gt;();</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br><span class="line">    stack.push(root);</span><br><span class="line">    while(!stack.empty)&#123;</span><br><span class="line">       TreeNode node=stack.pop();</span><br><span class="line">       list.add(node.val);</span><br><span class="line">       if(node.right!=null)&#123;</span><br><span class="line">           stack.push(node.right);</span><br><span class="line">       &#125;</span><br><span class="line">        if(node.left!=null)&#123;</span><br><span class="line">           stack.push(node.left);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>递归解法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; preOrder(TreeNode root)&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; result =new  ArrayList&lt;Integer&gt;();</span><br><span class="line">    preOrder2(root,result);</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line">void preOrder2(TreeNode root,ArrayList&lt;Integer&gt; result)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    result.add(root.val);</span><br><span class="line">    preOrder2(root.left,result);</span><br><span class="line">    preOrder2(root.right,result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>10.二叉树中的中序遍历</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; inOrder(TreeNode root)&#123;</span><br><span class="line">    Stack&lt;TreeNode&gt;  stack=new Stack&lt;TreeNode&gt;();</span><br><span class="line">    ArrayList&lt;Integer&gt; list=new ArrayList&lt;Integer&gt;();</span><br><span class="line">    TreeNode current=root;</span><br><span class="line">   while(current！=null||!stack.empty())&#123;</span><br><span class="line">       while(current!=null)&#123;</span><br><span class="line">           stack.add(current);</span><br><span class="line">           current=current.left;</span><br><span class="line">       &#125;</span><br><span class="line">       current=stack.peek();</span><br><span class="line">       stack.pop();</span><br><span class="line">       list.add(current.val);</span><br><span class="line">       current=current.right;</span><br><span class="line">   &#125;</span><br><span class="line">   return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>11.二叉树的后序遍历</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; postOrder(TreeNode root)&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; list=new ArrayList&gt;(Integer);</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br><span class="line">    list.addAll(posrOrder(root.left));</span><br><span class="line">    list.addAll(posrOrder(root.right);</span><br><span class="line">    list.add(root.val);</span><br><span class="line">    return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -418,316 +432,40 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://minminminzhang.github.io/2018/cjq0kns870002hcnur9qh9mst/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张敏">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/cjq0kns870002hcnur9qh9mst/" itemprop="url">Spring框架总结 </a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-18T09:48:31+08:00">
-                2018-11-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring框架/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring框架 </span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/二叉树/" rel="tag"># 二叉树</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          对于java程序员，Spring是做多使用，也必须掌握的框架之一。Spring是一站式的开源框架解决方案。
-1.Spring的核心：AOP    、IOC（1）AOP：面向切面编程，扩展功能不是修改源代码实现。
-（2）IOC：控制反转。IOC操作时把对象的创建交给Springl进行管理，IOC 操作
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/cjq0kns870002hcnur9qh9mst/#more" rel="contents">
-              Read more &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/cjq0kns8l000bhcnu1mdqvon9/" rel="next" title="时间典当厅项目之增加功能和上传">
+                <i class="fa fa-chevron-left"></i> 时间典当厅项目之增加功能和上传
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://minminminzhang.github.io/2018/cjq0kns8p000chcnu038t9blg/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张敏">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/cjq0kns8p000chcnu038t9blg/" itemprop="url">小顽童项目准备</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-28T08:32:45+08:00">
-                2018-10-28
-              </time>
+              <a href="/2018/cjq0kns8d0005hcnu8g6z6um6/" rel="prev" title="java中常用的注解总结 ">
+                java中常用的注解总结  <i class="fa fa-chevron-right"></i>
+              </a>
             
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/开发项目准备工作/" itemprop="url" rel="index">
-                    <span itemprop="name">开发项目准备工作</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          基于前期的学习，为了进一步用以实践，我们准备开发一个小网站—–小顽童。
-涉及到：1.前端 2.后台 3.移动端
-网站的内容：
-1.板块（论坛，可以参考西电睿思），具体主题未定，大家均可以提出意见，然后进行业务开发。
-2.工具，提供常用查询，如天气查询，列车时刻查询，远程查询 ，IP详情，电话详情，遥
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/cjq0kns8p000chcnu038t9blg/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -737,164 +475,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://minminminzhang.github.io/2018/cjq0knshl000yhcnuw3js4u6l/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张敏">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/cjq0knshl000yhcnuw3js4u6l/" itemprop="url">Java中常用设计模式的使用方法与区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-08T20:10:59+08:00">
-                2018-10-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-           设计模式其实就是一套被反复使用的代码设计经验的总结。
- 使用设计模式的优点就是：代码可以重用，更容易被他人理解，保证代码的可靠性。
-Java中的设计模式以供有23种，包括：Abstract Factory（抽象工厂模式），Builder（建造者模式），Factory Method（工厂方法模式），
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/cjq0knshl000yhcnuw3js4u6l/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
 
 
           </div>
@@ -902,6 +487,10 @@ Java中的设计模式以供有23种，包括：Abstract Factory（抽象工厂�
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1134,6 +723,10 @@ Java中的设计模式以供有23种，包括：Abstract Factory（抽象工厂�
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
