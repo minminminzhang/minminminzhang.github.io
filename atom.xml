@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://minminminzhang.github.io/"/>
-  <updated>2019-01-13T10:32:37.213Z</updated>
+  <updated>2019-01-19T02:20:20.752Z</updated>
   <id>https://minminminzhang.github.io/</id>
   
   <author>
@@ -17,9 +17,60 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>接口本地测试正确 线上测试发生错误</title>
+    <link href="https://minminminzhang.github.io/2019/cjr2uainz0000hcnu0dl70ynj/"/>
+    <id>https://minminminzhang.github.io/2019/cjr2uainz0000hcnu0dl70ynj/</id>
+    <published>2019-01-18T09:43:05.939Z</published>
+    <updated>2019-01-19T02:20:20.752Z</updated>
+    
+    <content type="html"><![CDATA[<p>完成代码之后，在本地接口测试正确，但是发布到线上之后总是测试有问题。经过再三查找，总结如下：</p><h3 id="1-代码书写不严谨"><a href="#1-代码书写不严谨" class="headerlink" title="1.代码书写不严谨"></a>1.代码书写不严谨</h3><p>例如我在写邮件功能模块时的，根据id查询邮件记录的Controller层。</p><p>代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping (value = &quot;/getEmailRecordById&quot;,method = RequestMethod.POST)</span><br><span class="line">public  Object getEmailRecordById(</span><br><span class="line">        @RequestParam(value=&quot;id&quot;,required =false) Integer id</span><br><span class="line">)&#123;</span><br><span class="line">        String mailModel= String.valueOf(mailService.getEmailRecordById(id));</span><br><span class="line">        if(mailModel!=null)&#123;</span><br><span class="line">            return new AJAXResult(MsgCode.success);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            return new AJAXResult(MsgCode.notexsit);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>测试的时候发现，无论id为何值，每次返回的结果都是success。于是，在第五行之后加上打印</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;mailModel=&quot;+mailModel)</span><br></pre></td></tr></table></figure><p>输入id为数据库中不存在id时，发现mailModel并不等于null，而是等于”[ ]”，是一个空的数组。</p><p>因此要将判断条件改为： </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(mailModel!=&quot;[]&quot;)&#123;</span><br><span class="line">            return new AJAXResult(MsgCode.success);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            return new AJAXResult(MsgCode.notexsit);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure><p>这样测试之后便得到正确结果。</p><h3 id="2-忽略临界条件"><a href="#2-忽略临界条件" class="headerlink" title="2.忽略临界条件"></a>2.忽略临界条件</h3><p>在写员工模块部分，根据员工名查找员工密码时：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value=&quot;/getPasswordByName&quot;,method = RequestMethod.POST)</span><br><span class="line">  public Object getPasswordByName(</span><br><span class="line">          @RequestParam(value=&quot;name&quot;,required = false) String name</span><br><span class="line">          )&#123;</span><br><span class="line">          String employModel=employeeService.getPasswordByName(name);</span><br><span class="line">          if(employModel!=null)&#123;</span><br><span class="line">              return new AJAXResult(MsgCode.success);</span><br><span class="line">          &#125;else</span><br><span class="line">              return  new AJAXResult(MsgCode.notexsit);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>当输入不存在的name时结果返回notexsit，输入正确的name时返回success。但是，忽略了未输入参数的情况。因此，可以将name的required改为true，这样name参数就是必须要传入的了。或者在判断条件else处再加上判断name是否为空。</p><h3 id="3-代码测试和数据库不一致"><a href="#3-代码测试和数据库不一致" class="headerlink" title="3.代码测试和数据库不一致"></a>3.代码测试和数据库不一致</h3><p>我在移植数据库的时候，出现了错误，导致数据库的好多存储值为null，因此导致了测试结果总是返回不存在。晚上线上数据库之后，发现测试正确了。因此在测试代码接口的时候，一定确保线上环境和数据库的一致性。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;完成代码之后，在本地接口测试正确，但是发布到线上之后总是测试有问题。经过再三查找，总结如下：&lt;/p&gt;
+&lt;h3 id=&quot;1-代码书写不严谨&quot;&gt;&lt;a href=&quot;#1-代码书写不严谨&quot; class=&quot;headerlink&quot; title=&quot;1.代码书写不严谨&quot;&gt;&lt;/a&gt;1.代码书
+      
+    
+    </summary>
+    
+      <category term="线上 测试" scheme="https://minminminzhang.github.io/categories/%E7%BA%BF%E4%B8%8A-%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="接口发布测试" scheme="https://minminminzhang.github.io/tags/%E6%8E%A5%E5%8F%A3%E5%8F%91%E5%B8%83%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQL语句优化</title>
+    <link href="https://minminminzhang.github.io/2019/cjr2ubp0w0000dsnuze2jbk39/"/>
+    <id>https://minminminzhang.github.io/2019/cjr2ubp0w0000dsnuze2jbk39/</id>
+    <published>2019-01-18T08:30:14.973Z</published>
+    <updated>2019-01-19T02:14:35.541Z</updated>
+    
+    <content type="html"><![CDATA[<p>当写代码初期的时候，SQL语句基本都关注正确性就可以了。但是随着将代码不断的应用，在这个过程中，SQL语句的优化就变的很重要，因为它关乎到程序执行的效率。因此，我们在Mapper中写sql语句时，要使用优质的SQL语句。以下是我在实践中学到的一些sql语句优化改进。</p><p>1.SQL语句中的in包含的值不应该过多</p><p>MySQL将in中的常量全部存储在一个数组里面，而且这个数组是排好序的。但是如果数值较多，运行的时候产生的消耗会很大。例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from t where num in(1,2,3)</span><br></pre></td></tr></table></figure><p>对于这种连续的数值，尽量用between，不要用in。</p><p>2、区分in和exists、not in和not exists</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表A where id in (select id from 表B)</span><br></pre></td></tr></table></figure><p>上面SQL语句相当于</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表A where exists(select * from 表B where 表B.id=表A.id)</span><br></pre></td></tr></table></figure><p>区分in和exists主要是造成了驱动顺序的改变，如果是exists，那么以外层表为驱动表，先被访问，如果是in，那么先执行子查询。所以in适合于外表大而内表小的情况；exists适合于外表小而内表大的情况。关于not in和not exists，尽量使用not exists，不仅仅是效率问题，not in可能存在逻辑问题。</p><p>例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select colname … from A表 where a.id not in (select b.id from B表)</span><br></pre></td></tr></table></figure><p>修改为：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select colname … from A表 Left join B表 on where a.id = b.id where b.id is null</span><br></pre></td></tr></table></figure><p>3.is null或is not null操作（判断字符段是否为空）</p><p>索引不索引空值，因此判断字符段是否为空不会应用索引。任何包含null值的列都将不会被包含在索引中。当一个索引有多列时，但是只要这些列中有一列含有null，该列就会从索引中排除，即使对该列建索引也不会提高性能。 因此可以采用其它相同功能的操作运算代替，如：a is not null 改为 a&gt;0 等其他对等的条件。</p><p>4、尽量用union all代替union</p><p>union和union all的差异主要是前者需要将结果集合并后再进行唯一性过滤操作，这就会涉及到排序，增加大量的CPU运算，加大资源消耗及延迟。当然，union all的前提条件是两个结果集没有重复数据</p><p>5、尽量不要使用%前缀模糊查询</p><p>例如LIKE“%name”或者LIKE“%name%”，这种查询会导致索引失效而进行全表扫描。但是可以使用LIKE “name%”。</p><p>6、避免在where子句中对字段进行表达式操作</p><p>比如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user_id,user_project from user_base where age*2=36;</span><br></pre></td></tr></table></figure><p>可以改成：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user_id,user_project from user_base where age=36/2;</span><br></pre></td></tr></table></figure><p>7.避免隐式类型转换</p><p>where子句中出现column字段的类型和传入的参数类型不一致的时候发生的类型转换，应该尽量确保一致。</p><p>8.应尽量避免在 where 子句中使用 or 来连接条件，否则将导致引擎放弃使用索引而进行全表扫描，如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from t where num=10 or num=20</span><br></pre></td></tr></table></figure><p>可以这样查询：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from t where num=10 union all select id from t where num=20</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;当写代码初期的时候，SQL语句基本都关注正确性就可以了。但是随着将代码不断的应用，在这个过程中，SQL语句的优化就变的很重要，因为它关乎到程序执行的效率。因此，我们在Mapper中写sql语句时，要使用优质的SQL语句。以下是我在实践中学到的一些sql语句优化改进。&lt;/p&gt;
+      
+    
+    </summary>
+    
+      <category term="SQL语句优化 " scheme="https://minminminzhang.github.io/categories/SQL%E8%AF%AD%E5%8F%A5%E4%BC%98%E5%8C%96/"/>
+    
+    
+      <category term="SQL语句优化" scheme="https://minminminzhang.github.io/tags/SQL%E8%AF%AD%E5%8F%A5%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
     <title>linux系统初步了解</title>
-    <link href="https://minminminzhang.github.io/2019/cjqur6yra000b44nufmapdxlk/"/>
-    <id>https://minminminzhang.github.io/2019/cjqur6yra000b44nufmapdxlk/</id>
+    <link href="https://minminminzhang.github.io/2019/cjr2u98wc000da4nuppvor2ub/"/>
+    <id>https://minminminzhang.github.io/2019/cjr2u98wc000da4nuppvor2ub/</id>
     <published>2019-01-13T08:27:42.514Z</published>
     <updated>2019-01-13T10:32:37.213Z</updated>
     
@@ -43,8 +94,8 @@
   
   <entry>
     <title>小顽童OA项目之邮件功能模块 </title>
-    <link href="https://minminminzhang.github.io/2019/cjqur6ytm001a44nuhp6obafj/"/>
-    <id>https://minminminzhang.github.io/2019/cjqur6ytm001a44nuhp6obafj/</id>
+    <link href="https://minminminzhang.github.io/2019/cjr2u98zt001ha4nub4uzrmac/"/>
+    <id>https://minminminzhang.github.io/2019/cjr2u98zt001ha4nub4uzrmac/</id>
     <published>2019-01-05T07:40:54.611Z</published>
     <updated>2019-01-05T08:13:02.538Z</updated>
     
@@ -70,8 +121,8 @@
   
   <entry>
     <title>小顽童OA项目介绍 </title>
-    <link href="https://minminminzhang.github.io/2019/cjqur6yrd000f44nuafiz1pmu/"/>
-    <id>https://minminminzhang.github.io/2019/cjqur6yrd000f44nuafiz1pmu/</id>
+    <link href="https://minminminzhang.github.io/2019/cjr2u98wo000ia4nubnc1awyw/"/>
+    <id>https://minminminzhang.github.io/2019/cjr2u98wo000ia4nubnc1awyw/</id>
     <published>2019-01-05T03:12:49.408Z</published>
     <updated>2019-01-13T10:34:25.517Z</updated>
     
@@ -98,8 +149,8 @@
   
   <entry>
     <title>一道关于顺时针打印矩阵的常见算法题</title>
-    <link href="https://minminminzhang.github.io/2018/cjqur6yr6000a44nu0op2bzlg/"/>
-    <id>https://minminminzhang.github.io/2018/cjqur6yr6000a44nu0op2bzlg/</id>
+    <link href="https://minminminzhang.github.io/2018/cjr2u98wi000ea4nufdcay6s1/"/>
+    <id>https://minminminzhang.github.io/2018/cjr2u98wi000ea4nufdcay6s1/</id>
     <published>2018-12-21T13:28:29.079Z</published>
     <updated>2018-12-23T07:52:20.683Z</updated>
     
@@ -125,8 +176,8 @@
   
   <entry>
     <title>用迭代算法解决汉诺塔问题</title>
-    <link href="https://minminminzhang.github.io/2018/cjqur6yr3000644nu5mywle5g/"/>
-    <id>https://minminminzhang.github.io/2018/cjqur6yr3000644nu5mywle5g/</id>
+    <link href="https://minminminzhang.github.io/2018/cjr2u98w70009a4nua3vsl8km/"/>
+    <id>https://minminminzhang.github.io/2018/cjr2u98w70009a4nua3vsl8km/</id>
     <published>2018-12-13T13:34:16.437Z</published>
     <updated>2018-12-13T13:35:47.249Z</updated>
     
@@ -150,8 +201,8 @@
   
   <entry>
     <title>用递归和迭代解决二叉树问题 </title>
-    <link href="https://minminminzhang.github.io/2018/cjqur6yr1000544nudc9h5ugb/"/>
-    <id>https://minminminzhang.github.io/2018/cjqur6yr1000544nudc9h5ugb/</id>
+    <link href="https://minminminzhang.github.io/2018/cjr2u98w50008a4nu25csvw18/"/>
+    <id>https://minminminzhang.github.io/2018/cjr2u98w50008a4nu25csvw18/</id>
     <published>2018-12-13T08:33:40.644Z</published>
     <updated>2018-12-13T13:19:29.234Z</updated>
     
@@ -177,8 +228,8 @@
   
   <entry>
     <title>java中常用的注解总结 </title>
-    <link href="https://minminminzhang.github.io/2018/cjqur6yqz000444nu9b9qyhp4/"/>
-    <id>https://minminminzhang.github.io/2018/cjqur6yqz000444nu9b9qyhp4/</id>
+    <link href="https://minminminzhang.github.io/2018/cjr2u98w10006a4nu4qpvozyj/"/>
+    <id>https://minminminzhang.github.io/2018/cjr2u98w10006a4nu4qpvozyj/</id>
     <published>2018-12-13T08:33:40.644Z</published>
     <updated>2018-12-13T13:23:41.955Z</updated>
     
@@ -206,8 +257,8 @@
   
   <entry>
     <title>时间典当厅项目之增加功能和上传</title>
-    <link href="https://minminminzhang.github.io/2018/cjqur6yrh000h44nuz56vcpva/"/>
-    <id>https://minminminzhang.github.io/2018/cjqur6yrh000h44nuz56vcpva/</id>
+    <link href="https://minminminzhang.github.io/2018/cjr2u98ws000ka4nui93s5ase/"/>
+    <id>https://minminminzhang.github.io/2018/cjr2u98ws000ka4nui93s5ase/</id>
     <published>2018-12-02T08:49:04.879Z</published>
     <updated>2018-12-02T09:08:26.971Z</updated>
     
@@ -232,8 +283,8 @@
   
   <entry>
     <title>Spring框架总结 </title>
-    <link href="https://minminminzhang.github.io/2018/cjqur6yqr000144nuyfjkqt5r/"/>
-    <id>https://minminminzhang.github.io/2018/cjqur6yqr000144nuyfjkqt5r/</id>
+    <link href="https://minminminzhang.github.io/2018/cjr2u98vp0002a4nuuam308pj/"/>
+    <id>https://minminminzhang.github.io/2018/cjr2u98vp0002a4nuuam308pj/</id>
     <published>2018-11-18T01:48:31.224Z</published>
     <updated>2018-12-02T08:33:16.386Z</updated>
     
@@ -258,8 +309,8 @@
   
   <entry>
     <title>小顽童项目准备</title>
-    <link href="https://minminminzhang.github.io/2018/cjqur6yrk000l44nunukliv89/"/>
-    <id>https://minminminzhang.github.io/2018/cjqur6yrk000l44nunukliv89/</id>
+    <link href="https://minminminzhang.github.io/2018/cjr2u98ww000oa4nuucacxpg1/"/>
+    <id>https://minminminzhang.github.io/2018/cjr2u98ww000oa4nuucacxpg1/</id>
     <published>2018-10-28T00:32:45.112Z</published>
     <updated>2018-12-13T13:12:59.845Z</updated>
     
@@ -287,8 +338,8 @@
   
   <entry>
     <title>Java中常用设计模式的使用方法与区别</title>
-    <link href="https://minminminzhang.github.io/2018/cjqur6yto001c44numz0iwkb4/"/>
-    <id>https://minminminzhang.github.io/2018/cjqur6yto001c44numz0iwkb4/</id>
+    <link href="https://minminminzhang.github.io/2018/cjr2u98zv001ia4nuv2s7z3a3/"/>
+    <id>https://minminminzhang.github.io/2018/cjr2u98zv001ia4nuv2s7z3a3/</id>
     <published>2018-10-08T12:10:59.041Z</published>
     <updated>2018-11-18T02:22:32.249Z</updated>
     
@@ -314,8 +365,8 @@
   
   <entry>
     <title>关于RESTful的理解</title>
-    <link href="https://minminminzhang.github.io/2018/cjqur6yqg000044nu64xv6sk4/"/>
-    <id>https://minminminzhang.github.io/2018/cjqur6yqg000044nu64xv6sk4/</id>
+    <link href="https://minminminzhang.github.io/2018/cjr2u98so0000a4nuvf91govp/"/>
+    <id>https://minminminzhang.github.io/2018/cjr2u98so0000a4nuvf91govp/</id>
     <published>2018-09-07T13:20:07.497Z</published>
     <updated>2018-12-13T13:12:20.052Z</updated>
     
@@ -339,8 +390,8 @@
   
   <entry>
     <title>搭建个人博客</title>
-    <link href="https://minminminzhang.github.io/2018/cjqur6ytr001g44nupaez5xbp/"/>
-    <id>https://minminminzhang.github.io/2018/cjqur6ytr001g44nupaez5xbp/</id>
+    <link href="https://minminminzhang.github.io/2018/cjr2u98zx001la4nu2vkuskzp/"/>
+    <id>https://minminminzhang.github.io/2018/cjr2u98zx001la4nu2vkuskzp/</id>
     <published>2018-09-07T07:09:45.688Z</published>
     <updated>2018-12-13T13:12:06.431Z</updated>
     
