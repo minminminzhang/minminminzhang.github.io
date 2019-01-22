@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="应用命令," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="技术博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="在学习了linux的基础和简单命令后，开始学习linux系统的目录与路径相关知识。我们之前学过切换目录的命令cd，以此进入文件路径。文件路径分为绝对路径和相对路径。 绝对路径：路径的写法一定是由根目录/泄气，例如/usr/share/doc这个目录。 相对路径：路径的写法不是由/写起，例如路径/usr/share/doc到路径/usr/share/man下面时，可以写成”cd../man”。相对路">
+<meta name="keywords" content="应用命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux系统进一步了解">
+<meta property="og:url" content="https://minminminzhang.github.io/2019/cjr7r6ljp001ufknute2o7sei/index.html">
+<meta property="og:site_name" content="技术博客">
+<meta property="og:description" content="在学习了linux的基础和简单命令后，开始学习linux系统的目录与路径相关知识。我们之前学过切换目录的命令cd，以此进入文件路径。文件路径分为绝对路径和相对路径。 绝对路径：路径的写法一定是由根目录/泄气，例如/usr/share/doc这个目录。 相对路径：路径的写法不是由/写起，例如路径/usr/share/doc到路径/usr/share/man下面时，可以写成”cd../man”。相对路">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-22T12:45:14.652Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux系统进一步了解">
+<meta name="twitter:description" content="在学习了linux的基础和简单命令后，开始学习linux系统的目录与路径相关知识。我们之前学过切换目录的命令cd，以此进入文件路径。文件路径分为绝对路径和相对路径。 绝对路径：路径的写法一定是由根目录/泄气，例如/usr/share/doc这个目录。 相对路径：路径的写法不是由/写起，例如路径/usr/share/doc到路径/usr/share/man下面时，可以写成”cd../man”。相对路">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://minminminzhang.github.io/2019/cjr7r6ljp001ufknute2o7sei/"/>
+
+
+
+
+
+  <title>linux系统进一步了解 | 技术博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学习的点点滴滴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://minminminzhang.github.io/2019/cjr7r6ljp001ufknute2o7sei/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张敏">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux系统进一步了解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-22T14:59:09+08:00">
+                2019-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux系统应用命令/" itemprop="url" rel="index">
+                    <span itemprop="name">linux系统应用命令 </span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在学习了linux的基础和简单命令后，开始学习linux系统的目录与路径相关知识。我们之前学过切换目录的命令cd，以此进入文件路径。文件路径分为绝对路径和相对路径。</p>
+<p>绝对路径：路径的写法一定是由根目录/泄气，例如/usr/share/doc这个目录。</p>
+<p>相对路径：路径的写法不是由/写起，例如路径/usr/share/doc到路径/usr/share/man下面时，可以写成”cd../man”。相对路径指的是相对目前的工作目录。</p>
+<h3 id="1-常见的处理目录命令"><a href="#1-常见的处理目录命令" class="headerlink" title="1.常见的处理目录命令"></a>1.常见的处理目录命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd:切换目录</span><br><span class="line">pwd:显示当前目录</span><br><span class="line">mkdir:新建一个新的目录</span><br><span class="line">rmdir:删除一个空的目录</span><br></pre></td></tr></table></figure>
+<h4 id="1-cd-Change-Directory-切换目录"><a href="#1-cd-Change-Directory-切换目录" class="headerlink" title="(1)cd(Change Directory,切换目录)"></a>(1)cd(Change Directory,切换目录)</h4><p>在CentOS中创建的minner账号的主文件夹是/home/minner/,而root的主文件夹则是/root/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # cd</span><br><span class="line"># 进入相对路径或绝对路径</span><br><span class="line">[root@www ~] # cd ~minner</span><br><span class="line"># 去到minner用户的主文件夹，即/home/minner</span><br><span class="line">[root@www minner] # cd ~</span><br><span class="line"># 表示回到自己的文件夹，即/root这个目录</span><br><span class="line">[root@www ~] # cd</span><br><span class="line"># 没有加上任何路径，也代表回到自己主文件夹的意思</span><br><span class="line">[root@www ~] # cd ..</span><br><span class="line"># 表示去到上层目录，即/root的上层目录</span><br><span class="line">[root@www /] # cd -</span><br><span class="line"># 表示回到刚才的目录，即/root</span><br><span class="line">[root@www ~] # cd /var/spool/mail</span><br><span class="line"># 去到指定的绝对路径</span><br><span class="line">[root@www mail] # cd ../mqueue</span><br><span class="line"># 相对路径，从路径/var/spool/mail到路径/var/spool/mqueue</span><br></pre></td></tr></table></figure>
+<p>注意:cd命令和目录名称之间存在一个空格。</p>
+<h4 id="2-pwd（Print-Working-Directory-显示目前所在的目录）"><a href="#2-pwd（Print-Working-Directory-显示目前所在的目录）" class="headerlink" title="(2)pwd（Print Working Directory,显示目前所在的目录）"></a>(2)pwd（Print Working Directory,显示目前所在的目录）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # pwd [-p]</span><br><span class="line">参数：</span><br><span class="line">-p：显示当前路径</span><br><span class="line"></span><br><span class="line">例如：只显示当前的工作目录</span><br><span class="line">[root@www ~] # pwd</span><br><span class="line">/root   &lt;==显示出目录</span><br><span class="line"></span><br><span class="line">例：显示出实际的工作目录</span><br><span class="line">[root@www ~] # cd /var/mail</span><br><span class="line">[root@www ~] # pwd</span><br><span class="line">/var/mail       &lt;==列出目前的工作目录</span><br></pre></td></tr></table></figure>
+<h4 id="3-mkdir-make-directory-新建新目录"><a href="#3-mkdir-make-directory-新建新目录" class="headerlink" title="(3)mkdir(make directory,新建新目录)"></a>(3)mkdir(make directory,新建新目录)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # cd /tmp</span><br><span class="line">[root@www ~] # mkdir test    &lt;==创建名为test的新目录</span><br><span class="line">[root@www ~] # mkdir test1/test2/test3    &lt;==无法直接创建多级目录</span><br><span class="line">[root@www ~] # mkdir -p test1/test2/test3   &lt;==利用-p，可以直接创建多级目录</span><br><span class="line">[root@www ~] # mkdir -m 711 test2  &lt;==利用-m，可以强制设置属性。如果没有m，则为默认属性</span><br></pre></td></tr></table></figure>
+<h4 id="4-rmdir-删除空目录"><a href="#4-rmdir-删除空目录" class="headerlink" title="(4)rmdir(删除空目录)"></a>(4)rmdir(删除空目录)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # test   &lt;==可以直接删掉</span><br><span class="line">[root@www ~] # test1  &lt;==不能直接删掉，因为里面有内容</span><br><span class="line">[root@www ~] # -p test1/test2/test3  &lt;==加上参数-p，可以一次性删除</span><br></pre></td></tr></table></figure>
+<h3 id="2-关于执行路径的变量：-PATH"><a href="#2-关于执行路径的变量：-PATH" class="headerlink" title="2.关于执行路径的变量：$PATH"></a>2.关于执行路径的变量：$PATH</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # echo $PATH   &lt;==以root身份列出查询的路径</span><br><span class="line">[root@www ~] # su - minner</span><br><span class="line">[minner@www ~] # echo $PATH   &lt;==以minner身份列出查询的路径</span><br></pre></td></tr></table></figure>
+<h3 id="3-查看文件与目录"><a href="#3-查看文件与目录" class="headerlink" title="3.查看文件与目录"></a>3.查看文件与目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # ls [-aAdfFhilnrRSt] 目录名称</span><br><span class="line">[root@www ~] # ls [--color=&#123;never,auto,always&#125;] 目录名称</span><br><span class="line">[root@www ~] # ls [--full-time] 名称目录</span><br><span class="line">参数：</span><br><span class="line">-a：全部的文件，连用隐藏文件一同列出来</span><br><span class="line">-d：仅列出目录本身，而不是目录内的文件数据</span><br><span class="line">-l：列出长数据串，包含文件的属性与权限等数据</span><br><span class="line">--color=never        ：不要依据文件特性给予颜色显示</span><br><span class="line">--color=always       ：显示颜色</span><br><span class="line">--color=auto         ：让系统自行依据设置来判断是否给予颜色</span><br><span class="line">--full-time          ：以完整时间（包括年月日时分）模式输出</span><br><span class="line">--time=&#123;atime,ctime&#125; ：输出访问时间或改变权限属性时间而非内容更改时间</span><br><span class="line"></span><br><span class="line">[root@www ~] # ls -al ~    &lt;==目录文件都是以深蓝色显示</span><br><span class="line">[root@www ~] # ls -alF --color=never ~   &lt;==不显示颜色，但在文件夹名未显示出该文件夹代表的类型</span><br><span class="line">[root@www ~] # ls -al  --full-time ~   &lt;==完整呈现文件的修改时间</span><br></pre></td></tr></table></figure>
+<h3 id="4-复制、删除与移动：cp-rm-mv"><a href="#4-复制、删除与移动：cp-rm-mv" class="headerlink" title="4.复制、删除与移动：cp,rm,mv"></a>4.复制、删除与移动：cp,rm,mv</h3><h4 id="1-cp-复制文件或目录"><a href="#1-cp-复制文件或目录" class="headerlink" title="(1) cp (复制文件或目录)"></a>(1) cp (复制文件或目录)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # cp [-adfilprsu] 源文件(source) 目标文件(destination) </span><br><span class="line"></span><br><span class="line">例1：</span><br><span class="line">[root@www ~] # cp ~/.bashrc /tmp/bashrc</span><br><span class="line">[root@www ~] # cp -i ~/.bashrc /tmp/bashrc</span><br><span class="line">cp: overwrite &apos;/tmp/bashrc&apos;?n &lt;==n 不覆盖，y为覆盖</span><br><span class="line"># 重复做两次操作，由于/tmp下面已经存在bashc了，加上-i参数后</span><br><span class="line"># 则在覆盖前会询问用户是否确定，可以按下n或者y来二次确认</span><br><span class="line"></span><br><span class="line">例2：切换目录到/tmp，并将/var/log/wtmp 复制到/tmp且查看属性:</span><br><span class="line">[root@www ~] # cd /tmp</span><br><span class="line">[root@www ~] # cp /var/log/wtmp . &lt;==想要复制到当前目录，最后的“.”不要忘记</span><br><span class="line">[root@www ~] # ls -l  /var/log/wtmp  wtmp</span><br><span class="line"></span><br><span class="line">例3：复制 /etc/ 这个目录下的所有内容复制到 /tmp下面</span><br><span class="line">[root@www ~] # cp /etc/ /tmp</span><br><span class="line">[root@www ~] # cp  -r /etc/ /tmp   &lt;==如果是目录不能直接复制，要加上-r参数</span><br></pre></td></tr></table></figure>
+<h4 id="2-rm-移除文件"><a href="#2-rm-移除文件" class="headerlink" title="(2) rm(移除文件)"></a>(2) rm(移除文件)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # rm [-fir]文件或目录</span><br><span class="line"></span><br><span class="line">例1：将刚才在cp的范例中创建的bashrc删除掉</span><br><span class="line">[root@www ~] # cd /tmp</span><br><span class="line">[root@www tmp] # rm -i bashrc   &lt;==如果加上-i的参数就会主动询问，避免删除错误的文件名</span><br><span class="line"></span><br><span class="line">例2：通过*，将/tmp下面开头为bashrc的文件名全部删除</span><br><span class="line">[root@www tmp] # rm -i bashrc*    &lt;==*代表0到无穷多个任意字符</span><br><span class="line"></span><br><span class="line">例3：将cp范例中所创建的/tmp/etc/这个目录删除掉</span><br><span class="line">[root@www tmp] #  rmdir /tmp/etc     &lt;==删不掉，因为不是空目录</span><br><span class="line">[root@www tmp] #  rm -r  /tmp/etc    &lt;==加r删除</span><br><span class="line"></span><br><span class="line">例4：删除一个带有 - 开头的文件</span><br><span class="line">[root@www tmp] #  touch ./-aaa- &lt;==touch这个命令可以创建空文件</span><br><span class="line">[root@www tmp] #  rm -aaa-   &lt;==系统会误判</span><br><span class="line">[root@www tmp] #  rm ./-aaa-</span><br></pre></td></tr></table></figure>
+<h4 id="3-mv-移动文件与目录，或更名"><a href="#3-mv-移动文件与目录，或更名" class="headerlink" title="(3)mv(移动文件与目录，或更名)"></a>(3)mv(移动文件与目录，或更名)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] mv  source destination</span><br><span class="line"></span><br><span class="line">例1：复制一个文件，创建一个目录，将文件移动到目录</span><br><span class="line">[root@www ~] # cd /tmp</span><br><span class="line">[root@www tmp] # cp ~/.bashrc bashrc </span><br><span class="line">[root@www tmp] # mkdir mvtest</span><br><span class="line">[root@www tmp] # mv bashrc mvtest</span><br><span class="line">#将文件移动到某个目录去</span><br><span class="line"></span><br><span class="line">例2：将刚才的目录名称重命名为mvtest2</span><br><span class="line">[root@www tmp] # mv mvtest mvtset2</span><br><span class="line"></span><br><span class="line">例3：再创建两个文件，再全部移动到/tmp/mvtest2当中</span><br><span class="line">[root@www tmp] # cp ~/.bashrc bashrc1</span><br><span class="line">[root@www tmp] # cp ~/.bashrc bashrc2</span><br><span class="line">[root@www tmp] # mv bashrc1 bashrc2 mvtest2</span><br><span class="line"># 注意，如果有多个源文件或目录，则最后一个一定是“目录”，将所有的数据移动到该目录</span><br></pre></td></tr></table></figure>
+<h3 id="5-取得路径的文件名与目录名称"><a href="#5-取得路径的文件名与目录名称" class="headerlink" title="5.取得路径的文件名与目录名称"></a>5.取得路径的文件名与目录名称</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # basename /etc/sysconfig/network</span><br><span class="line">network      &lt;==取得最后的文件名</span><br><span class="line">[root@www ~] # dirname /etc/sysconfig/network</span><br><span class="line">/etc/sysconfig   &lt;==取得目录名</span><br></pre></td></tr></table></figure>
+<h3 id="6-文件内容查询"><a href="#6-文件内容查询" class="headerlink" title="6.文件内容查询"></a>6.文件内容查询</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat: 由第一行开始显示文件内容</span><br><span class="line">tac: 从最后一行开始显示，可以看出tac是cat的倒写形式。</span><br><span class="line">nl: 显示的时候，顺便输出行号</span><br><span class="line">more: 一页一页地显示文件内容</span><br><span class="line">less: 与more类似，但是比more更好的是， 它可以往前翻页。</span><br><span class="line">head: 只看头几行</span><br><span class="line">tail: 只看结尾几行</span><br><span class="line">od: 以二进制的方式读取文件内容</span><br></pre></td></tr></table></figure>
+<h4 id="1-cat-concatenate"><a href="#1-cat-concatenate" class="headerlink" title="(1)cat(concatenate)"></a>(1)cat(concatenate)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # cat [-AbEnTv]</span><br><span class="line">参数：</span><br><span class="line">-b： 列出行号，仅针对非空白部分</span><br><span class="line">-n： 打印出行号，连同空白处也会有行号</span><br><span class="line"></span><br><span class="line">例1:查看/etc/issue这个文件的内容</span><br><span class="line">[root@www ~] # cat /etc/issue</span><br><span class="line">[root@www ~] # cat -n /etc/issue    &lt;==加上行号</span><br><span class="line">[root@www ~] # cat -A /etc/issue    &lt;==将/etc/issue的内容完整的显示出来</span><br></pre></td></tr></table></figure>
+<h4 id="2-tac-反向列示"><a href="#2-tac-反向列示" class="headerlink" title="(2) tac(反向列示)"></a>(2) tac(反向列示)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # tac  /etc/issue</span><br></pre></td></tr></table></figure>
+<h4 id="3-nl-添加行号打印"><a href="#3-nl-添加行号打印" class="headerlink" title="(3)nl(添加行号打印)"></a>(3)nl(添加行号打印)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # nl [-bnw] 文件</span><br><span class="line"></span><br><span class="line">例1：</span><br><span class="line">[root@www ~] # nl /etc/issue   &lt;==空白处不显示行号</span><br><span class="line"></span><br><span class="line">[root@www ~] # nl --b /etc/issue  &lt;==空白处显示行号</span><br></pre></td></tr></table></figure>
+<h4 id="4-可翻页查看"><a href="#4-可翻页查看" class="headerlink" title="(4)可翻页查看"></a>(4)可翻页查看</h4><p>more(一页一页翻动)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # more /etc/man.config</span><br></pre></td></tr></table></figure>
+<p>more后面接的文件内容行数大于屏幕输出的行数时，可以一页一页的查看。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">空格键(Space)：代表向下翻一页</span><br><span class="line">enter        ： 代表向下滚动一行</span><br><span class="line">/字符串       ： 代表在这个显示的内容当中，相信爱查询“字符串”这个关键字</span><br><span class="line">:f           ： 立刻显示出文件名以及目前显示的行数</span><br><span class="line">q            ：代表离开more，不再显示该文件内容</span><br></pre></td></tr></table></figure>
+<p>less(一页一页翻动)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # more /etc/man.config</span><br></pre></td></tr></table></figure>
+<p>less比more更有弹性。在使用more的时候，并没有办法向前面翻，只能往后面看。但使用less的时候，可以向前和向后看。</p>
+<h3 id="7-数据选取"><a href="#7-数据选取" class="headerlink" title="7.数据选取"></a>7.数据选取</h3><p>head和tail都是以“行”为单位来选取数据的。</p>
+<h4 id="1-head-取出前面几行"><a href="#1-head-取出前面几行" class="headerlink" title="(1)head(取出前面几行)"></a>(1)head(取出前面几行)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # head [-n number] 文件</span><br><span class="line">参数：</span><br><span class="line">-n：后面接数字，代表显示几行的意思</span><br><span class="line"></span><br><span class="line">[root@www ~] # head /etc/man.config</span><br><span class="line"># 默认的情况中，显示前10行，若要显示前20行，就要如下执行命令：</span><br><span class="line">[root@www ~] # head -n 20 /etc/man.config</span><br><span class="line"></span><br><span class="line">例：如果后面100行数据都不打印，只打印 /etc/man.config的前面几行</span><br><span class="line">[root@www ~] # head -n -100 /etc/man.config</span><br></pre></td></tr></table></figure>
+<h4 id="2-tail-取出后面几行"><a href="#2-tail-取出后面几行" class="headerlink" title="(2)tail (取出后面几行)"></a>(2)tail (取出后面几行)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~] # tail /etc/man.config</span><br><span class="line"># 默认的情况中，显示前10行，若要显示后20行，就要如下执行命令：</span><br><span class="line">[root@www ~] # tail -n 20 /etc/man.config</span><br><span class="line"></span><br><span class="line">例1：列出100行以后的数据</span><br><span class="line">[root@www ~] # tail -n +100 /etc/man.config</span><br><span class="line"></span><br><span class="line">例2：取出/etc/man.config的第11-20行</span><br><span class="line">[root@www ~] # head -n 20  /etc/man.config | tail -n 10</span><br></pre></td></tr></table></figure>
+<p>补充：从自己创建的文件夹到root的主文件夹还可以用命令su</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/应用命令/" rel="tag"># 应用命令</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/cjr7r6l8r0002fknuwgc2dalp/" rel="next" title="接口本地测试正确 线上测试发生错误">
+                <i class="fa fa-chevron-left"></i> 接口本地测试正确 线上测试发生错误
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/cjr7r6l9e000gfknuih26kuou/" rel="prev" title="linux系统命令(3)">
+                linux系统命令(3) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="张敏" />
+            
+              <p class="site-author-name" itemprop="name">张敏</p>
+              <p class="site-description motion-element" itemprop="description">Ashes of Time</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-常见的处理目录命令"><span class="nav-number">1.</span> <span class="nav-text">1.常见的处理目录命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-cd-Change-Directory-切换目录"><span class="nav-number">1.1.</span> <span class="nav-text">(1)cd(Change Directory,切换目录)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-pwd（Print-Working-Directory-显示目前所在的目录）"><span class="nav-number">1.2.</span> <span class="nav-text">(2)pwd（Print Working Directory,显示目前所在的目录）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-mkdir-make-directory-新建新目录"><span class="nav-number">1.3.</span> <span class="nav-text">(3)mkdir(make directory,新建新目录)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-rmdir-删除空目录"><span class="nav-number">1.4.</span> <span class="nav-text">(4)rmdir(删除空目录)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-关于执行路径的变量：-PATH"><span class="nav-number">2.</span> <span class="nav-text">2.关于执行路径的变量：$PATH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-查看文件与目录"><span class="nav-number">3.</span> <span class="nav-text">3.查看文件与目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-复制、删除与移动：cp-rm-mv"><span class="nav-number">4.</span> <span class="nav-text">4.复制、删除与移动：cp,rm,mv</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-cp-复制文件或目录"><span class="nav-number">4.1.</span> <span class="nav-text">(1) cp (复制文件或目录)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-rm-移除文件"><span class="nav-number">4.2.</span> <span class="nav-text">(2) rm(移除文件)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-mv-移动文件与目录，或更名"><span class="nav-number">4.3.</span> <span class="nav-text">(3)mv(移动文件与目录，或更名)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-取得路径的文件名与目录名称"><span class="nav-number">5.</span> <span class="nav-text">5.取得路径的文件名与目录名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-文件内容查询"><span class="nav-number">6.</span> <span class="nav-text">6.文件内容查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-cat-concatenate"><span class="nav-number">6.1.</span> <span class="nav-text">(1)cat(concatenate)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-tac-反向列示"><span class="nav-number">6.2.</span> <span class="nav-text">(2) tac(反向列示)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-nl-添加行号打印"><span class="nav-number">6.3.</span> <span class="nav-text">(3)nl(添加行号打印)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-可翻页查看"><span class="nav-number">6.4.</span> <span class="nav-text">(4)可翻页查看</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-数据选取"><span class="nav-number">7.</span> <span class="nav-text">7.数据选取</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-head-取出前面几行"><span class="nav-number">7.1.</span> <span class="nav-text">(1)head(取出前面几行)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-tail-取出后面几行"><span class="nav-number">7.2.</span> <span class="nav-text">(2)tail (取出后面几行)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张敏</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
