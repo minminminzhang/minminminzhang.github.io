@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://minminminzhang.github.io/"/>
-  <updated>2019-01-22T12:50:02.520Z</updated>
+  <updated>2019-03-10T03:10:36.716Z</updated>
   <id>https://minminminzhang.github.io/</id>
   
   <author>
@@ -17,9 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>实习之java如何简洁判空 </title>
+    <link href="https://minminminzhang.github.io/2019/cjt2bffyq0000c4nuxtojtzs3/"/>
+    <id>https://minminminzhang.github.io/2019/cjt2bffyq0000c4nuxtojtzs3/</id>
+    <published>2019-03-10T01:25:19.957Z</published>
+    <updated>2019-03-10T03:10:36.716Z</updated>
+    
+    <content type="html"><![CDATA[<p> 对于一个java程序员来说，对判空再熟悉不过了。为了避免出现“空指针异常”，我们会经常进行如下操作。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if ( data!=null)&#123;</span><br><span class="line">  do sth</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> 如果一个类中多次使用某个对象，就要操作多个像这样的判空语句。对于项目中无数次的判空，对代码质量整洁度产生了十分恶劣的影响，对于这种现象，我们称为“判空灾难”。</p><h3 id="1-NullObject模式"><a href="#1-NullObject模式" class="headerlink" title="1.NullObject模式"></a>1.NullObject模式</h3><p>在面向对象语言中，对对象的调用前需要使用判空检查，来判断这些对象是否为空，因为在空引用上无法调用所需方法。Nullable是空对象的相关操作接口，用于确定对象是否为空，因为在空对象模式中，对象为空会被包装成一个Object，称为Null Object，该对象会对所有的方法进行空实现：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface Nullable&#123;</span><br><span class="line">     boolean isNull();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这个接口定义了业务对象的行为。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface DependencyBase extends Nullable&#123;</span><br><span class="line">    void Operation();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>该对象的真实类，实现了业务行为接口DepandencyBase与空对象操作接口Nullable。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Dependency implements DependencyBase,Nullable&#123;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public void Operation()&#123;</span><br><span class="line">   System.out.print(&quot;Test!&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Override </span><br><span class="line">public boolean isNull()&#123;</span><br><span class="line">  return false;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这是空对象，队员有对象的行为进行了空实现。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class NullObject implements DependencyBase&#123;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public void Operation()&#123;</span><br><span class="line">  // do nothing </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public boolean isNull()&#123;</span><br><span class="line"> return true;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在使用时，可以通过工厂调用方式来进行空对象的调用。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Factory&#123;</span><br><span class="line"> public static DependencyBase get(Nullable dependencyBase)&#123;</span><br><span class="line"></span><br><span class="line">   if(dependencyBase == null)&#123;</span><br><span class="line">    return new NullObject();</span><br><span class="line">   &#125;</span><br><span class="line">    return new Dependency();</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过这种模式，我们不再需要进行对象的判空操作，而是可以直接使用对象，不必担心空指针异常的问题。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class Client&#123;</span><br><span class="line">       public void test(DependencyBase dependencyBase)&#123;</span><br><span class="line">           Factory.get(dependencyBase).Operation();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="2-NR-Null-Object"><a href="#2-NR-Null-Object" class="headerlink" title="2.NR Null Object"></a>2.NR Null Object</h3><p>它是一款适用于IDEA的Intellij插件。其可以根据现有现象，便捷快速生成其空对象模式需要的组成成分，功能包括：分析所选类可声明为接口的方法；抽象出公有接口；创建控对象， 自动实现公有接口；对部分函数进行可为空声明；可追加汉书进行再次生成；自动的函数命名规范。</p><p>只需要在原有需要进行多次判空的对象中，右击弹出菜单，选择Generate，并选择NR Null Object即可自动生成相应的空对象组件。</p><p>获得这款插件的安装方式：可以直接通过IDEA的Preferences中的Plugins仓库进行安装。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; 选择 Preferences → Plugins → Browse repositories</span><br><span class="line">&gt; 搜索“NR Null Oject”，点击右侧的Install，restart IDEA即可。</span><br></pre></td></tr></table></figure><h3 id="3-Optional"><a href="#3-Optional" class="headerlink" title="3.Optional"></a>3.Optional</h3><p>还有一种方式是使用Java8特性中的Optional来进行简洁判空，它是一个可能包含也可能不包含非null值的容器对象。 如果存在值，isPresent（）将返回true，get（）将返回该值。</p><p>举个例子，我们需要获得Test2中的Info信息，但是参数为Test4，我们要一层层的申请，每一层都获得的对象都可能是空，最后的代码看起来就像这样。 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public String testSimple(Test4 test) &#123;</span><br><span class="line">       if (test == null) &#123;</span><br><span class="line">           return &quot;&quot;;</span><br><span class="line">       &#125;</span><br><span class="line">       if (test.getTest3() == null) &#123;</span><br><span class="line">           return &quot;&quot;;</span><br><span class="line">       &#125;</span><br><span class="line">       if (test.getTest3().getTest2() == null) &#123;</span><br><span class="line">           return &quot;&quot;;</span><br><span class="line">       &#125;</span><br><span class="line">       if (test.getTest3().getTest2().getInfo() == null) &#123;</span><br><span class="line">           return &quot;&quot;;</span><br><span class="line">       &#125;</span><br><span class="line">       return test.getTest3().getTest2().getInfo();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>但是使用Optional后，整个就都不一样了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public String testOptional(Test test) &#123;</span><br><span class="line">       return Optional.ofNullable(test).flatMap(Test::getTest3)</span><br><span class="line">               .flatMap(Test3::getTest2)</span><br><span class="line">               .map(Test2::getInfo)</span><br><span class="line">               .orElse(&quot;&quot;);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure><p>(1) Optional.ofNullable(test)，如果test为空，则返回一个单例空Optional对象，如果非空则返回一个Optional包装对象，Optional将test包装</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static &lt;T&gt; Optional&lt;T&gt; ofNullable(T value) &#123;</span><br><span class="line">     return value == null ? empty() : of(value);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure><p>(2) flatMap(Test::getTest3)判断test是否为空，如果为空，继续返回第一步中的单例Optional对象，否则调用Test的getTest3方法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public&lt;U&gt; Optional&lt;U&gt; flatMap(Function&lt;? super T, Optional&lt;U&gt;&gt; mapper) &#123;</span><br><span class="line">     Objects.requireNonNull(mapper);</span><br><span class="line">     if (!isPresent())</span><br><span class="line">         return empty();</span><br><span class="line">     else &#123;</span><br><span class="line">         return Objects.requireNonNull(mapper.apply(value));</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure><p>(3) flatMap(Test3::getTest2)同上调用Test3的getTest2方法</p><p>(4) map(Test2::getInfo)同flatMap类似，但是flatMap要求Test3::getTest2返回值为Optional类型，而map不需要，flatMap不会多层包装，map返回会再次包装Optional</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public&lt;U&gt; Optional&lt;U&gt; map(Function&lt;? super T, ? extends U&gt; mapper) &#123;</span><br><span class="line">     Objects.requireNonNull(mapper);</span><br><span class="line">     if (!isPresent())</span><br><span class="line">         return empty();</span><br><span class="line">     else &#123;</span><br><span class="line">         return Optional.ofNullable(mapper.apply(value));</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure><p>(5)orElse(“”);获得map中的value，不为空则直接返回value，为空则返回传入的参数作为默认值。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  public T orElse(T other) &#123;</span><br><span class="line">    return value != null ? value : other;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>使用Optional后我们的代码瞬间变得非常整洁，针对复杂的一长串判空，Optional有它的优势，但是对于简单的判空使用Optional也会增加代码的阅读成本、编码量以及学习成本。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt; 对于一个java程序员来说，对判空再熟悉不过了。为了避免出现“空指针异常”，我们会经常进行如下操作。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;l
+      
+    
+    </summary>
+    
+      <category term="java简洁判空" scheme="https://minminminzhang.github.io/categories/java%E7%AE%80%E6%B4%81%E5%88%A4%E7%A9%BA/"/>
+    
+    
+      <category term="实习学习" scheme="https://minminminzhang.github.io/tags/%E5%AE%9E%E4%B9%A0%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>linux系统命令(3)</title>
-    <link href="https://minminminzhang.github.io/2019/cjr7r6l9e000gfknuih26kuou/"/>
-    <id>https://minminminzhang.github.io/2019/cjr7r6l9e000gfknuih26kuou/</id>
+    <link href="https://minminminzhang.github.io/2019/cjt2bfg0w000jc4nuqjrhcar9/"/>
+    <id>https://minminminzhang.github.io/2019/cjt2bfg0w000jc4nuqjrhcar9/</id>
     <published>2019-01-22T09:52:42.717Z</published>
     <updated>2019-01-22T12:50:02.520Z</updated>
     
@@ -44,8 +70,8 @@
   
   <entry>
     <title>linux系统进一步了解</title>
-    <link href="https://minminminzhang.github.io/2019/cjr7r6ljp001ufknute2o7sei/"/>
-    <id>https://minminminzhang.github.io/2019/cjr7r6ljp001ufknute2o7sei/</id>
+    <link href="https://minminminzhang.github.io/2019/cjt2bfg400020c4nukghmid64/"/>
+    <id>https://minminminzhang.github.io/2019/cjt2bfg400020c4nukghmid64/</id>
     <published>2019-01-22T06:59:09.728Z</published>
     <updated>2019-01-22T12:45:14.652Z</updated>
     
@@ -71,8 +97,8 @@
   
   <entry>
     <title>接口本地测试正确 线上测试发生错误</title>
-    <link href="https://minminminzhang.github.io/2019/cjr7r6l8r0002fknuwgc2dalp/"/>
-    <id>https://minminminzhang.github.io/2019/cjr7r6l8r0002fknuwgc2dalp/</id>
+    <link href="https://minminminzhang.github.io/2019/cjt2bffzb0002c4nusp8b0yal/"/>
+    <id>https://minminminzhang.github.io/2019/cjt2bffzb0002c4nusp8b0yal/</id>
     <published>2019-01-18T09:43:05.939Z</published>
     <updated>2019-01-19T02:20:20.752Z</updated>
     
@@ -97,8 +123,8 @@
   
   <entry>
     <title>SQL语句优化</title>
-    <link href="https://minminminzhang.github.io/2019/cjr7r6lpu0026fknuh041viy0/"/>
-    <id>https://minminminzhang.github.io/2019/cjr7r6lpu0026fknuh041viy0/</id>
+    <link href="https://minminminzhang.github.io/2019/cjt2bfg17000rc4nukc611eiz/"/>
+    <id>https://minminminzhang.github.io/2019/cjt2bfg17000rc4nukc611eiz/</id>
     <published>2019-01-18T08:30:14.973Z</published>
     <updated>2019-01-19T02:14:35.541Z</updated>
     
@@ -122,8 +148,8 @@
   
   <entry>
     <title>linux系统初步了解</title>
-    <link href="https://minminminzhang.github.io/2019/cjr7r6l9a000cfknugt3a3946/"/>
-    <id>https://minminminzhang.github.io/2019/cjr7r6l9a000cfknugt3a3946/</id>
+    <link href="https://minminminzhang.github.io/2019/cjt2bfg0s000fc4nucuen1hwd/"/>
+    <id>https://minminminzhang.github.io/2019/cjt2bfg0s000fc4nucuen1hwd/</id>
     <published>2019-01-13T08:27:42.514Z</published>
     <updated>2019-01-22T12:54:07.124Z</updated>
     
@@ -147,8 +173,8 @@
   
   <entry>
     <title>小顽童OA项目之邮件功能模块 </title>
-    <link href="https://minminminzhang.github.io/2019/cjr7r6ljg001ofknu2bmnwbg5/"/>
-    <id>https://minminminzhang.github.io/2019/cjr7r6ljg001ofknu2bmnwbg5/</id>
+    <link href="https://minminminzhang.github.io/2019/cjt2bfg3u001wc4nupi6t8kut/"/>
+    <id>https://minminminzhang.github.io/2019/cjt2bfg3u001wc4nupi6t8kut/</id>
     <published>2019-01-05T07:40:54.611Z</published>
     <updated>2019-01-05T08:13:02.538Z</updated>
     
@@ -174,8 +200,8 @@
   
   <entry>
     <title>小顽童OA项目介绍 </title>
-    <link href="https://minminminzhang.github.io/2019/cjr7r6l9m000mfknu5pz1rlw5/"/>
-    <id>https://minminminzhang.github.io/2019/cjr7r6l9m000mfknu5pz1rlw5/</id>
+    <link href="https://minminminzhang.github.io/2019/cjt2bfg15000pc4nuslrk3t23/"/>
+    <id>https://minminminzhang.github.io/2019/cjt2bfg15000pc4nuslrk3t23/</id>
     <published>2019-01-05T03:12:49.408Z</published>
     <updated>2019-01-19T02:33:54.127Z</updated>
     
@@ -202,8 +228,8 @@
   
   <entry>
     <title>一道关于顺时针打印矩阵的常见算法题</title>
-    <link href="https://minminminzhang.github.io/2018/cjr7r6l9i000ifknu0xxxx8jv/"/>
-    <id>https://minminminzhang.github.io/2018/cjr7r6l9i000ifknu0xxxx8jv/</id>
+    <link href="https://minminminzhang.github.io/2018/cjt2bfg12000lc4nurix0ac34/"/>
+    <id>https://minminminzhang.github.io/2018/cjt2bfg12000lc4nurix0ac34/</id>
     <published>2018-12-21T13:28:29.079Z</published>
     <updated>2019-01-19T02:33:38.837Z</updated>
     
@@ -229,8 +255,8 @@
   
   <entry>
     <title>用迭代算法解决汉诺塔问题</title>
-    <link href="https://minminminzhang.github.io/2018/cjr7r6l97000bfknu38lah0yk/"/>
-    <id>https://minminminzhang.github.io/2018/cjr7r6l97000bfknu38lah0yk/</id>
+    <link href="https://minminminzhang.github.io/2018/cjt2bfg0p000ec4nu8oclkasi/"/>
+    <id>https://minminminzhang.github.io/2018/cjt2bfg0p000ec4nu8oclkasi/</id>
     <published>2018-12-13T13:34:16.437Z</published>
     <updated>2018-12-13T13:35:47.249Z</updated>
     
@@ -254,8 +280,8 @@
   
   <entry>
     <title>用递归和迭代解决二叉树问题 </title>
-    <link href="https://minminminzhang.github.io/2018/cjr7r6l930007fknuyt4y0zjr/"/>
-    <id>https://minminminzhang.github.io/2018/cjr7r6l930007fknuyt4y0zjr/</id>
+    <link href="https://minminminzhang.github.io/2018/cjt2bfg0h000ac4nub6i443h4/"/>
+    <id>https://minminminzhang.github.io/2018/cjt2bfg0h000ac4nub6i443h4/</id>
     <published>2018-12-13T08:33:40.644Z</published>
     <updated>2019-01-19T02:31:24.798Z</updated>
     
@@ -281,8 +307,8 @@
   
   <entry>
     <title>java中常用的注解总结 </title>
-    <link href="https://minminminzhang.github.io/2018/cjr7r6l910006fknuynf4p4p0/"/>
-    <id>https://minminminzhang.github.io/2018/cjr7r6l910006fknuynf4p4p0/</id>
+    <link href="https://minminminzhang.github.io/2018/cjt2bfg090009c4nues03sv28/"/>
+    <id>https://minminminzhang.github.io/2018/cjt2bfg090009c4nues03sv28/</id>
     <published>2018-12-13T08:33:40.644Z</published>
     <updated>2018-12-13T13:23:41.955Z</updated>
     
@@ -310,8 +336,8 @@
   
   <entry>
     <title>时间典当厅项目之增加功能和上传</title>
-    <link href="https://minminminzhang.github.io/2018/cjr7r6l9p000ofknunaxgk4vp/"/>
-    <id>https://minminminzhang.github.io/2018/cjr7r6l9p000ofknunaxgk4vp/</id>
+    <link href="https://minminminzhang.github.io/2018/cjt2bfg1a000vc4nuxl0nuvn7/"/>
+    <id>https://minminminzhang.github.io/2018/cjt2bfg1a000vc4nuxl0nuvn7/</id>
     <published>2018-12-02T08:49:04.879Z</published>
     <updated>2018-12-02T09:08:26.971Z</updated>
     
@@ -336,8 +362,8 @@
   
   <entry>
     <title>Spring框架总结 </title>
-    <link href="https://minminminzhang.github.io/2018/cjr7r6l8z0005fknu6dv0ml1t/"/>
-    <id>https://minminminzhang.github.io/2018/cjr7r6l8z0005fknu6dv0ml1t/</id>
+    <link href="https://minminminzhang.github.io/2018/cjt2bffzx0008c4nu2w8gu1qq/"/>
+    <id>https://minminminzhang.github.io/2018/cjt2bffzx0008c4nu2w8gu1qq/</id>
     <published>2018-11-18T01:48:31.224Z</published>
     <updated>2019-01-19T02:34:16.101Z</updated>
     
@@ -362,8 +388,8 @@
   
   <entry>
     <title>小顽童项目准备</title>
-    <link href="https://minminminzhang.github.io/2018/cjr7r6l9r000sfknurehv52k0/"/>
-    <id>https://minminminzhang.github.io/2018/cjr7r6l9r000sfknurehv52k0/</id>
+    <link href="https://minminminzhang.github.io/2018/cjt2bfg1c000xc4nufdq8miq6/"/>
+    <id>https://minminminzhang.github.io/2018/cjt2bfg1c000xc4nufdq8miq6/</id>
     <published>2018-10-28T00:32:45.112Z</published>
     <updated>2019-01-19T02:34:32.997Z</updated>
     
@@ -391,8 +417,8 @@
   
   <entry>
     <title>Java中常用设计模式的使用方法与区别</title>
-    <link href="https://minminminzhang.github.io/2018/cjr7r6ljj001qfknubfrgi1kh/"/>
-    <id>https://minminminzhang.github.io/2018/cjr7r6ljj001qfknubfrgi1kh/</id>
+    <link href="https://minminminzhang.github.io/2018/cjt2bfg3x001xc4nu1ddxj6vd/"/>
+    <id>https://minminminzhang.github.io/2018/cjt2bfg3x001xc4nu1ddxj6vd/</id>
     <published>2018-10-08T12:10:59.041Z</published>
     <updated>2018-11-18T02:22:32.249Z</updated>
     
@@ -418,8 +444,8 @@
   
   <entry>
     <title>关于RESTful的理解</title>
-    <link href="https://minminminzhang.github.io/2018/cjr7r6l8h0000fknu8xg5vcgg/"/>
-    <id>https://minminminzhang.github.io/2018/cjr7r6l8h0000fknu8xg5vcgg/</id>
+    <link href="https://minminminzhang.github.io/2018/cjt2bffzk0004c4nujw41btcj/"/>
+    <id>https://minminminzhang.github.io/2018/cjt2bffzk0004c4nujw41btcj/</id>
     <published>2018-09-07T13:20:07.497Z</published>
     <updated>2018-12-13T13:12:20.052Z</updated>
     
@@ -443,8 +469,8 @@
   
   <entry>
     <title>搭建个人博客</title>
-    <link href="https://minminminzhang.github.io/2018/cjr7r6ljs001wfknut19ob0ca/"/>
-    <id>https://minminminzhang.github.io/2018/cjr7r6ljs001wfknut19ob0ca/</id>
+    <link href="https://minminminzhang.github.io/2018/cjt2bfg450022c4nu9e8ra5ja/"/>
+    <id>https://minminminzhang.github.io/2018/cjt2bfg450022c4nu9e8ra5ja/</id>
     <published>2018-09-07T07:09:45.688Z</published>
     <updated>2019-01-19T02:33:08.637Z</updated>
     
