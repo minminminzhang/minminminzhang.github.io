@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://minminminzhang.github.io/"/>
-  <updated>2019-07-23T10:34:20.635Z</updated>
+  <updated>2019-08-16T11:34:00.057Z</updated>
   <id>https://minminminzhang.github.io/</id>
   
   <author>
@@ -17,9 +17,62 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>百度一面总结与分享</title>
+    <link href="https://minminminzhang.github.io/2019/cjze1fwy20007cwnujwus9u3q/"/>
+    <id>https://minminminzhang.github.io/2019/cjze1fwy20007cwnujwus9u3q/</id>
+    <published>2019-08-16T09:41:47.769Z</published>
+    <updated>2019-08-16T11:34:00.057Z</updated>
+    
+    <content type="html"><![CDATA[<p>面试岗位：基础平台开发<br>面试流程：自我介绍，最拿手的项目介绍，技术问答，面试官解疑</p><p>1.自我介绍<br>    自我介绍说了自己在校期间的学业成绩，参与的活动，项目和实习经历。完了之后面试官提问是否在校期间担任班干部职务，问的相对很详细。</p><p>2.最拿手的项目介绍<br>    我介绍了一个我自认为很了解参与最多的项目，面试官问了很多问题，虽然你都回答上来了，但我觉得他对个别问题的满意度不是很高，主要原因在于还是自己实践和企业应用之间的差别吧。</p><p>3.最重要的就是第三个环节：技术提问</p><p>(1).描述一下计算机的开机过程。<br>    1）当电源开关按下时，电源开始向主板和其他设备供电，电压不稳定时，主板会向CPU发出复位信号。稳定后,跳转到BIOS的启动代码处。<br>    2）BIOS进行加电自检，检测关键设备（如电源，CPU芯片，BIOS芯片，基本内存电路）供电情况是否良好。如果自检出了问题，系统喇叭会发出警报声。（根据警报声的长短和次数判断出现了什么问题）<br>    3）如果自检通过，BIOS会查找显卡BIOS，找到后会调用显卡BIOS的初始化代码，此时显示器就开始显示了（这就是为什么自检失败只能靠发声进行提醒了）。显卡BIOS会在屏幕上显示显卡的相关信息。<br>    4）显卡检测成功后会进行其他设备的检测，通过后系统BIOS重新执行自己的代码，并显示自己的启动画面，将相关信息显示在屏幕上，然后内存测试，短暂出现系统BIOS设置页面。设置后，会重新启动。<br>    5）BIOS检测系统的标准硬件，检测完成后会接着检测即插即用设备，如果有的话就为该设备分配中断、DMA通道和I/O端口等资源。到这里所有的设备检测就完成了，BIOS进行清屏并显示一个系统配置表。<br>    6）当上述所有的步骤都顺利进行以后，BIOS执行最后一项任务：按照用户指定的顺序进行启动（一般默认是硬盘，如果哦需要安装系统，还会设置为光驱或USB设备）。</p><p>(2).页面请求的工作流程。<br>    1）用户通过浏览器输入链接地址来请求所需的资源<br>    2）浏览器接收用户的请求，并把该请求组装成指定的格式发给服务器端，客户端与服务器端之间通过HTTP来完成具体的交互。其中请求的数据流主要包含HTTP，请求方法，请求的网址以及请求的一些参数信息。<br>    3）服务器接收到客户端发来的请求，并查找用户所需的资源。<br>    4）服务器查找到用户所需的资源，把该资源返回给客户端。<br>    5）服务器通过把响应消息组装成待定的消息格式后返回给客户端，这个过程通过HTTP完成。响应的数据流主要包括状态编码（代表请求成功或失败），Content-type（例如text，picture，HTML），响应消息的内容（图片或HTML格式的内容）。<br>    6）浏览器对HTML进行解析，并把响应结果展示给用户。</p><p>(3).说一下你对Java中GC的理解<br>   在java 中，垃圾回收主要的作用是会搜程序中不再使用的内存。在C/C++中，开发人员负责内存的分配和释放。Java语言提供了垃圾回收起来自动检测对象的作用域，可自动地把不再被使用的存储空间释放掉。<br>具体而言，主要完成3项任务：分配内存，确保被引用对象的内存不被错误的回收，回收不再被引用的对象的内存空间。</p><p><em>优点:减轻开发人员管理内存的负担，避免开发人员错误的操作内存导致应用程序的崩溃。<br>不足：为了实现垃圾回收，垃圾回收器必须跟踪内存的使用情况，释放没用的对象，在完成内存释放后还需要处理堆中的碎片，这些操作会增加JVM的负担，降低程序的执行效率。</em></p><p>如何确定一个对象是垃圾信息：没有任何变量去引用，不可能被程序访问。<br>对于垃圾回收器，它使用有向图记录和管理内存中的所有对象，通过这个有向图就可以识别哪些对象是可达的，（有引用变量引用它就是可达的），不可达的都是可被回收的。<br>垃圾回收都是依据一定的算法回收的：引用计数法，追踪回收算法，压缩回收算法，复制回收算法，按代回收算法。<br>具体的介绍两种：<br>①：引用计数法是一种简单但是效率低的方法，主要原理如下：在堆中对每一个对象都有一个引用计数器；对象被引用时，计数器加1；引用被置为空或离开作用域，减1。由于无法解决相互引用的问题，Jvm没有采取这个算法。<br>②：复制回收算法：把堆分成大小相同的区域，任何时刻只有其中的一个区域被使用，直到这个区域被消耗完为止，此时垃圾回收器会中断程序的执行，通过遍历的方式把所有活动的对象复制到另外一个区域中，在复制的过程中它们是紧挨着布置的，从而可以消除内存碎片。但复制过程结束后程序会接着运行，直到这块区域被使用完，然后再采取上面的方法继续进行垃圾回收。<br>优点是在进行垃圾回收的同时对对象的布置也进行了安排，从而消除了内存碎片。但也付出了很高的代价：对于指定大小的堆来说，需要两倍大小的内存空间；同时由于在内存调整的过程中要中断当前的执行程序，从而降低了程序的执行效率。<br>由于垃圾回收器的存在，Java没有给开发人员提供显式释放内存的方法，因此不能实时的调用垃圾回收器对某个对象进行回收。但可以通过调用System.gc（）方法通知回收，但是JVM也不会立马保证垃圾回收器运行，因为System.gc（）方法的执行会停止所有的程序响应，对程序的正常运行造成极大影响。因此不推荐频繁使用。</p><p>（4）.Xshell中删除一个文件夹，此内部包含很多不为空的文件夹。</p><pre><code>rm –rf </code></pre><p>（5）.K8s和docker之间的关系：<br>k8s：Kubernets是基于容器技术的分布式架构领先方案，docker是容器技术之一，核心在于实现应用与运行环境整体打包以及打包格式统一。k8s提供命令行和Rest API两种方式管理容器，命令行工具是Kubectl。具体来说：传统的虚拟技术，在将物理硬件虚拟成多套硬件后，需要在每套硬件上都部署一个操作系统，接着在这些操作系统上运行相应的应用程序。而Docker容器内的应用程序进程直接运行在宿主机(真实物理机)的内核上，Docker引擎将一些各自独立的应用程序和它们各自的依赖打包，相互独立直接运行于未经虚拟化的宿主机硬件上，同时各个容器也没有自己的内核，显然比传统虚拟机更轻便。每个集群有多个节点，每个节点可，我们的kuberbete就是管理这些应用程序所在的小运行环境而生。</p><p>4.面试官解疑<br>     在最后的环节我像他提问了两个问题：<br>     （1）基础平台开发和后台开发岗位之间的区别<br>     （2）今天提问环节的考查重点</p><pre><code>总结：百度的面试官态度还是很好的，回答不上来的问题他会进行不断的引导和提示，技术面感觉还是很爱提问网络基础相关的知识，问题（5）是基于个人的实习经历提问的，一面总的来说没有问到特别难的问题，如果基础扎实回答这些问题都很容易。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;面试岗位：基础平台开发&lt;br&gt;面试流程：自我介绍，最拿手的项目介绍，技术问答，面试官解疑&lt;/p&gt;
+&lt;p&gt;1.自我介绍&lt;br&gt;    自我介绍说了自己在校期间的学业成绩，参与的活动，项目和实习经历。完了之后面试官提问是否在校期间担任班干部职务，问的相对很详细。&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+      <category term="面试分享" scheme="https://minminminzhang.github.io/categories/%E9%9D%A2%E8%AF%95%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="经验分析" scheme="https://minminminzhang.github.io/tags/%E7%BB%8F%E9%AA%8C%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实习总结与分享</title>
+    <link href="https://minminminzhang.github.io/2019/cjze1fwy00006cwnu31kshnh3/"/>
+    <id>https://minminminzhang.github.io/2019/cjze1fwy00006cwnu31kshnh3/</id>
+    <published>2019-08-16T09:05:08.259Z</published>
+    <updated>2019-08-16T11:43:05.116Z</updated>
+    
+    <content type="html"><![CDATA[<p>结束了为期四个月的实习，收获颇丰，现将经历总结如下。</p><p>实习岗位：开发工程师助理<br>实习部门：cloud &amp; AI产品与服务部门<br>实习主要内容：作为模块的第二接口负责人，参与基于PaaS平台的基础运维监控，主要是在K8S，Docker层面的项目开发。负责平台的运维监控模块，总结整理监控模块的代码和功能资料，后期进行PaaS平台运维监控模块的问题定位和解决，参与问题单处理，新需求开发等。</p><p>一，实习内容总结：<br>1.云计算基础了解和PaaS平台介绍<br>      云计算是指通过云共享分布式的资源。分为三层：顶端是SaaS（software-as-a-service）软件即服务；中间是PaaS（platForm-as-a-service）平台即服务，低端是IasS（Infrastructure-as-a-service）。<br>      Paas平台是研发团队和运维团队之间的桥梁，使得研发团队无需处理应用基础设施站，运维团队无需关注细节。<br>      主要作用是将一个开发和运行平台作为服务提供给客户，Iass的主要作用是提供虚拟机或者其他资源作为服务提供给用户。Saas大多只通过网页浏览器来接入的。</p><p>2.K8s和docker之间的关系：<br>    k8s：Kubernets是基于容器技术的分布式架构领先方案，docker是容器技术之一，核心在于实现应用与运行环境整体打包以及打包格式统一。k8s提供命令行和Rest API两种方式管理容器，命令行工具是Kubectl。具体来说：传统的虚拟技术，在将物理硬件虚拟成多套硬件后，需要在每套硬件上都部署一个操作系统，接着在这些操作系统上运行相应的应用程序。而Docker容器内的应用程序进程直接运行在宿主机(真实物理机)的内核上，Docker引擎将一些各自独立的应用程序和它们各自的依赖打包，相互独立直接运行于未经虚拟化的宿主机硬件上，同时各个容器也没有自己的内核，显然比传统虚拟机更轻便。每个集群有多个节点，每个节点可，我们的kuberbete就是管理这些应用程序所在的小运行环境而生。</p><p>二，实现体验<br>    1.实习单位离学校很远，每天早6：40就要起床赶公交，早起的习惯使得晚上不得不早睡。这样良好的作息习惯使我每天都精力充沛，果然自律的生活很重要。<br>    2.刚去公司的时候几乎什么都不懂，感觉学校和企业的差距还是很大的。要将在学校所学的只是应用到实践中去还要进一步的学习好多东西，只有不断学习才能保持进步。<br>     3.很多不懂的事情都需要向同事请教，刚开始我担心会打扰旁边同事的工作，于是碰到问题都是自己一直的探索，但是有的时候某个问题一天都解决不了，工作效率很低。于是后来，碰到问题的时候，设定一个思考的时间界限，要是到点了实在是想不出，就去请教。这样就会在思考的基础上多一些深刻的理解。有时候，处理问题不仅需要善于思考更需要一点前人的经验指导。</p><p>三，实习总结<br>    1.规范性和严谨性很重要。在处理业务时，不仅要符合代码的基本规范，更要遵守公司相关的规范标准。部门是一个大团队，在这个团队里每个人可能只需要负责一部分。如果因为自己负责的模块不规范，就会影响到整个团队。<br>    2.及时沟通交流。预估在规定时间不能完成的任务，要及时和模块负责人进行沟通协调，不能影响到整个团队的任务交付。<br>    3.善于总结。工作上处理的问题要及时总结输出为文档和博客，可以进行团队内分享，学习借鉴。<br>    4.工作中没有小事，都是大事。举一个例子，我刚开始去实习的时候，模块负责人走给我一个单子，是界面单词拼写错误，从表面看，我只需要找到相应的单词进行修改就OK了。但是如何去找这个问题，需要一步步进行定位，在定位的过程中需要进一步去熟悉我们的业务流程。这种小的错误就是会给客户带来不好的体验感，所以需要及时去改正。</p><pre><code>为期四个月的学习，不仅让我熟悉了公司的业务流程，锻炼了自己的能力，更是学到了有益的学习方法和为人处世的学问。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;结束了为期四个月的实习，收获颇丰，现将经历总结如下。&lt;/p&gt;
+&lt;p&gt;实习岗位：开发工程师助理&lt;br&gt;实习部门：cloud &amp;amp; AI产品与服务部门&lt;br&gt;实习主要内容：作为模块的第二接口负责人，参与基于PaaS平台的基础运维监控，主要是在K8S，Docker层面的项目
+      
+    
+    </summary>
+    
+      <category term="实习分享" scheme="https://minminminzhang.github.io/categories/%E5%AE%9E%E4%B9%A0%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="经验分享" scheme="https://minminminzhang.github.io/tags/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>关于java多线程</title>
-    <link href="https://minminminzhang.github.io/2019/cjyfomt3q0000a0nu7zly39tv/"/>
-    <id>https://minminminzhang.github.io/2019/cjyfomt3q0000a0nu7zly39tv/</id>
+    <link href="https://minminminzhang.github.io/2019/cjze1fwxe0000cwnuadyb81be/"/>
+    <id>https://minminminzhang.github.io/2019/cjze1fwxe0000cwnuadyb81be/</id>
     <published>2019-07-23T09:25:19.079Z</published>
     <updated>2019-07-23T10:34:20.635Z</updated>
     
@@ -44,8 +97,8 @@
   
   <entry>
     <title>内部类及其和外部类之间的访问</title>
-    <link href="https://minminminzhang.github.io/2019/cjyfomt4j0002a0nu2pf28epi/"/>
-    <id>https://minminminzhang.github.io/2019/cjyfomt4j0002a0nu2pf28epi/</id>
+    <link href="https://minminminzhang.github.io/2019/cjze1fwxx0005cwnubs51qmec/"/>
+    <id>https://minminminzhang.github.io/2019/cjze1fwxx0005cwnubs51qmec/</id>
     <published>2019-07-23T07:50:45.336Z</published>
     <updated>2019-07-23T09:01:50.409Z</updated>
     
@@ -76,8 +129,8 @@
   
   <entry>
     <title>实习之java如何简洁判空 </title>
-    <link href="https://minminminzhang.github.io/2019/cjyfomthf002da0nu0jpc4c1t/"/>
-    <id>https://minminminzhang.github.io/2019/cjyfomthf002da0nu0jpc4c1t/</id>
+    <link href="https://minminminzhang.github.io/2019/cjze1fwxo0002cwnu1m47qbyj/"/>
+    <id>https://minminminzhang.github.io/2019/cjze1fwxo0002cwnu1m47qbyj/</id>
     <published>2019-03-10T01:25:19.957Z</published>
     <updated>2019-03-10T03:10:36.716Z</updated>
     
@@ -102,8 +155,8 @@
   
   <entry>
     <title>linux系统命令(3)</title>
-    <link href="https://minminminzhang.github.io/2019/cjyfomt5y000ma0nug7suos8o/"/>
-    <id>https://minminminzhang.github.io/2019/cjyfomt5y000ma0nug7suos8o/</id>
+    <link href="https://minminminzhang.github.io/2019/cjze1fwz1000ucwnunv3mxyct/"/>
+    <id>https://minminminzhang.github.io/2019/cjze1fwz1000ucwnunv3mxyct/</id>
     <published>2019-01-22T09:52:42.717Z</published>
     <updated>2019-01-22T12:50:02.520Z</updated>
     
@@ -128,8 +181,8 @@
   
   <entry>
     <title>linux系统进一步了解</title>
-    <link href="https://minminminzhang.github.io/2019/cjyfomth90029a0numbpfx2mp/"/>
-    <id>https://minminminzhang.github.io/2019/cjyfomth90029a0numbpfx2mp/</id>
+    <link href="https://minminminzhang.github.io/2019/cjze1fx8h002pcwnupg9ee62z/"/>
+    <id>https://minminminzhang.github.io/2019/cjze1fx8h002pcwnupg9ee62z/</id>
     <published>2019-01-22T06:59:09.728Z</published>
     <updated>2019-01-22T12:45:14.652Z</updated>
     
@@ -155,8 +208,8 @@
   
   <entry>
     <title>接口本地测试正确 线上测试发生错误</title>
-    <link href="https://minminminzhang.github.io/2019/cjyfomt4q0005a0nu37f99yg9/"/>
-    <id>https://minminminzhang.github.io/2019/cjyfomt4q0005a0nu37f99yg9/</id>
+    <link href="https://minminminzhang.github.io/2019/cjze1fwy7000bcwnufud2e1pj/"/>
+    <id>https://minminminzhang.github.io/2019/cjze1fwy7000bcwnufud2e1pj/</id>
     <published>2019-01-18T09:43:05.939Z</published>
     <updated>2019-01-19T02:20:20.752Z</updated>
     
@@ -181,8 +234,8 @@
   
   <entry>
     <title>SQL语句优化</title>
-    <link href="https://minminminzhang.github.io/2019/cjyfomt69000ua0nuvj6q54vt/"/>
-    <id>https://minminminzhang.github.io/2019/cjyfomt69000ua0nuvj6q54vt/</id>
+    <link href="https://minminminzhang.github.io/2019/cjze1fwza0011cwnuiv46becs/"/>
+    <id>https://minminminzhang.github.io/2019/cjze1fwza0011cwnuiv46becs/</id>
     <published>2019-01-18T08:30:14.973Z</published>
     <updated>2019-01-19T02:14:35.541Z</updated>
     
@@ -206,8 +259,8 @@
   
   <entry>
     <title>linux系统初步了解</title>
-    <link href="https://minminminzhang.github.io/2019/cjyfomt5r000ia0num111zc6i/"/>
-    <id>https://minminminzhang.github.io/2019/cjyfomt5r000ia0num111zc6i/</id>
+    <link href="https://minminminzhang.github.io/2019/cjze1fwyz000scwnu5p4mt0yh/"/>
+    <id>https://minminminzhang.github.io/2019/cjze1fwyz000scwnu5p4mt0yh/</id>
     <published>2019-01-13T08:27:42.514Z</published>
     <updated>2019-01-22T12:54:07.124Z</updated>
     
@@ -231,8 +284,8 @@
   
   <entry>
     <title>小顽童OA项目之邮件功能模块 </title>
-    <link href="https://minminminzhang.github.io/2019/cjyfomtgw0023a0nullj42sf1/"/>
-    <id>https://minminminzhang.github.io/2019/cjyfomtgw0023a0nullj42sf1/</id>
+    <link href="https://minminminzhang.github.io/2019/cjze1fx87002jcwnu3ntlonke/"/>
+    <id>https://minminminzhang.github.io/2019/cjze1fx87002jcwnu3ntlonke/</id>
     <published>2019-01-05T07:40:54.611Z</published>
     <updated>2019-01-05T08:13:02.538Z</updated>
     
@@ -258,8 +311,8 @@
   
   <entry>
     <title>小顽童OA项目介绍 </title>
-    <link href="https://minminminzhang.github.io/2019/cjyfomt67000sa0nuc2xofq41/"/>
-    <id>https://minminminzhang.github.io/2019/cjyfomt67000sa0nuc2xofq41/</id>
+    <link href="https://minminminzhang.github.io/2019/cjze1fwz70010cwnug26kgwce/"/>
+    <id>https://minminminzhang.github.io/2019/cjze1fwz70010cwnug26kgwce/</id>
     <published>2019-01-05T03:12:49.408Z</published>
     <updated>2019-01-19T02:33:54.127Z</updated>
     
@@ -286,8 +339,8 @@
   
   <entry>
     <title>一道关于顺时针打印矩阵的常见算法题</title>
-    <link href="https://minminminzhang.github.io/2018/cjyfomt62000oa0nu50fsvp83/"/>
-    <id>https://minminminzhang.github.io/2018/cjyfomt62000oa0nu50fsvp83/</id>
+    <link href="https://minminminzhang.github.io/2018/cjze1fwz4000xcwnu9ok33cof/"/>
+    <id>https://minminminzhang.github.io/2018/cjze1fwz4000xcwnu9ok33cof/</id>
     <published>2018-12-21T13:28:29.079Z</published>
     <updated>2019-01-19T02:33:38.837Z</updated>
     
@@ -313,8 +366,8 @@
   
   <entry>
     <title>用迭代算法解决汉诺塔问题</title>
-    <link href="https://minminminzhang.github.io/2018/cjyfomt5l000ha0nuutnmoc29/"/>
-    <id>https://minminminzhang.github.io/2018/cjyfomt5l000ha0nuutnmoc29/</id>
+    <link href="https://minminminzhang.github.io/2018/cjze1fwyv000ocwnuui02x30e/"/>
+    <id>https://minminminzhang.github.io/2018/cjze1fwyv000ocwnuui02x30e/</id>
     <published>2018-12-13T13:34:16.437Z</published>
     <updated>2018-12-13T13:35:47.249Z</updated>
     
@@ -337,36 +390,9 @@
   </entry>
   
   <entry>
-    <title>用递归和迭代解决二叉树问题 </title>
-    <link href="https://minminminzhang.github.io/2018/cjyfomt5g000ca0nue3133sun/"/>
-    <id>https://minminminzhang.github.io/2018/cjyfomt5g000ca0nue3133sun/</id>
-    <published>2018-12-13T08:33:40.644Z</published>
-    <updated>2019-01-19T02:31:24.798Z</updated>
-    
-    <content type="html"><![CDATA[<p>二叉树是数据结构最常见的一种应用。关于二叉树的很多问题都可以用递归和迭代来解决。</p><p>二叉树是一颗树，其中每个节点都不能有对于两个儿子。用代码可以简单的表示为：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class TreeNode&#123;</span><br><span class="line">   int val;</span><br><span class="line">   //左孩子</span><br><span class="line">   TreeNode left;</span><br><span class="line">   //右孩子</span><br><span class="line">   TreeNode left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>1.求二叉树的最大深度</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int maxDeath(TreeNode node)&#123;</span><br><span class="line">    if(node==null)&#123;</span><br><span class="line">       return 0;</span><br><span class="line">&#125; </span><br><span class="line"> int left=maxDeath(node.left);</span><br><span class="line"> int right=maxDeath(node.right);</span><br><span class="line"> return Math.max(left,right)+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.求二叉树的最小深度</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int getMinDepth()&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return getMin(root);</span><br><span class="line">&#125;</span><br><span class="line">int getMin(TreeNode root)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return Integer.MAX_VALUE;</span><br><span class="line">    &#125;</span><br><span class="line">    if（root.left==null&amp;&amp;root.right==null）&#123;</span><br><span class="line">      return 1;</span><br><span class="line">      &#125;</span><br><span class="line">      return Math.min(getMin(root.left),getMin(root.right))+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3.求二叉树中节点的个数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int numOfTreeNode(TreeNode root)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125; </span><br><span class="line">    int left=numOfNode(root.left);</span><br><span class="line">    int right=numOfNode(root.right);</span><br><span class="line">    return left+right+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>4.求二叉树中叶子节点的个数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int numsOfNodeTreeNode(TreeNode root)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    if(root.left==null&amp;&amp;root.right==null)&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return numsOfNodeTreeNode(root.left)+numsOfNodeTreeNode(root.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>5.求二叉树中第K层节点的个数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int numsOfLevelTreeNode(TreeNode node,int k)&#123;</span><br><span class="line"> if(root==null||k&lt;1)&#123;</span><br><span class="line">     return 0;</span><br><span class="line"> &#125;</span><br><span class="line">  if(k=1)&#123;</span><br><span class="line">      return 1;</span><br><span class="line">  &#125;  </span><br><span class="line">  int numLeft=numsOfLevelTreeNode(root.left,k-1);</span><br><span class="line">  int numRight=numsOfLevelTreeNode(root.right,k-1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>平衡二叉树是其每个节点的左子数和右子树的高度最多差1的二叉查找树.</p><p>6.判断二叉树是否是平衡二叉树</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">boolean isBalanced(TreeNode node)&#123;</span><br><span class="line">     return maxDeath(node)!=-1;//空树的高度为1</span><br><span class="line">&#125;</span><br><span class="line">   int maxDeath2(TreeNode node)&#123;</span><br><span class="line">        if(node==null)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">           &#125;   </span><br><span class="line">       int left=maxDeath(node.left);   </span><br><span class="line">       int right=maxDeath(node.right); </span><br><span class="line">       if(left==-1||right==-1||Math.abs(left-right)&gt;1)&#123;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">         return Math.max(left,right)+1;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>7.判断两个二叉树是否完全相同</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">boolean isSameTreeNode(TreeNode t1,TreeNode t2)&#123;</span><br><span class="line">    if(t1==null&amp;&amp;t2==null)&#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;else if(t1==null||t2==null)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    if(t1.val!=t2.val)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    boolean left=isSameTreeNode(t1.left,t2.left);</span><br><span class="line">    boolean right=isSameTreeNode(t1.right,t2.right);</span><br><span class="line">    return left&amp;&amp;right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>8.两个二叉树是否为镜像</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">boolean isMirror(TreeNode t1,TreeNode t2)&#123;</span><br><span class="line"> if(t1==null&amp;&amp;t2==null)&#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;else if(t1==null||t2==null)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    if(t1.val!=t2.val)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    return isMirror(t1.left,t2.right)&amp;&amp;isMirror(t1.right,t2.left);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>9.二叉树的前序遍历</p><p>迭代解法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; preOrder(TreeNode root)&#123;</span><br><span class="line">    Stack&lt;TreeNode&gt;  stack=new Stack&lt;TreeNode&gt;();</span><br><span class="line">    ArrayList&lt;Integer&gt; list=new ArrayList&lt;Integer&gt;();</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br><span class="line">    stack.push(root);</span><br><span class="line">    while(!stack.empty)&#123;</span><br><span class="line">       TreeNode node=stack.pop();</span><br><span class="line">       list.add(node.val);</span><br><span class="line">       if(node.right!=null)&#123;</span><br><span class="line">           stack.push(node.right);</span><br><span class="line">       &#125;</span><br><span class="line">        if(node.left!=null)&#123;</span><br><span class="line">           stack.push(node.left);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>递归解法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; preOrder(TreeNode root)&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; result =new  ArrayList&lt;Integer&gt;();</span><br><span class="line">    preOrder2(root,result);</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line">void preOrder2(TreeNode root,ArrayList&lt;Integer&gt; result)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    result.add(root.val);</span><br><span class="line">    preOrder2(root.left,result);</span><br><span class="line">    preOrder2(root.right,result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>10.二叉树中的中序遍历</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; inOrder(TreeNode root)&#123;</span><br><span class="line">    Stack&lt;TreeNode&gt;  stack=new Stack&lt;TreeNode&gt;();</span><br><span class="line">    ArrayList&lt;Integer&gt; list=new ArrayList&lt;Integer&gt;();</span><br><span class="line">    TreeNode current=root;</span><br><span class="line">   while(current！=null||!stack.empty())&#123;</span><br><span class="line">       while(current!=null)&#123;</span><br><span class="line">           stack.add(current);</span><br><span class="line">           current=current.left;</span><br><span class="line">       &#125;</span><br><span class="line">       current=stack.peek();</span><br><span class="line">       stack.pop();</span><br><span class="line">       list.add(current.val);</span><br><span class="line">       current=current.right;</span><br><span class="line">   &#125;</span><br><span class="line">   return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>11.二叉树的后序遍历</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; postOrder(TreeNode root)&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; list=new ArrayList&gt;(Integer);</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br><span class="line">    list.addAll(posrOrder(root.left));</span><br><span class="line">    list.addAll(posrOrder(root.right);</span><br><span class="line">    list.add(root.val);</span><br><span class="line">    return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;二叉树是数据结构最常见的一种应用。关于二叉树的很多问题都可以用递归和迭代来解决。&lt;/p&gt;
-&lt;p&gt;二叉树是一颗树，其中每个节点都不能有对于两个儿子。用代码可以简单的表示为：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td 
-      
-    
-    </summary>
-    
-      <category term="算法应用" scheme="https://minminminzhang.github.io/categories/%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8/"/>
-    
-    
-      <category term="二叉树" scheme="https://minminminzhang.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
     <title>java中常用的注解总结 </title>
-    <link href="https://minminminzhang.github.io/2018/cjyfomt5c000ba0nud8h0iit6/"/>
-    <id>https://minminminzhang.github.io/2018/cjyfomt5c000ba0nud8h0iit6/</id>
+    <link href="https://minminminzhang.github.io/2018/cjze1fwym000icwnuiwwbipr1/"/>
+    <id>https://minminminzhang.github.io/2018/cjze1fwym000icwnuiwwbipr1/</id>
     <published>2018-12-13T08:33:40.644Z</published>
     <updated>2018-12-13T13:23:41.955Z</updated>
     
@@ -393,9 +419,36 @@
   </entry>
   
   <entry>
+    <title>用递归和迭代解决二叉树问题 </title>
+    <link href="https://minminminzhang.github.io/2018/cjze1fwys000mcwnu0x67vf1w/"/>
+    <id>https://minminminzhang.github.io/2018/cjze1fwys000mcwnu0x67vf1w/</id>
+    <published>2018-12-13T08:33:40.644Z</published>
+    <updated>2019-01-19T02:31:24.798Z</updated>
+    
+    <content type="html"><![CDATA[<p>二叉树是数据结构最常见的一种应用。关于二叉树的很多问题都可以用递归和迭代来解决。</p><p>二叉树是一颗树，其中每个节点都不能有对于两个儿子。用代码可以简单的表示为：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class TreeNode&#123;</span><br><span class="line">   int val;</span><br><span class="line">   //左孩子</span><br><span class="line">   TreeNode left;</span><br><span class="line">   //右孩子</span><br><span class="line">   TreeNode left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>1.求二叉树的最大深度</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int maxDeath(TreeNode node)&#123;</span><br><span class="line">    if(node==null)&#123;</span><br><span class="line">       return 0;</span><br><span class="line">&#125; </span><br><span class="line"> int left=maxDeath(node.left);</span><br><span class="line"> int right=maxDeath(node.right);</span><br><span class="line"> return Math.max(left,right)+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.求二叉树的最小深度</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int getMinDepth()&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return getMin(root);</span><br><span class="line">&#125;</span><br><span class="line">int getMin(TreeNode root)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return Integer.MAX_VALUE;</span><br><span class="line">    &#125;</span><br><span class="line">    if（root.left==null&amp;&amp;root.right==null）&#123;</span><br><span class="line">      return 1;</span><br><span class="line">      &#125;</span><br><span class="line">      return Math.min(getMin(root.left),getMin(root.right))+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3.求二叉树中节点的个数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int numOfTreeNode(TreeNode root)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125; </span><br><span class="line">    int left=numOfNode(root.left);</span><br><span class="line">    int right=numOfNode(root.right);</span><br><span class="line">    return left+right+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>4.求二叉树中叶子节点的个数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int numsOfNodeTreeNode(TreeNode root)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    if(root.left==null&amp;&amp;root.right==null)&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return numsOfNodeTreeNode(root.left)+numsOfNodeTreeNode(root.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>5.求二叉树中第K层节点的个数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int numsOfLevelTreeNode(TreeNode node,int k)&#123;</span><br><span class="line"> if(root==null||k&lt;1)&#123;</span><br><span class="line">     return 0;</span><br><span class="line"> &#125;</span><br><span class="line">  if(k=1)&#123;</span><br><span class="line">      return 1;</span><br><span class="line">  &#125;  </span><br><span class="line">  int numLeft=numsOfLevelTreeNode(root.left,k-1);</span><br><span class="line">  int numRight=numsOfLevelTreeNode(root.right,k-1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>平衡二叉树是其每个节点的左子数和右子树的高度最多差1的二叉查找树.</p><p>6.判断二叉树是否是平衡二叉树</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">boolean isBalanced(TreeNode node)&#123;</span><br><span class="line">     return maxDeath(node)!=-1;//空树的高度为1</span><br><span class="line">&#125;</span><br><span class="line">   int maxDeath2(TreeNode node)&#123;</span><br><span class="line">        if(node==null)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">           &#125;   </span><br><span class="line">       int left=maxDeath(node.left);   </span><br><span class="line">       int right=maxDeath(node.right); </span><br><span class="line">       if(left==-1||right==-1||Math.abs(left-right)&gt;1)&#123;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">         return Math.max(left,right)+1;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>7.判断两个二叉树是否完全相同</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">boolean isSameTreeNode(TreeNode t1,TreeNode t2)&#123;</span><br><span class="line">    if(t1==null&amp;&amp;t2==null)&#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;else if(t1==null||t2==null)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    if(t1.val!=t2.val)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    boolean left=isSameTreeNode(t1.left,t2.left);</span><br><span class="line">    boolean right=isSameTreeNode(t1.right,t2.right);</span><br><span class="line">    return left&amp;&amp;right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>8.两个二叉树是否为镜像</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">boolean isMirror(TreeNode t1,TreeNode t2)&#123;</span><br><span class="line"> if(t1==null&amp;&amp;t2==null)&#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;else if(t1==null||t2==null)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    if(t1.val!=t2.val)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    return isMirror(t1.left,t2.right)&amp;&amp;isMirror(t1.right,t2.left);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>9.二叉树的前序遍历</p><p>迭代解法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; preOrder(TreeNode root)&#123;</span><br><span class="line">    Stack&lt;TreeNode&gt;  stack=new Stack&lt;TreeNode&gt;();</span><br><span class="line">    ArrayList&lt;Integer&gt; list=new ArrayList&lt;Integer&gt;();</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br><span class="line">    stack.push(root);</span><br><span class="line">    while(!stack.empty)&#123;</span><br><span class="line">       TreeNode node=stack.pop();</span><br><span class="line">       list.add(node.val);</span><br><span class="line">       if(node.right!=null)&#123;</span><br><span class="line">           stack.push(node.right);</span><br><span class="line">       &#125;</span><br><span class="line">        if(node.left!=null)&#123;</span><br><span class="line">           stack.push(node.left);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>递归解法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; preOrder(TreeNode root)&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; result =new  ArrayList&lt;Integer&gt;();</span><br><span class="line">    preOrder2(root,result);</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line">void preOrder2(TreeNode root,ArrayList&lt;Integer&gt; result)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    result.add(root.val);</span><br><span class="line">    preOrder2(root.left,result);</span><br><span class="line">    preOrder2(root.right,result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>10.二叉树中的中序遍历</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; inOrder(TreeNode root)&#123;</span><br><span class="line">    Stack&lt;TreeNode&gt;  stack=new Stack&lt;TreeNode&gt;();</span><br><span class="line">    ArrayList&lt;Integer&gt; list=new ArrayList&lt;Integer&gt;();</span><br><span class="line">    TreeNode current=root;</span><br><span class="line">   while(current！=null||!stack.empty())&#123;</span><br><span class="line">       while(current!=null)&#123;</span><br><span class="line">           stack.add(current);</span><br><span class="line">           current=current.left;</span><br><span class="line">       &#125;</span><br><span class="line">       current=stack.peek();</span><br><span class="line">       stack.pop();</span><br><span class="line">       list.add(current.val);</span><br><span class="line">       current=current.right;</span><br><span class="line">   &#125;</span><br><span class="line">   return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>11.二叉树的后序遍历</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; postOrder(TreeNode root)&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; list=new ArrayList&gt;(Integer);</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br><span class="line">    list.addAll(posrOrder(root.left));</span><br><span class="line">    list.addAll(posrOrder(root.right);</span><br><span class="line">    list.add(root.val);</span><br><span class="line">    return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;二叉树是数据结构最常见的一种应用。关于二叉树的很多问题都可以用递归和迭代来解决。&lt;/p&gt;
+&lt;p&gt;二叉树是一颗树，其中每个节点都不能有对于两个儿子。用代码可以简单的表示为：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td 
+      
+    
+    </summary>
+    
+      <category term="算法应用" scheme="https://minminminzhang.github.io/categories/%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8/"/>
+    
+    
+      <category term="二叉树" scheme="https://minminminzhang.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>时间典当厅项目之增加功能和上传</title>
-    <link href="https://minminminzhang.github.io/2018/cjyfomt6c000xa0nuabt15xzo/"/>
-    <id>https://minminminzhang.github.io/2018/cjyfomt6c000xa0nuabt15xzo/</id>
+    <link href="https://minminminzhang.github.io/2018/cjze1fwzg0017cwnucp9lmo4k/"/>
+    <id>https://minminminzhang.github.io/2018/cjze1fwzg0017cwnucp9lmo4k/</id>
     <published>2018-12-02T08:49:04.879Z</published>
     <updated>2018-12-02T09:08:26.971Z</updated>
     
@@ -420,8 +473,8 @@
   
   <entry>
     <title>Spring框架总结 </title>
-    <link href="https://minminminzhang.github.io/2018/cjyfomt4v0007a0nuobdx96vy/"/>
-    <id>https://minminminzhang.github.io/2018/cjyfomt4v0007a0nuobdx96vy/</id>
+    <link href="https://minminminzhang.github.io/2018/cjze1fwyh000gcwnun8mfxiyy/"/>
+    <id>https://minminminzhang.github.io/2018/cjze1fwyh000gcwnun8mfxiyy/</id>
     <published>2018-11-18T01:48:31.224Z</published>
     <updated>2019-01-19T02:34:16.101Z</updated>
     
@@ -446,8 +499,8 @@
   
   <entry>
     <title>小顽童项目准备</title>
-    <link href="https://minminminzhang.github.io/2018/cjyfomt6e0010a0nuazqoqeg6/"/>
-    <id>https://minminminzhang.github.io/2018/cjyfomt6e0010a0nuazqoqeg6/</id>
+    <link href="https://minminminzhang.github.io/2018/cjze1fwze0016cwnua4zduw8r/"/>
+    <id>https://minminminzhang.github.io/2018/cjze1fwze0016cwnua4zduw8r/</id>
     <published>2018-10-28T00:32:45.112Z</published>
     <updated>2019-01-19T02:34:32.997Z</updated>
     
@@ -475,8 +528,8 @@
   
   <entry>
     <title>Java中常用设计模式的使用方法与区别</title>
-    <link href="https://minminminzhang.github.io/2018/cjyfomth10025a0nuvvftlbri/"/>
-    <id>https://minminminzhang.github.io/2018/cjyfomth10025a0nuvvftlbri/</id>
+    <link href="https://minminminzhang.github.io/2018/cjze1fx8b002lcwnu900gbuz3/"/>
+    <id>https://minminminzhang.github.io/2018/cjze1fx8b002lcwnu900gbuz3/</id>
     <published>2018-10-08T12:10:59.041Z</published>
     <updated>2018-11-18T02:22:32.249Z</updated>
     
@@ -497,56 +550,6 @@
     
     
       <category term="设计模式" scheme="https://minminminzhang.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于RESTful的理解</title>
-    <link href="https://minminminzhang.github.io/2018/cjyfomt4t0006a0nuvbhfwcur/"/>
-    <id>https://minminminzhang.github.io/2018/cjyfomt4t0006a0nuvbhfwcur/</id>
-    <published>2018-09-07T13:20:07.497Z</published>
-    <updated>2018-12-13T13:12:20.052Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="了解RESTful的起因"><a href="#了解RESTful的起因" class="headerlink" title="了解RESTful的起因"></a>了解RESTful的起因</h1><p>学习springmvc的时候，在配置前端控制器<url-pattern></url-pattern>中时有三种方式：</p><p>第一种：*.action，访问一、以.action结尾由DispatcherServlet进行解析。</p><p>第二种：/，所有访问的地址由DispatcherServlet进行解析，对于静态文件的解析需要配置不让DispatcherServlet进行解析，使用此种方法可以实现RESTful风格的url。</p><p>第三种：/*，这样配置不对使用此种配置，最终要转发到一个jsp页面时，仍然会由DispatcherServlet解析jsp地址，不能根据jsp页面找到handler，会报错。</p><p>由此了解到Resultful架构。</p><h1 id="RESTful的介绍"><a href="#RESTful的介绍" class="headerlink" title="RESTful的介绍"></a>RESTful的介绍</h1><p>RESTful架构，就是目前最流行的一种互联网软件架构。具有结构清晰，符合标准，易于理解，扩展方便的优点。</p><h2 id="RESTful的起源"><a href="#RESTful的起源" class="headerlink" title="RESTful的起源"></a>RESTful的起源</h2><p>Roy Thomas Fielding 在2000年的博士论文提出来的。他在文中写到：“长期以来，软件研究主要关注软件设计的分类、设计方法的演化，很少客观评估不同的设计选择对系统行为的影响。而相反的，网络研究主要关注系统之间通信行为的细节、如何改进特定通信机制的表现，常常忽略的一个事实，那就是改变应用程序的互动风格比改变互动协议，对整体表现有更大的影响。我写这篇问猴子那个的目的，就是想在符合架构原理的前提下，理解和评估以网络为基础的应用软件的架构设计，得到一个功能强、性能好、事宜通信的架构。”</p><p>Roy Thomas Fielding 将他对互联网软件的架构原则，命名为REST，，即Representational State Transfer的缩写。可翻译 为“表现层状态转化”。要理解RESTful的架构，最好的方法就是去理解Representational State Transfer词组的意思。</p><h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>REST翻译为“表现层状态转化”，省略的主语，“表现层”其实指的是“资源”的“表现层”。</p><p>“资源”就是网络上的一个实体，或者说就是网络上的一个具体信息。可以是一短文本、一张图片、一首歌曲，总之就是一个具体的存在实体。可以用一个URI访问它，每种资源对应一个特定的URI。要获取这个资源，访问它的URI就可以。上网就是与互联网上一系列的“资源”互动，调用它的URI。</p><h2 id="表现层"><a href="#表现层" class="headerlink" title="表现层"></a>表现层</h2><p>“资源”是一种信息实体，它可以有多种外在表现形式。我们把“资源”具体呈现出来的形式，叫做它的“表现层”。</p><p>比如：文本可以用txt格式表现，也可以用HTML格式、XML格式、JSON格式表现，甚至可以采用二进制格式；图片可以用JSP格式表现，也可以用PNG格式表现。</p><p>URI只代表资源的实体，不代表它的形式。严格的说，有些网址最后的“.html”后缀名是不必要的，因为这个后缀名表示格式，属于“表现层”范围，而URL只代表“资源”的位置。它的具体表现形式，应该在HTTP请求的头信息中用Accept和Context-Type字段指定，这两个字段才是对“表现层”的描述。</p><h2 id="状态转换"><a href="#状态转换" class="headerlink" title="状态转换"></a>状态转换</h2><p>访问一个网站，就代表了客户端和服务器的一个互动过程。在这个过程中，涉及到数据和状态的变化。</p><p>互联网通信协议HTTP协议，是一个无状态协议。这意味着，所有的状态都保存在服务器端。因此，如果客户端想要操作服务器，必须通过某种手段，让服务器发生“状态转换”。而这种转换你是建立在表现层之上的，所以就是“表现层状态转换”。</p><p>客户端用到的手段，只能是HTTP协议。具体来说，就是HTTP协议里面，四个表现操作方式的动词：GET、POST、PUT、DELETE。它们分别对应四种操作：GET用来获取资源，POST用来新建资源（也可用来更新资源），PUT用来更新资源，DELETE用来删除资源。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>综合以上学习，总结RESTful架构：</p><p>（1）每一个URI代表一种资源</p><p>（2）客户端和服务器之间，传递这种资源的表现层。</p><p>（3）客户端通过四个HTTP动词，对服务器端资源进行操作，实现“表现层状态转换”。</p><h1 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h1><p>（1）URI不能包含动词</p><p>​     因为“资源”表示一种实体，所以应该是名词，URI不应该有动词，动词应该放在HTTP协议中。</p><p>例如：网上汇款，从账户1向账户2汇款200元</p><p>​                  POST /accounts/1/transfer/200/to/2/</p><p>正确的写法应该是：POST  /transaction  HTTP/1.1</p><p>​                                 Host: 127.0.0.1</p><p>​                                from=1&amp;to=2&amp;account=200.00</p><p>（2）在URI中不能加入版本号</p><p>​      <a href="http://www.example.com/app/1.0/foo" target="_blank" rel="noopener">http://www.example.com/app/1.0/foo</a></p><p>​     <a href="http://www.example.com/app/1.1/foo" target="_blank" rel="noopener">http://www.example.com/app/1.1/foo</a></p><p>​     <a href="http://www.example.com/app/2.0/foo" target="_blank" rel="noopener">http://www.example.com/app/2.0/foo</a></p><p>不同的版本，可以理解成同一种资源的不同表现形式，所以应该采用同一个URI。版本号可以在HTTP请求头的Accept字段中进行区分</p><p>Accept: vnd.example-com.foo+json; version=1.0</p><p>Accept: vnd.example-com.foo+json; version=1.1</p><p>Accept: vnd.example-com.foo+json; version=2.0</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;了解RESTful的起因&quot;&gt;&lt;a href=&quot;#了解RESTful的起因&quot; class=&quot;headerlink&quot; title=&quot;了解RESTful的起因&quot;&gt;&lt;/a&gt;了解RESTful的起因&lt;/h1&gt;&lt;p&gt;学习springmvc的时候，在配置前端控制器&lt;url-pa
-      
-    
-    </summary>
-    
-      <category term="RESTful架构" scheme="https://minminminzhang.github.io/categories/RESTful%E6%9E%B6%E6%9E%84/"/>
-    
-    
-      <category term="RESTful架构和URI资源" scheme="https://minminminzhang.github.io/tags/RESTful%E6%9E%B6%E6%9E%84%E5%92%8CURI%E8%B5%84%E6%BA%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>搭建个人博客</title>
-    <link href="https://minminminzhang.github.io/2018/cjyfomthc002ba0nudzjo6sgl/"/>
-    <id>https://minminminzhang.github.io/2018/cjyfomthc002ba0nudzjo6sgl/</id>
-    <published>2018-09-07T07:09:45.688Z</published>
-    <updated>2019-01-19T02:33:08.637Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    对于一个认真的程序员，在学习过程中总要写Blog来记录学习过程中的点点滴滴。踩过的坑终将变成成功道路上的跳板。<br>    Hexo是一个快速、简洁且高效的博客框架。Hexo使用Markdown解析文章，在几秒内，即可利用靓丽的主题生成静态网页。经过搜索资料，不断学习，请教别人，最终搭建好了我的个人博客框架，在此写下整个过程分享。博文包括三个部分：构建基本框架、不断优化、补充内容。</p><p>​    </p><p>构建基本框架：从最简单的相关软件介绍到搭建完成属于自己的独立博客。不断优化：在完成简单的搭建之后，不断美化自己的页面展示。补充内容包括了Hexo的语法以及。。。。。。。</p><h1 id="构建基本框架："><a href="#构建基本框架：" class="headerlink" title="构建基本框架："></a>构建基本框架：</h1><hr><h2 id="基础准备："><a href="#基础准备：" class="headerlink" title="基础准备："></a>基础准备：</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;<em>安装Git<br>&nbsp; &nbsp; &nbsp; &nbsp;将本地的Hexo提交到GitHub上进行管理<br>&nbsp; &nbsp; &nbsp; &nbsp;安装步骤：<br>&nbsp; &nbsp; &nbsp; &nbsp;1.在Git官网上(<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a>) 下载Windows版本。<br>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;2.下载完成后，双击.msi文件安装至G:\blogresoft\git。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em>安装NodeJs<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hexo是基于NodeJs环境的静态博客，里面的npm工具很有用。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;安装步骤：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.在Node.js官网(<a href="https://nodejs.org/en" target="_blank" rel="noopener">https://nodejs.org/en</a>) 下载最新版本。<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      2.点击最新64位的8.11.4LTS版本下载到G盘新建的blogresoft文件夹下。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       3：双击.msi文件安装，不断点击next即可安装成功至G:\blogresoft\nodejs<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <em>GitHub账号<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       没有GitHub账号的情况下,在官网页面注册一个新的即可。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    </em>配置SSH Keys<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       配置SSH Keys 之后,每次对自己的博客改动之后，提交的时候,不再需要重新输入GitHub的账号的密码了。<br>       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;配置步骤:在 G:\blogresoft\git文件夹下点击git-bash.exe，输入以下命令检查.ssh文件是否已经存在：     </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -al ~/.ssh</span><br></pre></td></tr></table></figure><p>不存在会出现提示：<br>       ls: cannot access ‘/c/User/Administrator/ .ssh’:No such file or directory</p><p>接着执行如下代码，生成.ssh文件夹：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir .ssh</span><br></pre></td></tr></table></figure><p>进入.ssh文件夹：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd  .ssh</span><br></pre></td></tr></table></figure><p>输入如下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C&quot;GitHub登陆邮箱&quot;</span><br><span class="line"></span><br><span class="line">$ id_rsa</span><br></pre></td></tr></table></figure><p>按回车键，提示是否使用长密码，按回车，继续按回车，不使用<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将ssh公钥部分添加到GitHub，.ssh文件夹下后缀名为.pub的文件是公钥，右键打开方式选择写字板打开，复制其中所有的内容。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在GitHub网站右上角点击setting。点击左侧SSH and GPG keys，点击右上角New SSH key，在Key中粘贴.ssh文件夹下后缀名为.pub的文件的所有内容，点击Add SSH key添加公钥，此时公钥状态为黑色。</p><p>在G:\blogresoft\git文件夹下双击git-bash.exe，输入以下命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;usename&quot;</span><br><span class="line"></span><br><span class="line">$ git config --global user.email &quot;email&quot;</span><br></pre></td></tr></table></figure><p>其中usename为注册GitHub时的账户名，email为注册GitHub时的邮箱。<br>       输入如下命令，测试SSH是否配置成功：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>出现提示，输入yes回车，出现欢迎提示:<br>       Hi minminminzhang! Your’ve successfully authenticated,but GitHub does not provide shell access.</p><p>此时回到SSH and GPG keys处，公钥状态变为绿色。</p><h2 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h2><p>​        在Git上新建一个仓库<br>        在GitHub上新建一个仓库，并取名为your_username.github.io，其中your_username是您自己的GitHub账号名。<br>        在本地写博客<br>        在G:/blogresoft/git文件夹下新建一个index.html文件，并输入一下内容：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">      &lt;head&gt;</span><br><span class="line">            &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">      &lt;/head&gt;</span><br><span class="line">      &lt;body&gt;</span><br><span class="line">            &lt;p&gt;你好！这是我的第一篇博客&lt;/p&gt;</span><br><span class="line">      &lt;/body&gt;          </span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure><p> 用Git把index.html提交到GitHub上，在cmd中输入以下命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git init </span><br><span class="line"></span><br><span class="line">$ git add index.html</span><br><span class="line">   </span><br><span class="line">$ git commit  -m &quot;我的第一篇博客&quot;</span><br><span class="line"></span><br><span class="line">$ git remote add originhttps://github.com/your_username/your_username.github</span><br><span class="line"></span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure><p>在浏览器中输入your_username.github.io即可访问文件。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由于github pages存放的都是静态文件，博客存放的不只是文章内容，还有文章列表、分类、标签、翻页等动态内容，假如每次写完一篇文章都要手动更新博文目录和相关链接信息，相信谁都会疯掉，所以hexo所做的就是将这些md文件都放在本地，每次写完文章后调用写好的命令来批量完成相关页面的生成，然后再将有改动的页面提交到github。</p><h2 id="hexo安装配置："><a href="#hexo安装配置：" class="headerlink" title="hexo安装配置："></a>hexo安装配置：</h2><p>*下载Hexo<br>         下载官网： <a href="http://hexo.io" target="_blank" rel="noopener">http://hexo.io</a><br>          github: <a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">https://github.com/hexojs/hexo</a><br>          在G:/blogresoft/git文件夹下双击git-bash.exe</p><p> 输入以下命令进行安装Hexo</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure><p>在G:/blogresoft/git下安装文件夹hexo，并切换至Hexo工作目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd hexo</span><br></pre></td></tr></table></figure><p>初始化文件夹</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure><p>安装hexo的扩展插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure><p>安装其他插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git -save</span><br><span class="line">$ npm install hexo-renderer-ejs -save</span><br><span class="line">$ npm install hexo-renderer-stylus -save</span><br><span class="line">$ npm install hexo-render-marked -save</span><br></pre></td></tr></table></figure><p>生成静态页面</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure><p>开启本地服务器</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  hexo s</span><br></pre></td></tr></table></figure><p>会出现提示：<br>        INFO  Start processing<br>        INFO  Hexo is running at <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> . Press Ctrl+C to stop</p><p>此时：访问<a href="http://localhost:4000就可以看到刚刚创建的博客了。" target="_blank" rel="noopener">http://localhost:4000就可以看到刚刚创建的博客了。</a><br><strong>注意</strong>：若是无法访问，说明端口4000被占用了。可以输入如下的命令换端口试一下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s -p 5000</span><br></pre></td></tr></table></figure><p>更换后，访问<a href="http://localhost:5000进行查看。" target="_blank" rel="noopener">http://localhost:5000进行查看。</a><br> *部署Hexo：<br>         修改配置<br>         修改站点配置文件G:/blogresoft/git/hexo/_config.yml,修改deploy项的内容：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo:  git@github.com:username/username.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure><p> <strong>注意</strong>：1.hexo有2种_config.yml文件，一个是根目录下的全局的_config.yml，称为站点配置文件，一个是各个theme下的，称为主题配置文件；<br>    2.type: repo: branch:分别和后面的内容之间有分隔<br>输入下面的命令将Hexo博客部署到GitHub中：<br>    清空静态页面</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure><p> 生成静态页面</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line"></span><br><span class="line">$ npm install hexo -deployer-git  -save</span><br></pre></td></tr></table></figure><p> 部署</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure><p>在完成之后就可以访问<a href="https://minminminzhang.github.io,出现Hexo安装成功的页面提示。">https://minminminzhang.github.io,出现Hexo安装成功的页面提示。</a><br><strong>注意</strong>：我在最后一部配置的时候出现了仓库不存在的提示：<br>出现这种错误，有两种原因：<br>    1.修改站点文件时：仓库名输入有误<br>    2.在部署之前没有执行$ npm install hexo -deployer-git  -save<br>还有一种错误的情况由G:/blogresoft/git/hexo下的.deploy_git隐藏文件所致,删除这个隐藏文件即可。<br>完成之后进行重新部署：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line"></span><br><span class="line">$ hexo g</span><br><span class="line"></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure><p>重新访问进行验证。</p><h1 id="不断优化"><a href="#不断优化" class="headerlink" title="不断优化"></a>不断优化</h1><h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p> Hexo中G:/blogresoft/git/hexo/themes/landscape默认的主题很简陋，我们可以换成更美观的。本博客选择Next主题，简单美观，好配置。<br>     下载主题：<br>      在Next发布页面(<a href="https://github.com/iissnan/hexo-theme-next/releases" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next/releases</a>) 下载最新版本hexo-theme-next-5.1.4。放在G:/blogresoft/git/hexo/themes文件夹下并改名为next。<br>启用主题<br>打开站点配置文件，在theme字段更改如下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme： next</span><br></pre></td></tr></table></figure><p>主题安装完成，在切换之前，用hexo clean来清除hexo的缓存。</p><p>验证主题：<br>    启动Hexo本地站点，并开启调试模式：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo  s -debug</span><br></pre></td></tr></table></figure><p>出现提示：INFO Hexo is running at <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>. Press Ctrl+C to stop </p><p>此时使用浏览器访问<a href="http://localhost:4000，检查Next安装是否成功。" target="_blank" rel="noopener">http://localhost:4000，检查Next安装是否成功。</a><br>Next安装成功之后的页面设置参考： <a href="https://blog.csdn.net/u012195214/article/details/79204088" target="_blank" rel="noopener">https://blog.csdn.net/u012195214/article/details/79204088</a></p><h2 id="写博客："><a href="#写博客：" class="headerlink" title="写博客："></a>写博客：</h2><p>定位到hexo根目录，执行命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &apos;my first-blog&apos;</span><br></pre></td></tr></table></figure><p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hexo会帮我们在 G:/blogresoft/git/hexo/source/_posts 下生成相关文件，我们只需要打开这个文件就可以开始写博客了。<br> 当然也可以在G:/blogresoft/git/hexo/source/_posts 直接创建后缀为.md的文件。使用命令的好处是帮我们自动生成了时间。</p><p> &nbsp;&nbsp;&nbsp;&nbsp;打开文件，除了在文章开头部分的一些参数，比如标题(title:) 、创建时间(date:) 等，正文部分使用Markdown格式书写:<br> <strong>注意：</strong>NexT默认主页显示文章的全部内容，这对于有些很长的文章来说非常不美观，建议主页仅显示文章的摘要。<br> 在合适的位置插入以下内容作为分隔符</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ &lt;!--is more--&gt;</span><br></pre></td></tr></table></figure><p>分隔符以前的内容将会在索引页上显示为摘要。</p><h1 id="补充内容："><a href="#补充内容：" class="headerlink" title="补充内容："></a>补充内容：</h1><p> Hexo常用命令：  </p><p>npm install hexo -g #安装<br>npm update hexo -g #更新<br>hexo init #初始化<br>hexo publish [layout] <title> #发表草稿。<br>hexo n “name” #新建文章<br>hexo g #生成静态网页<br>hexo p #发表草稿。</title></p><p>hexo s #启动服务<br>hexo d #部署网站 参数：-g 部署之前先生成静态文件。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    对于一个认真的程序员，在学习过程中总要写Blog来记录学习过程中的点点滴滴。踩过的坑终将变成成功道路上的跳板。&lt;br&gt;    Hexo是一个快速、简洁且高效的博客框架。Hexo使用Markdown解析文章，在几秒内，即可利用靓丽的主题生成静态网页。经过搜索资料，不
-      
-    
-    </summary>
-    
-      <category term="搭建个人博客" scheme="https://minminminzhang.github.io/categories/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-      <category term="相关技术" scheme="https://minminminzhang.github.io/tags/%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
