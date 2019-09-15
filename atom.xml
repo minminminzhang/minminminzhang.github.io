@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://minminminzhang.github.io/"/>
-  <updated>2019-08-16T11:34:00.057Z</updated>
+  <updated>2019-09-15T09:03:47.076Z</updated>
   <id>https://minminminzhang.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>百度一面总结与分享</title>
-    <link href="https://minminminzhang.github.io/2019/cjze1fwy20007cwnujwus9u3q/"/>
-    <id>https://minminminzhang.github.io/2019/cjze1fwy20007cwnujwus9u3q/</id>
+    <title>面试总结与分享</title>
+    <link href="https://minminminzhang.github.io/2019/ck0kraejr000034nuy7kq0elz/"/>
+    <id>https://minminminzhang.github.io/2019/ck0kraejr000034nuy7kq0elz/</id>
     <published>2019-08-16T09:41:47.769Z</published>
-    <updated>2019-08-16T11:34:00.057Z</updated>
+    <updated>2019-09-15T09:03:47.076Z</updated>
     
     <content type="html"><![CDATA[<p>面试岗位：基础平台开发<br>面试流程：自我介绍，最拿手的项目介绍，技术问答，面试官解疑</p><p>1.自我介绍<br>    自我介绍说了自己在校期间的学业成绩，参与的活动，项目和实习经历。完了之后面试官提问是否在校期间担任班干部职务，问的相对很详细。</p><p>2.最拿手的项目介绍<br>    我介绍了一个我自认为很了解参与最多的项目，面试官问了很多问题，虽然你都回答上来了，但我觉得他对个别问题的满意度不是很高，主要原因在于还是自己实践和企业应用之间的差别吧。</p><p>3.最重要的就是第三个环节：技术提问</p><p>(1).描述一下计算机的开机过程。<br>    1）当电源开关按下时，电源开始向主板和其他设备供电，电压不稳定时，主板会向CPU发出复位信号。稳定后,跳转到BIOS的启动代码处。<br>    2）BIOS进行加电自检，检测关键设备（如电源，CPU芯片，BIOS芯片，基本内存电路）供电情况是否良好。如果自检出了问题，系统喇叭会发出警报声。（根据警报声的长短和次数判断出现了什么问题）<br>    3）如果自检通过，BIOS会查找显卡BIOS，找到后会调用显卡BIOS的初始化代码，此时显示器就开始显示了（这就是为什么自检失败只能靠发声进行提醒了）。显卡BIOS会在屏幕上显示显卡的相关信息。<br>    4）显卡检测成功后会进行其他设备的检测，通过后系统BIOS重新执行自己的代码，并显示自己的启动画面，将相关信息显示在屏幕上，然后内存测试，短暂出现系统BIOS设置页面。设置后，会重新启动。<br>    5）BIOS检测系统的标准硬件，检测完成后会接着检测即插即用设备，如果有的话就为该设备分配中断、DMA通道和I/O端口等资源。到这里所有的设备检测就完成了，BIOS进行清屏并显示一个系统配置表。<br>    6）当上述所有的步骤都顺利进行以后，BIOS执行最后一项任务：按照用户指定的顺序进行启动（一般默认是硬盘，如果哦需要安装系统，还会设置为光驱或USB设备）。</p><p>(2).页面请求的工作流程。<br>    1）用户通过浏览器输入链接地址来请求所需的资源<br>    2）浏览器接收用户的请求，并把该请求组装成指定的格式发给服务器端，客户端与服务器端之间通过HTTP来完成具体的交互。其中请求的数据流主要包含HTTP，请求方法，请求的网址以及请求的一些参数信息。<br>    3）服务器接收到客户端发来的请求，并查找用户所需的资源。<br>    4）服务器查找到用户所需的资源，把该资源返回给客户端。<br>    5）服务器通过把响应消息组装成待定的消息格式后返回给客户端，这个过程通过HTTP完成。响应的数据流主要包括状态编码（代表请求成功或失败），Content-type（例如text，picture，HTML），响应消息的内容（图片或HTML格式的内容）。<br>    6）浏览器对HTML进行解析，并把响应结果展示给用户。</p><p>(3).说一下你对Java中GC的理解<br>   在java 中，垃圾回收主要的作用是会搜程序中不再使用的内存。在C/C++中，开发人员负责内存的分配和释放。Java语言提供了垃圾回收起来自动检测对象的作用域，可自动地把不再被使用的存储空间释放掉。<br>具体而言，主要完成3项任务：分配内存，确保被引用对象的内存不被错误的回收，回收不再被引用的对象的内存空间。</p><p><em>优点:减轻开发人员管理内存的负担，避免开发人员错误的操作内存导致应用程序的崩溃。<br>不足：为了实现垃圾回收，垃圾回收器必须跟踪内存的使用情况，释放没用的对象，在完成内存释放后还需要处理堆中的碎片，这些操作会增加JVM的负担，降低程序的执行效率。</em></p><p>如何确定一个对象是垃圾信息：没有任何变量去引用，不可能被程序访问。<br>对于垃圾回收器，它使用有向图记录和管理内存中的所有对象，通过这个有向图就可以识别哪些对象是可达的，（有引用变量引用它就是可达的），不可达的都是可被回收的。<br>垃圾回收都是依据一定的算法回收的：引用计数法，追踪回收算法，压缩回收算法，复制回收算法，按代回收算法。<br>具体的介绍两种：<br>①：引用计数法是一种简单但是效率低的方法，主要原理如下：在堆中对每一个对象都有一个引用计数器；对象被引用时，计数器加1；引用被置为空或离开作用域，减1。由于无法解决相互引用的问题，Jvm没有采取这个算法。<br>②：复制回收算法：把堆分成大小相同的区域，任何时刻只有其中的一个区域被使用，直到这个区域被消耗完为止，此时垃圾回收器会中断程序的执行，通过遍历的方式把所有活动的对象复制到另外一个区域中，在复制的过程中它们是紧挨着布置的，从而可以消除内存碎片。但复制过程结束后程序会接着运行，直到这块区域被使用完，然后再采取上面的方法继续进行垃圾回收。<br>优点是在进行垃圾回收的同时对对象的布置也进行了安排，从而消除了内存碎片。但也付出了很高的代价：对于指定大小的堆来说，需要两倍大小的内存空间；同时由于在内存调整的过程中要中断当前的执行程序，从而降低了程序的执行效率。<br>由于垃圾回收器的存在，Java没有给开发人员提供显式释放内存的方法，因此不能实时的调用垃圾回收器对某个对象进行回收。但可以通过调用System.gc（）方法通知回收，但是JVM也不会立马保证垃圾回收器运行，因为System.gc（）方法的执行会停止所有的程序响应，对程序的正常运行造成极大影响。因此不推荐频繁使用。</p><p>（4）.Xshell中删除一个文件夹，此内部包含很多不为空的文件夹。</p><pre><code>rm –rf </code></pre><p>（5）.K8s和docker之间的关系：<br>k8s：Kubernets是基于容器技术的分布式架构领先方案，docker是容器技术之一，核心在于实现应用与运行环境整体打包以及打包格式统一。k8s提供命令行和Rest API两种方式管理容器，命令行工具是Kubectl。具体来说：传统的虚拟技术，在将物理硬件虚拟成多套硬件后，需要在每套硬件上都部署一个操作系统，接着在这些操作系统上运行相应的应用程序。而Docker容器内的应用程序进程直接运行在宿主机(真实物理机)的内核上，Docker引擎将一些各自独立的应用程序和它们各自的依赖打包，相互独立直接运行于未经虚拟化的宿主机硬件上，同时各个容器也没有自己的内核，显然比传统虚拟机更轻便。每个集群有多个节点，每个节点可，我们的kuberbete就是管理这些应用程序所在的小运行环境而生。</p><p>4.面试官解疑<br>     在最后的环节我像他提问了两个问题：<br>     （1）基础平台开发和后台开发岗位之间的区别<br>     （2）今天提问环节的考查重点</p><pre><code>总结：百度的面试官态度还是很好的，回答不上来的问题他会进行不断的引导和提示，技术面感觉还是很爱提问网络基础相关的知识，问题（5）是基于个人的实习经历提问的，一面总的来说没有问到特别难的问题，如果基础扎实回答这些问题都很容易。</code></pre>]]></content>
     
@@ -45,8 +45,8 @@
   
   <entry>
     <title>实习总结与分享</title>
-    <link href="https://minminminzhang.github.io/2019/cjze1fwy00006cwnu31kshnh3/"/>
-    <id>https://minminminzhang.github.io/2019/cjze1fwy00006cwnu31kshnh3/</id>
+    <link href="https://minminminzhang.github.io/2019/ck0kraf58000534nu2f7gpeej/"/>
+    <id>https://minminminzhang.github.io/2019/ck0kraf58000534nu2f7gpeej/</id>
     <published>2019-08-16T09:05:08.259Z</published>
     <updated>2019-08-16T11:43:05.116Z</updated>
     
@@ -71,8 +71,8 @@
   
   <entry>
     <title>关于java多线程</title>
-    <link href="https://minminminzhang.github.io/2019/cjze1fwxe0000cwnuadyb81be/"/>
-    <id>https://minminminzhang.github.io/2019/cjze1fwxe0000cwnuadyb81be/</id>
+    <link href="https://minminminzhang.github.io/2019/ck0kraf64000e34nu5c0ek2u3/"/>
+    <id>https://minminminzhang.github.io/2019/ck0kraf64000e34nu5c0ek2u3/</id>
     <published>2019-07-23T09:25:19.079Z</published>
     <updated>2019-07-23T10:34:20.635Z</updated>
     
@@ -97,8 +97,8 @@
   
   <entry>
     <title>内部类及其和外部类之间的访问</title>
-    <link href="https://minminminzhang.github.io/2019/cjze1fwxx0005cwnubs51qmec/"/>
-    <id>https://minminminzhang.github.io/2019/cjze1fwxx0005cwnubs51qmec/</id>
+    <link href="https://minminminzhang.github.io/2019/ck0kraf5q000b34nuseaovdnr/"/>
+    <id>https://minminminzhang.github.io/2019/ck0kraf5q000b34nuseaovdnr/</id>
     <published>2019-07-23T07:50:45.336Z</published>
     <updated>2019-07-23T09:01:50.409Z</updated>
     
@@ -129,8 +129,8 @@
   
   <entry>
     <title>实习之java如何简洁判空 </title>
-    <link href="https://minminminzhang.github.io/2019/cjze1fwxo0002cwnu1m47qbyj/"/>
-    <id>https://minminminzhang.github.io/2019/cjze1fwxo0002cwnu1m47qbyj/</id>
+    <link href="https://minminminzhang.github.io/2019/ck0kraf60000d34numh2smv4h/"/>
+    <id>https://minminminzhang.github.io/2019/ck0kraf60000d34numh2smv4h/</id>
     <published>2019-03-10T01:25:19.957Z</published>
     <updated>2019-03-10T03:10:36.716Z</updated>
     
@@ -155,8 +155,8 @@
   
   <entry>
     <title>linux系统命令(3)</title>
-    <link href="https://minminminzhang.github.io/2019/cjze1fwz1000ucwnunv3mxyct/"/>
-    <id>https://minminminzhang.github.io/2019/cjze1fwz1000ucwnunv3mxyct/</id>
+    <link href="https://minminminzhang.github.io/2019/ck0kraf74000t34nujztr46cz/"/>
+    <id>https://minminminzhang.github.io/2019/ck0kraf74000t34nujztr46cz/</id>
     <published>2019-01-22T09:52:42.717Z</published>
     <updated>2019-01-22T12:50:02.520Z</updated>
     
@@ -181,8 +181,8 @@
   
   <entry>
     <title>linux系统进一步了解</title>
-    <link href="https://minminminzhang.github.io/2019/cjze1fx8h002pcwnupg9ee62z/"/>
-    <id>https://minminminzhang.github.io/2019/cjze1fx8h002pcwnupg9ee62z/</id>
+    <link href="https://minminminzhang.github.io/2019/ck0krafi5002q34nu19ol09yt/"/>
+    <id>https://minminminzhang.github.io/2019/ck0krafi5002q34nu19ol09yt/</id>
     <published>2019-01-22T06:59:09.728Z</published>
     <updated>2019-01-22T12:45:14.652Z</updated>
     
@@ -208,8 +208,8 @@
   
   <entry>
     <title>接口本地测试正确 线上测试发生错误</title>
-    <link href="https://minminminzhang.github.io/2019/cjze1fwy7000bcwnufud2e1pj/"/>
-    <id>https://minminminzhang.github.io/2019/cjze1fwy7000bcwnufud2e1pj/</id>
+    <link href="https://minminminzhang.github.io/2019/ck0kraf77000v34nugti1ilj5/"/>
+    <id>https://minminminzhang.github.io/2019/ck0kraf77000v34nugti1ilj5/</id>
     <published>2019-01-18T09:43:05.939Z</published>
     <updated>2019-01-19T02:20:20.752Z</updated>
     
@@ -234,8 +234,8 @@
   
   <entry>
     <title>SQL语句优化</title>
-    <link href="https://minminminzhang.github.io/2019/cjze1fwza0011cwnuiv46becs/"/>
-    <id>https://minminminzhang.github.io/2019/cjze1fwza0011cwnuiv46becs/</id>
+    <link href="https://minminminzhang.github.io/2019/ck0kraf7s001734nu026ll7wk/"/>
+    <id>https://minminminzhang.github.io/2019/ck0kraf7s001734nu026ll7wk/</id>
     <published>2019-01-18T08:30:14.973Z</published>
     <updated>2019-01-19T02:14:35.541Z</updated>
     
@@ -259,8 +259,8 @@
   
   <entry>
     <title>linux系统初步了解</title>
-    <link href="https://minminminzhang.github.io/2019/cjze1fwyz000scwnu5p4mt0yh/"/>
-    <id>https://minminminzhang.github.io/2019/cjze1fwyz000scwnu5p4mt0yh/</id>
+    <link href="https://minminminzhang.github.io/2019/ck0kraf6x000p34nuprs2rlc0/"/>
+    <id>https://minminminzhang.github.io/2019/ck0kraf6x000p34nuprs2rlc0/</id>
     <published>2019-01-13T08:27:42.514Z</published>
     <updated>2019-01-22T12:54:07.124Z</updated>
     
@@ -284,8 +284,8 @@
   
   <entry>
     <title>小顽童OA项目之邮件功能模块 </title>
-    <link href="https://minminminzhang.github.io/2019/cjze1fx87002jcwnu3ntlonke/"/>
-    <id>https://minminminzhang.github.io/2019/cjze1fx87002jcwnu3ntlonke/</id>
+    <link href="https://minminminzhang.github.io/2019/ck0krafhs002k34nuyndjutwm/"/>
+    <id>https://minminminzhang.github.io/2019/ck0krafhs002k34nuyndjutwm/</id>
     <published>2019-01-05T07:40:54.611Z</published>
     <updated>2019-01-05T08:13:02.538Z</updated>
     
@@ -311,8 +311,8 @@
   
   <entry>
     <title>小顽童OA项目介绍 </title>
-    <link href="https://minminminzhang.github.io/2019/cjze1fwz70010cwnug26kgwce/"/>
-    <id>https://minminminzhang.github.io/2019/cjze1fwz70010cwnug26kgwce/</id>
+    <link href="https://minminminzhang.github.io/2019/ck0kraf7n001434nu7lc5qmnl/"/>
+    <id>https://minminminzhang.github.io/2019/ck0kraf7n001434nu7lc5qmnl/</id>
     <published>2019-01-05T03:12:49.408Z</published>
     <updated>2019-01-19T02:33:54.127Z</updated>
     
@@ -339,8 +339,8 @@
   
   <entry>
     <title>一道关于顺时针打印矩阵的常见算法题</title>
-    <link href="https://minminminzhang.github.io/2018/cjze1fwz4000xcwnu9ok33cof/"/>
-    <id>https://minminminzhang.github.io/2018/cjze1fwz4000xcwnu9ok33cof/</id>
+    <link href="https://minminminzhang.github.io/2018/ck0kraf7j001134nu9apmq3bx/"/>
+    <id>https://minminminzhang.github.io/2018/ck0kraf7j001134nu9apmq3bx/</id>
     <published>2018-12-21T13:28:29.079Z</published>
     <updated>2019-01-19T02:33:38.837Z</updated>
     
@@ -366,8 +366,8 @@
   
   <entry>
     <title>用迭代算法解决汉诺塔问题</title>
-    <link href="https://minminminzhang.github.io/2018/cjze1fwyv000ocwnuui02x30e/"/>
-    <id>https://minminminzhang.github.io/2018/cjze1fwyv000ocwnuui02x30e/</id>
+    <link href="https://minminminzhang.github.io/2018/ck0kraf7c000z34nu1fkngoiu/"/>
+    <id>https://minminminzhang.github.io/2018/ck0kraf7c000z34nu1fkngoiu/</id>
     <published>2018-12-13T13:34:16.437Z</published>
     <updated>2018-12-13T13:35:47.249Z</updated>
     
@@ -390,9 +390,36 @@
   </entry>
   
   <entry>
+    <title>用递归和迭代解决二叉树问题 </title>
+    <link href="https://minminminzhang.github.io/2018/ck0kraf6a000i34nuekgvfu26/"/>
+    <id>https://minminminzhang.github.io/2018/ck0kraf6a000i34nuekgvfu26/</id>
+    <published>2018-12-13T08:33:40.644Z</published>
+    <updated>2019-01-19T02:31:24.798Z</updated>
+    
+    <content type="html"><![CDATA[<p>二叉树是数据结构最常见的一种应用。关于二叉树的很多问题都可以用递归和迭代来解决。</p><p>二叉树是一颗树，其中每个节点都不能有对于两个儿子。用代码可以简单的表示为：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class TreeNode&#123;</span><br><span class="line">   int val;</span><br><span class="line">   //左孩子</span><br><span class="line">   TreeNode left;</span><br><span class="line">   //右孩子</span><br><span class="line">   TreeNode left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>1.求二叉树的最大深度</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int maxDeath(TreeNode node)&#123;</span><br><span class="line">    if(node==null)&#123;</span><br><span class="line">       return 0;</span><br><span class="line">&#125; </span><br><span class="line"> int left=maxDeath(node.left);</span><br><span class="line"> int right=maxDeath(node.right);</span><br><span class="line"> return Math.max(left,right)+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.求二叉树的最小深度</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int getMinDepth()&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return getMin(root);</span><br><span class="line">&#125;</span><br><span class="line">int getMin(TreeNode root)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return Integer.MAX_VALUE;</span><br><span class="line">    &#125;</span><br><span class="line">    if（root.left==null&amp;&amp;root.right==null）&#123;</span><br><span class="line">      return 1;</span><br><span class="line">      &#125;</span><br><span class="line">      return Math.min(getMin(root.left),getMin(root.right))+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3.求二叉树中节点的个数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int numOfTreeNode(TreeNode root)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125; </span><br><span class="line">    int left=numOfNode(root.left);</span><br><span class="line">    int right=numOfNode(root.right);</span><br><span class="line">    return left+right+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>4.求二叉树中叶子节点的个数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int numsOfNodeTreeNode(TreeNode root)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    if(root.left==null&amp;&amp;root.right==null)&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return numsOfNodeTreeNode(root.left)+numsOfNodeTreeNode(root.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>5.求二叉树中第K层节点的个数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int numsOfLevelTreeNode(TreeNode node,int k)&#123;</span><br><span class="line"> if(root==null||k&lt;1)&#123;</span><br><span class="line">     return 0;</span><br><span class="line"> &#125;</span><br><span class="line">  if(k=1)&#123;</span><br><span class="line">      return 1;</span><br><span class="line">  &#125;  </span><br><span class="line">  int numLeft=numsOfLevelTreeNode(root.left,k-1);</span><br><span class="line">  int numRight=numsOfLevelTreeNode(root.right,k-1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>平衡二叉树是其每个节点的左子数和右子树的高度最多差1的二叉查找树.</p><p>6.判断二叉树是否是平衡二叉树</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">boolean isBalanced(TreeNode node)&#123;</span><br><span class="line">     return maxDeath(node)!=-1;//空树的高度为1</span><br><span class="line">&#125;</span><br><span class="line">   int maxDeath2(TreeNode node)&#123;</span><br><span class="line">        if(node==null)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">           &#125;   </span><br><span class="line">       int left=maxDeath(node.left);   </span><br><span class="line">       int right=maxDeath(node.right); </span><br><span class="line">       if(left==-1||right==-1||Math.abs(left-right)&gt;1)&#123;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">         return Math.max(left,right)+1;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>7.判断两个二叉树是否完全相同</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">boolean isSameTreeNode(TreeNode t1,TreeNode t2)&#123;</span><br><span class="line">    if(t1==null&amp;&amp;t2==null)&#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;else if(t1==null||t2==null)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    if(t1.val!=t2.val)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    boolean left=isSameTreeNode(t1.left,t2.left);</span><br><span class="line">    boolean right=isSameTreeNode(t1.right,t2.right);</span><br><span class="line">    return left&amp;&amp;right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>8.两个二叉树是否为镜像</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">boolean isMirror(TreeNode t1,TreeNode t2)&#123;</span><br><span class="line"> if(t1==null&amp;&amp;t2==null)&#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;else if(t1==null||t2==null)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    if(t1.val!=t2.val)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    return isMirror(t1.left,t2.right)&amp;&amp;isMirror(t1.right,t2.left);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>9.二叉树的前序遍历</p><p>迭代解法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; preOrder(TreeNode root)&#123;</span><br><span class="line">    Stack&lt;TreeNode&gt;  stack=new Stack&lt;TreeNode&gt;();</span><br><span class="line">    ArrayList&lt;Integer&gt; list=new ArrayList&lt;Integer&gt;();</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br><span class="line">    stack.push(root);</span><br><span class="line">    while(!stack.empty)&#123;</span><br><span class="line">       TreeNode node=stack.pop();</span><br><span class="line">       list.add(node.val);</span><br><span class="line">       if(node.right!=null)&#123;</span><br><span class="line">           stack.push(node.right);</span><br><span class="line">       &#125;</span><br><span class="line">        if(node.left!=null)&#123;</span><br><span class="line">           stack.push(node.left);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>递归解法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; preOrder(TreeNode root)&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; result =new  ArrayList&lt;Integer&gt;();</span><br><span class="line">    preOrder2(root,result);</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line">void preOrder2(TreeNode root,ArrayList&lt;Integer&gt; result)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    result.add(root.val);</span><br><span class="line">    preOrder2(root.left,result);</span><br><span class="line">    preOrder2(root.right,result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>10.二叉树中的中序遍历</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; inOrder(TreeNode root)&#123;</span><br><span class="line">    Stack&lt;TreeNode&gt;  stack=new Stack&lt;TreeNode&gt;();</span><br><span class="line">    ArrayList&lt;Integer&gt; list=new ArrayList&lt;Integer&gt;();</span><br><span class="line">    TreeNode current=root;</span><br><span class="line">   while(current！=null||!stack.empty())&#123;</span><br><span class="line">       while(current!=null)&#123;</span><br><span class="line">           stack.add(current);</span><br><span class="line">           current=current.left;</span><br><span class="line">       &#125;</span><br><span class="line">       current=stack.peek();</span><br><span class="line">       stack.pop();</span><br><span class="line">       list.add(current.val);</span><br><span class="line">       current=current.right;</span><br><span class="line">   &#125;</span><br><span class="line">   return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>11.二叉树的后序遍历</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; postOrder(TreeNode root)&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; list=new ArrayList&gt;(Integer);</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br><span class="line">    list.addAll(posrOrder(root.left));</span><br><span class="line">    list.addAll(posrOrder(root.right);</span><br><span class="line">    list.add(root.val);</span><br><span class="line">    return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;二叉树是数据结构最常见的一种应用。关于二叉树的很多问题都可以用递归和迭代来解决。&lt;/p&gt;
+&lt;p&gt;二叉树是一颗树，其中每个节点都不能有对于两个儿子。用代码可以简单的表示为：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td 
+      
+    
+    </summary>
+    
+      <category term="算法应用" scheme="https://minminminzhang.github.io/categories/%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8/"/>
+    
+    
+      <category term="二叉树" scheme="https://minminminzhang.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>java中常用的注解总结 </title>
-    <link href="https://minminminzhang.github.io/2018/cjze1fwym000icwnuiwwbipr1/"/>
-    <id>https://minminminzhang.github.io/2018/cjze1fwym000icwnuiwwbipr1/</id>
+    <link href="https://minminminzhang.github.io/2018/ck0kraf6h000j34nu108t145f/"/>
+    <id>https://minminminzhang.github.io/2018/ck0kraf6h000j34nu108t145f/</id>
     <published>2018-12-13T08:33:40.644Z</published>
     <updated>2018-12-13T13:23:41.955Z</updated>
     
@@ -419,36 +446,9 @@
   </entry>
   
   <entry>
-    <title>用递归和迭代解决二叉树问题 </title>
-    <link href="https://minminminzhang.github.io/2018/cjze1fwys000mcwnu0x67vf1w/"/>
-    <id>https://minminminzhang.github.io/2018/cjze1fwys000mcwnu0x67vf1w/</id>
-    <published>2018-12-13T08:33:40.644Z</published>
-    <updated>2019-01-19T02:31:24.798Z</updated>
-    
-    <content type="html"><![CDATA[<p>二叉树是数据结构最常见的一种应用。关于二叉树的很多问题都可以用递归和迭代来解决。</p><p>二叉树是一颗树，其中每个节点都不能有对于两个儿子。用代码可以简单的表示为：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class TreeNode&#123;</span><br><span class="line">   int val;</span><br><span class="line">   //左孩子</span><br><span class="line">   TreeNode left;</span><br><span class="line">   //右孩子</span><br><span class="line">   TreeNode left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>1.求二叉树的最大深度</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int maxDeath(TreeNode node)&#123;</span><br><span class="line">    if(node==null)&#123;</span><br><span class="line">       return 0;</span><br><span class="line">&#125; </span><br><span class="line"> int left=maxDeath(node.left);</span><br><span class="line"> int right=maxDeath(node.right);</span><br><span class="line"> return Math.max(left,right)+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.求二叉树的最小深度</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int getMinDepth()&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return getMin(root);</span><br><span class="line">&#125;</span><br><span class="line">int getMin(TreeNode root)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return Integer.MAX_VALUE;</span><br><span class="line">    &#125;</span><br><span class="line">    if（root.left==null&amp;&amp;root.right==null）&#123;</span><br><span class="line">      return 1;</span><br><span class="line">      &#125;</span><br><span class="line">      return Math.min(getMin(root.left),getMin(root.right))+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3.求二叉树中节点的个数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int numOfTreeNode(TreeNode root)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125; </span><br><span class="line">    int left=numOfNode(root.left);</span><br><span class="line">    int right=numOfNode(root.right);</span><br><span class="line">    return left+right+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>4.求二叉树中叶子节点的个数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int numsOfNodeTreeNode(TreeNode root)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    if(root.left==null&amp;&amp;root.right==null)&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return numsOfNodeTreeNode(root.left)+numsOfNodeTreeNode(root.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>5.求二叉树中第K层节点的个数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int numsOfLevelTreeNode(TreeNode node,int k)&#123;</span><br><span class="line"> if(root==null||k&lt;1)&#123;</span><br><span class="line">     return 0;</span><br><span class="line"> &#125;</span><br><span class="line">  if(k=1)&#123;</span><br><span class="line">      return 1;</span><br><span class="line">  &#125;  </span><br><span class="line">  int numLeft=numsOfLevelTreeNode(root.left,k-1);</span><br><span class="line">  int numRight=numsOfLevelTreeNode(root.right,k-1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>平衡二叉树是其每个节点的左子数和右子树的高度最多差1的二叉查找树.</p><p>6.判断二叉树是否是平衡二叉树</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">boolean isBalanced(TreeNode node)&#123;</span><br><span class="line">     return maxDeath(node)!=-1;//空树的高度为1</span><br><span class="line">&#125;</span><br><span class="line">   int maxDeath2(TreeNode node)&#123;</span><br><span class="line">        if(node==null)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">           &#125;   </span><br><span class="line">       int left=maxDeath(node.left);   </span><br><span class="line">       int right=maxDeath(node.right); </span><br><span class="line">       if(left==-1||right==-1||Math.abs(left-right)&gt;1)&#123;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">         return Math.max(left,right)+1;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>7.判断两个二叉树是否完全相同</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">boolean isSameTreeNode(TreeNode t1,TreeNode t2)&#123;</span><br><span class="line">    if(t1==null&amp;&amp;t2==null)&#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;else if(t1==null||t2==null)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    if(t1.val!=t2.val)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    boolean left=isSameTreeNode(t1.left,t2.left);</span><br><span class="line">    boolean right=isSameTreeNode(t1.right,t2.right);</span><br><span class="line">    return left&amp;&amp;right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>8.两个二叉树是否为镜像</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">boolean isMirror(TreeNode t1,TreeNode t2)&#123;</span><br><span class="line"> if(t1==null&amp;&amp;t2==null)&#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;else if(t1==null||t2==null)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    if(t1.val!=t2.val)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    return isMirror(t1.left,t2.right)&amp;&amp;isMirror(t1.right,t2.left);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>9.二叉树的前序遍历</p><p>迭代解法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; preOrder(TreeNode root)&#123;</span><br><span class="line">    Stack&lt;TreeNode&gt;  stack=new Stack&lt;TreeNode&gt;();</span><br><span class="line">    ArrayList&lt;Integer&gt; list=new ArrayList&lt;Integer&gt;();</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br><span class="line">    stack.push(root);</span><br><span class="line">    while(!stack.empty)&#123;</span><br><span class="line">       TreeNode node=stack.pop();</span><br><span class="line">       list.add(node.val);</span><br><span class="line">       if(node.right!=null)&#123;</span><br><span class="line">           stack.push(node.right);</span><br><span class="line">       &#125;</span><br><span class="line">        if(node.left!=null)&#123;</span><br><span class="line">           stack.push(node.left);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>递归解法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; preOrder(TreeNode root)&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; result =new  ArrayList&lt;Integer&gt;();</span><br><span class="line">    preOrder2(root,result);</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line">void preOrder2(TreeNode root,ArrayList&lt;Integer&gt; result)&#123;</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    result.add(root.val);</span><br><span class="line">    preOrder2(root.left,result);</span><br><span class="line">    preOrder2(root.right,result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>10.二叉树中的中序遍历</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; inOrder(TreeNode root)&#123;</span><br><span class="line">    Stack&lt;TreeNode&gt;  stack=new Stack&lt;TreeNode&gt;();</span><br><span class="line">    ArrayList&lt;Integer&gt; list=new ArrayList&lt;Integer&gt;();</span><br><span class="line">    TreeNode current=root;</span><br><span class="line">   while(current！=null||!stack.empty())&#123;</span><br><span class="line">       while(current!=null)&#123;</span><br><span class="line">           stack.add(current);</span><br><span class="line">           current=current.left;</span><br><span class="line">       &#125;</span><br><span class="line">       current=stack.peek();</span><br><span class="line">       stack.pop();</span><br><span class="line">       list.add(current.val);</span><br><span class="line">       current=current.right;</span><br><span class="line">   &#125;</span><br><span class="line">   return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>11.二叉树的后序遍历</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; postOrder(TreeNode root)&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; list=new ArrayList&gt;(Integer);</span><br><span class="line">    if(root==null)&#123;</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br><span class="line">    list.addAll(posrOrder(root.left));</span><br><span class="line">    list.addAll(posrOrder(root.right);</span><br><span class="line">    list.add(root.val);</span><br><span class="line">    return list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;二叉树是数据结构最常见的一种应用。关于二叉树的很多问题都可以用递归和迭代来解决。&lt;/p&gt;
-&lt;p&gt;二叉树是一颗树，其中每个节点都不能有对于两个儿子。用代码可以简单的表示为：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td 
-      
-    
-    </summary>
-    
-      <category term="算法应用" scheme="https://minminminzhang.github.io/categories/%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8/"/>
-    
-    
-      <category term="二叉树" scheme="https://minminminzhang.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
     <title>时间典当厅项目之增加功能和上传</title>
-    <link href="https://minminminzhang.github.io/2018/cjze1fwzg0017cwnucp9lmo4k/"/>
-    <id>https://minminminzhang.github.io/2018/cjze1fwzg0017cwnucp9lmo4k/</id>
+    <link href="https://minminminzhang.github.io/2018/ck0kraf81001d34nuo4m9fsaw/"/>
+    <id>https://minminminzhang.github.io/2018/ck0kraf81001d34nuo4m9fsaw/</id>
     <published>2018-12-02T08:49:04.879Z</published>
     <updated>2018-12-02T09:08:26.971Z</updated>
     
@@ -473,8 +473,8 @@
   
   <entry>
     <title>Spring框架总结 </title>
-    <link href="https://minminminzhang.github.io/2018/cjze1fwyh000gcwnun8mfxiyy/"/>
-    <id>https://minminminzhang.github.io/2018/cjze1fwyh000gcwnun8mfxiyy/</id>
+    <link href="https://minminminzhang.github.io/2018/ck0kraf5e000734nurmol5qjs/"/>
+    <id>https://minminminzhang.github.io/2018/ck0kraf5e000734nurmol5qjs/</id>
     <published>2018-11-18T01:48:31.224Z</published>
     <updated>2019-01-19T02:34:16.101Z</updated>
     
@@ -499,8 +499,8 @@
   
   <entry>
     <title>小顽童项目准备</title>
-    <link href="https://minminminzhang.github.io/2018/cjze1fwze0016cwnua4zduw8r/"/>
-    <id>https://minminminzhang.github.io/2018/cjze1fwze0016cwnua4zduw8r/</id>
+    <link href="https://minminminzhang.github.io/2018/ck0kraf7v001834nurs06fok9/"/>
+    <id>https://minminminzhang.github.io/2018/ck0kraf7v001834nurs06fok9/</id>
     <published>2018-10-28T00:32:45.112Z</published>
     <updated>2019-01-19T02:34:32.997Z</updated>
     
@@ -528,8 +528,8 @@
   
   <entry>
     <title>Java中常用设计模式的使用方法与区别</title>
-    <link href="https://minminminzhang.github.io/2018/cjze1fx8b002lcwnu900gbuz3/"/>
-    <id>https://minminminzhang.github.io/2018/cjze1fx8b002lcwnu900gbuz3/</id>
+    <link href="https://minminminzhang.github.io/2018/ck0krafi0002o34nulhemucwb/"/>
+    <id>https://minminminzhang.github.io/2018/ck0krafi0002o34nulhemucwb/</id>
     <published>2018-10-08T12:10:59.041Z</published>
     <updated>2018-11-18T02:22:32.249Z</updated>
     
